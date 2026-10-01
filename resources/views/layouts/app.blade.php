@@ -56,12 +56,20 @@
     </style>
     @stack('styles')
 </head>
-<body class="h-full font-sans antialiased bg-slate-50 text-slate-800 flex flex-col md:flex-row overflow-hidden" x-data="{ sidebarOpen: true, roleMenuOpen: false }">
+<body class="h-full font-sans antialiased bg-slate-50 text-slate-800 flex flex-col lg:flex-row overflow-hidden" x-data="{ sidebarOpen: window.innerWidth >= 1024, roleMenuOpen: false }">
+
+    <!-- Mobile Backdrop Overlay -->
+    <div 
+        x-show="sidebarOpen" 
+        @click="sidebarOpen = false" 
+        x-cloak
+        class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-30 lg:hidden transition-opacity"
+    ></div>
 
     <!-- Metis-Style Clean Light Sidebar -->
     <aside 
-        class="bg-white border-r border-slate-200/80 w-72 flex-shrink-0 flex flex-col transition-all duration-300 z-30 shadow-xs"
-        :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0 md:w-20'"
+        class="bg-white border-r border-slate-200/80 w-72 flex-shrink-0 flex flex-col transition-all duration-300 z-40 fixed lg:static inset-y-0 left-0 shadow-xl lg:shadow-xs"
+        :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0 lg:w-20'"
     >
         <!-- Brand Header -->
         <div class="h-16 px-5 border-b border-slate-100 flex items-center justify-between">
@@ -334,7 +342,7 @@
         </header>
 
         <!-- Main Body -->
-        <main class="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
+        <main class="flex-1 overflow-y-auto p-3 sm:p-5 md:p-6 space-y-4 sm:space-y-6 min-w-0 w-full max-w-full">
             @yield('content')
         </main>
     </div>
