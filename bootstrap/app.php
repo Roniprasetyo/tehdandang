@@ -15,6 +15,11 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
+// Override storage path to /tmp when running in Vercel serverless environment
+if (isset($_ENV['VERCEL']) || isset($_SERVER['VERCEL_REGION']) || isset($_ENV['VIEW_COMPILED_PATH'])) {
+    $app->useStoragePath('/tmp/storage');
+}
+
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
