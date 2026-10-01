@@ -1,0 +1,601 @@
+[
+    {
+        "region": "Jawa Tengah",
+        "areas": [
+            {
+                "name": "Solo Raya",
+                "kabupaten": [
+                    {
+                        "name": "Kabupaten Boyolali",
+                        "kecamatan": [
+                            {"name": "Cepogo", "target_outlets": 50, "actual_outlets": 49},
+                            {"name": "Selo", "target_outlets": 35, "actual_outlets": 34},
+                            {"name": "Ampel", "target_outlets": 40, "actual_outlets": 38},
+                            {"name": "Boyolali Kota", "target_outlets": 45, "actual_outlets": 44},
+                            {"name": "Musuk", "target_outlets": 30, "actual_outlets": 29},
+                            {"name": "Mojosongo", "target_outlets": 38, "actual_outlets": 36}
+                        ]
+                    },
+                    {
+                        "name": "Kota Surakarta (Solo)",
+                        "kecamatan": [
+                            {"name": "Banjarsari", "target_outlets": 50, "actual_outlets": 47},
+                            {"name": "Jebres", "target_outlets": 45, "actual_outlets": 42},
+                            {"name": "Laweyan", "target_outlets": 40, "actual_outlets": 38},
+                            {"name": "Serengan", "target_outlets": 30, "actual_outlets": 28},
+                            {"name": "Pasar Kliwon", "target_outlets": 35, "actual_outlets": 34}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Karanganyar",
+                        "kecamatan": [
+                            {"name": "Karanganyar Kota", "target_outlets": 35, "actual_outlets": 33},
+                            {"name": "Tawangmangu", "target_outlets": 25, "actual_outlets": 24},
+                            {"name": "Colomadu", "target_outlets": 30, "actual_outlets": 29},
+                            {"name": "Gondangrejo", "target_outlets": 28, "actual_outlets": 26}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Sragen",
+                        "kecamatan": [
+                            {"name": "Sragen Kota", "target_outlets": 40, "actual_outlets": 37},
+                            {"name": "Gemolong", "target_outlets": 30, "actual_outlets": 27},
+                            {"name": "Masaran", "target_outlets": 32, "actual_outlets": 30}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Sukoharjo",
+                        "kecamatan": [
+                            {"name": "Sukoharjo Kota", "target_outlets": 35, "actual_outlets": 32},
+                            {"name": "Grogol (Solo Baru)", "target_outlets": 45, "actual_outlets": 43},
+                            {"name": "Kartasura", "target_outlets": 40, "actual_outlets": 38}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Klaten",
+                        "kecamatan": [
+                            {"name": "Klaten Utara", "target_outlets": 38, "actual_outlets": 36},
+                            {"name": "Klaten Tengah", "target_outlets": 40, "actual_outlets": 37},
+                            {"name": "Delanggu", "target_outlets": 30, "actual_outlets": 28}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Wonogiri",
+                        "kecamatan": [
+                            {"name": "Wonogiri Kota", "target_outlets": 35, "actual_outlets": 32},
+                            {"name": "Pracimantoro", "target_outlets": 25, "actual_outlets": 23}
+                        ]
+                    }
+                ],
+                "target": 5500000000,
+                "actual": 5750000000,
+                "achievement": 104.5,
+                "growth": 12.8,
+                "ro": 95.0,
+                "roa": 91.0,
+                "ec": 97.0,
+                "status": "Good (Top Region Sales)",
+                "status_color": "🟢"
+            },
+            {
+                "name": "Kedu Raya",
+                "kabupaten": [
+                    {
+                        "name": "Kota Magelang",
+                        "kecamatan": [
+                            {"name": "Magelang Utara", "target_outlets": 30, "actual_outlets": 28},
+                            {"name": "Magelang Tengah", "target_outlets": 35, "actual_outlets": 32},
+                            {"name": "Magelang Selatan", "target_outlets": 28, "actual_outlets": 26}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Magelang",
+                        "kecamatan": [
+                            {"name": "Muntilan", "target_outlets": 40, "actual_outlets": 37},
+                            {"name": "Borobudur", "target_outlets": 35, "actual_outlets": 33},
+                            {"name": "Secang", "target_outlets": 30, "actual_outlets": 27}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Temanggung",
+                        "kecamatan": [
+                            {"name": "Temanggung Kota", "target_outlets": 35, "actual_outlets": 32},
+                            {"name": "Parakan", "target_outlets": 30, "actual_outlets": 28}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Wonosobo",
+                        "kecamatan": [
+                            {"name": "Wonosobo Kota", "target_outlets": 32, "actual_outlets": 29},
+                            {"name": "Garung", "target_outlets": 25, "actual_outlets": 23}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Purworejo",
+                        "kecamatan": [
+                            {"name": "Purworejo Kota", "target_outlets": 30, "actual_outlets": 27},
+                            {"name": "Kutoarjo", "target_outlets": 28, "actual_outlets": 25}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Kebumen",
+                        "kecamatan": [
+                            {"name": "Kebumen Kota", "target_outlets": 35, "actual_outlets": 31},
+                            {"name": "Gombong", "target_outlets": 30, "actual_outlets": 27}
+                        ]
+                    }
+                ],
+                "target": 3200000000,
+                "actual": 2944000000,
+                "achievement": 92.0,
+                "growth": 6.5,
+                "ro": 88.0,
+                "roa": 84.0,
+                "ec": 92.0,
+                "status": "Good",
+                "status_color": "🟢"
+            },
+            {
+                "name": "Semarang Raya",
+                "kabupaten": [
+                    {
+                        "name": "Kota Semarang",
+                        "kecamatan": [
+                            {"name": "Semarang Tengah", "target_outlets": 60, "actual_outlets": 57},
+                            {"name": "Semarang Barat", "target_outlets": 55, "actual_outlets": 52},
+                            {"name": "Banyumanik", "target_outlets": 45, "actual_outlets": 42},
+                            {"name": "Pedurungan", "target_outlets": 50, "actual_outlets": 46}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Kendal",
+                        "kecamatan": [
+                            {"name": "Kendal Kota", "target_outlets": 40, "actual_outlets": 37},
+                            {"name": "Weleri", "target_outlets": 35, "actual_outlets": 33},
+                            {"name": "Kaliwungu", "target_outlets": 30, "actual_outlets": 28}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Demak",
+                        "kecamatan": [
+                            {"name": "Demak Kota", "target_outlets": 35, "actual_outlets": 32},
+                            {"name": "Sayung", "target_outlets": 30, "actual_outlets": 27}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Grobogan",
+                        "kecamatan": [
+                            {"name": "Purwodadi Kota", "target_outlets": 35, "actual_outlets": 31},
+                            {"name": "Wirosari", "target_outlets": 28, "actual_outlets": 25}
+                        ]
+                    },
+                    {
+                        "name": "Kota Salatiga",
+                        "kecamatan": [
+                            {"name": "Sidorejo", "target_outlets": 25, "actual_outlets": 24},
+                            {"name": "Tingkir", "target_outlets": 22, "actual_outlets": 20}
+                        ]
+                    }
+                ],
+                "target": 4200000000,
+                "actual": 3906000000,
+                "achievement": 93.0,
+                "growth": 7.5,
+                "ro": 89.0,
+                "roa": 85.0,
+                "ec": 93.0,
+                "status": "Good",
+                "status_color": "🟢"
+            },
+            {
+                "name": "Pekalongan Raya (HQ Batang)",
+                "kabupaten": [
+                    {
+                        "name": "Kabupaten Batang (Kantor Pusat)",
+                        "kecamatan": [
+                            {"name": "Sambong (HQ)", "target_outlets": 45, "actual_outlets": 45},
+                            {"name": "Batang Kota", "target_outlets": 50, "actual_outlets": 48},
+                            {"name": "Bandar", "target_outlets": 30, "actual_outlets": 28},
+                            {"name": "Limpung", "target_outlets": 35, "actual_outlets": 33},
+                            {"name": "Tersono", "target_outlets": 25, "actual_outlets": 24}
+                        ]
+                    },
+                    {
+                        "name": "Kota Pekalongan",
+                        "kecamatan": [
+                            {"name": "Pekalongan Barat", "target_outlets": 35, "actual_outlets": 32},
+                            {"name": "Pekalongan Timur", "target_outlets": 30, "actual_outlets": 28}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Pekalongan",
+                        "kecamatan": [
+                            {"name": "Kajen", "target_outlets": 30, "actual_outlets": 27},
+                            {"name": "Wiradesa", "target_outlets": 28, "actual_outlets": 25}
+                        ]
+                    },
+                    {
+                        "name": "Kota Tegal",
+                        "kecamatan": [
+                            {"name": "Tegal Timur", "target_outlets": 35, "actual_outlets": 32},
+                            {"name": "Tegal Barat", "target_outlets": 30, "actual_outlets": 27}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Brebes",
+                        "kecamatan": [
+                            {"name": "Brebes Kota", "target_outlets": 35, "actual_outlets": 31},
+                            {"name": "Bumiayu", "target_outlets": 30, "actual_outlets": 26}
+                        ]
+                    }
+                ],
+                "target": 3800000000,
+                "actual": 4104000000,
+                "achievement": 108.0,
+                "growth": 10.0,
+                "ro": 93.0,
+                "roa": 90.0,
+                "ec": 96.0,
+                "status": "Good (Pabrik & HQ)",
+                "status_color": "🟢"
+            },
+            {
+                "name": "Banyumas Raya",
+                "kabupaten": [
+                    {
+                        "name": "Kabupaten Banyumas",
+                        "kecamatan": [
+                            {"name": "Purwokerto Timur", "target_outlets": 45, "actual_outlets": 41},
+                            {"name": "Purwokerto Selatan", "target_outlets": 40, "actual_outlets": 37},
+                            {"name": "Sokaraja", "target_outlets": 30, "actual_outlets": 28}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Cilacap",
+                        "kecamatan": [
+                            {"name": "Cilacap Selatan", "target_outlets": 35, "actual_outlets": 31},
+                            {"name": "Majenang", "target_outlets": 30, "actual_outlets": 26},
+                            {"name": "Kroya", "target_outlets": 28, "actual_outlets": 25}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Purbalingga",
+                        "kecamatan": [
+                            {"name": "Purbalingga Kota", "target_outlets": 30, "actual_outlets": 27},
+                            {"name": "Kalimanah", "target_outlets": 25, "actual_outlets": 22}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Banjarnegara",
+                        "kecamatan": [
+                            {"name": "Banjarnegara Kota", "target_outlets": 28, "actual_outlets": 24},
+                            {"name": "Batur", "target_outlets": 22, "actual_outlets": 19}
+                        ]
+                    }
+                ],
+                "target": 3000000000,
+                "actual": 2550000000,
+                "achievement": 85.0,
+                "growth": 4.0,
+                "ro": 80.0,
+                "roa": 76.0,
+                "ec": 88.0,
+                "status": "Good",
+                "status_color": "🟢"
+            },
+            {
+                "name": "Pati Raya (Muria)",
+                "kabupaten": [
+                    {
+                        "name": "Kabupaten Kudus",
+                        "kecamatan": [
+                            {"name": "Kudus Kota", "target_outlets": 40, "actual_outlets": 37},
+                            {"name": "Jati", "target_outlets": 35, "actual_outlets": 32}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Pati",
+                        "kecamatan": [
+                            {"name": "Pati Kota", "target_outlets": 42, "actual_outlets": 38},
+                            {"name": "Juwana", "target_outlets": 30, "actual_outlets": 27}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Jepara",
+                        "kecamatan": [
+                            {"name": "Jepara Kota", "target_outlets": 38, "actual_outlets": 34},
+                            {"name": "Tahunan", "target_outlets": 28, "actual_outlets": 25}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Rembang",
+                        "kecamatan": [
+                            {"name": "Rembang Kota", "target_outlets": 28, "actual_outlets": 24},
+                            {"name": "Lasem", "target_outlets": 22, "actual_outlets": 19}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Blora",
+                        "kecamatan": [
+                            {"name": "Blora Kota", "target_outlets": 30, "actual_outlets": 26},
+                            {"name": "Cepu", "target_outlets": 28, "actual_outlets": 24}
+                        ]
+                    }
+                ],
+                "target": 2800000000,
+                "actual": 2492000000,
+                "achievement": 89.0,
+                "growth": 5.8,
+                "ro": 84.0,
+                "roa": 79.0,
+                "ec": 90.0,
+                "status": "Good",
+                "status_color": "🟢"
+            }
+        ]
+    },
+    {
+        "region": "Jawa Timur",
+        "areas": [
+            {
+                "name": "Surabaya & Sidoarjo",
+                "kabupaten": [
+                    {
+                        "name": "Kota Surabaya",
+                        "kecamatan": [
+                            {"name": "Tegalsari", "target_outlets": 70, "actual_outlets": 66},
+                            {"name": "Gubeng", "target_outlets": 65, "actual_outlets": 62},
+                            {"name": "Wonokromo", "target_outlets": 60, "actual_outlets": 56},
+                            {"name": "Sukolilo", "target_outlets": 55, "actual_outlets": 51}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Sidoarjo",
+                        "kecamatan": [
+                            {"name": "Sidoarjo Kota", "target_outlets": 50, "actual_outlets": 47},
+                            {"name": "Waru", "target_outlets": 55, "actual_outlets": 52},
+                            {"name": "Krian", "target_outlets": 40, "actual_outlets": 37}
+                        ]
+                    }
+                ],
+                "target": 4500000000,
+                "actual": 4275000000,
+                "achievement": 95.0,
+                "growth": 11.2,
+                "ro": 91.0,
+                "roa": 87.0,
+                "ec": 96.0,
+                "status": "Good",
+                "status_color": "🟢"
+            },
+            {
+                "name": "Malang Raya",
+                "kabupaten": [
+                    {
+                        "name": "Kota Malang",
+                        "kecamatan": [
+                            {"name": "Klojen", "target_outlets": 50, "actual_outlets": 47},
+                            {"name": "Lowokwaru", "target_outlets": 55, "actual_outlets": 51},
+                            {"name": "Blimbing", "target_outlets": 45, "actual_outlets": 41}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Malang",
+                        "kecamatan": [
+                            {"name": "Kepanjen", "target_outlets": 40, "actual_outlets": 36},
+                            {"name": "Singosari", "target_outlets": 35, "actual_outlets": 32}
+                        ]
+                    },
+                    {
+                        "name": "Kota Batu",
+                        "kecamatan": [
+                            {"name": "Batu Kota", "target_outlets": 25, "actual_outlets": 23}
+                        ]
+                    }
+                ],
+                "target": 2800000000,
+                "actual": 2520000000,
+                "achievement": 90.0,
+                "growth": 6.8,
+                "ro": 86.0,
+                "roa": 81.0,
+                "ec": 93.0,
+                "status": "Good",
+                "status_color": "🟢"
+            },
+            {
+                "name": "Kediri & Madiun",
+                "kabupaten": [
+                    {
+                        "name": "Kota Kediri",
+                        "kecamatan": [
+                            {"name": "Kediri Kota", "target_outlets": 40, "actual_outlets": 37},
+                            {"name": "Mojoroto", "target_outlets": 35, "actual_outlets": 32}
+                        ]
+                    },
+                    {
+                        "name": "Kota Madiun",
+                        "kecamatan": [
+                            {"name": "Kartoharjo", "target_outlets": 30, "actual_outlets": 27},
+                            {"name": "Taman", "target_outlets": 35, "actual_outlets": 31}
+                        ]
+                    }
+                ],
+                "target": 2200000000,
+                "actual": 1936000000,
+                "achievement": 88.0,
+                "growth": 5.0,
+                "ro": 84.0,
+                "roa": 79.0,
+                "ec": 90.0,
+                "status": "Good",
+                "status_color": "🟢"
+            },
+            {
+                "name": "Banyuwangi & Jember",
+                "kabupaten": [
+                    {
+                        "name": "Kabupaten Banyuwangi",
+                        "kecamatan": [
+                            {"name": "Banyuwangi Kota", "target_outlets": 45, "actual_outlets": 41},
+                            {"name": "Rogojampi", "target_outlets": 35, "actual_outlets": 30}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Jember",
+                        "kecamatan": [
+                            {"name": "Sumbersari", "target_outlets": 40, "actual_outlets": 35},
+                            {"name": "Patrang", "target_outlets": 35, "actual_outlets": 30}
+                        ]
+                    }
+                ],
+                "target": 2500000000,
+                "actual": 2050000000,
+                "achievement": 82.0,
+                "growth": 3.2,
+                "ro": 78.0,
+                "roa": 73.0,
+                "ec": 86.0,
+                "status": "Warning",
+                "status_color": "🟡"
+            },
+            {
+                "name": "Gresik & Lamongan",
+                "kabupaten": [
+                    {
+                        "name": "Kabupaten Gresik",
+                        "kecamatan": [
+                            {"name": "Gresik Kota", "target_outlets": 40, "actual_outlets": 38},
+                            {"name": "Kebomas", "target_outlets": 35, "actual_outlets": 32}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Lamongan",
+                        "kecamatan": [
+                            {"name": "Lamongan Kota", "target_outlets": 35, "actual_outlets": 31},
+                            {"name": "Babat", "target_outlets": 30, "actual_outlets": 26}
+                        ]
+                    }
+                ],
+                "target": 2000000000,
+                "actual": 1780000000,
+                "achievement": 89.0,
+                "growth": 6.0,
+                "ro": 85.0,
+                "roa": 80.0,
+                "ec": 91.0,
+                "status": "Good",
+                "status_color": "🟢"
+            }
+        ]
+    },
+    {
+        "region": "Jawa Barat",
+        "areas": [
+            {
+                "name": "Bandung (Pabrik Teh)",
+                "kabupaten": [
+                    {
+                        "name": "Kota Bandung",
+                        "kecamatan": [
+                            {"name": "Sumur Bandung", "target_outlets": 45, "actual_outlets": 42},
+                            {"name": "Coblong", "target_outlets": 38, "actual_outlets": 35},
+                            {"name": "Cicendo", "target_outlets": 30, "actual_outlets": 28}
+                        ]
+                    },
+                    {
+                        "name": "Kabupaten Bandung Barat",
+                        "kecamatan": [
+                            {"name": "Lembang", "target_outlets": 25, "actual_outlets": 22},
+                            {"name": "Padalarang", "target_outlets": 30, "actual_outlets": 26}
+                        ]
+                    }
+                ],
+                "target": 2000000000,
+                "actual": 1600000000,
+                "achievement": 80.0,
+                "growth": 2.0,
+                "ro": 77.0,
+                "roa": 72.0,
+                "ec": 89.0,
+                "status": "Warning",
+                "status_color": "🟡"
+            },
+            {
+                "name": "Cianjur (Pabrik Teh)",
+                "kabupaten": [
+                    {
+                        "name": "Kabupaten Cianjur",
+                        "kecamatan": [
+                            {"name": "Cianjur Kota", "target_outlets": 40, "actual_outlets": 36},
+                            {"name": "Cipanas", "target_outlets": 30, "actual_outlets": 27}
+                        ]
+                    }
+                ],
+                "target": 1500000000,
+                "actual": 1275000000,
+                "achievement": 85.0,
+                "growth": 4.0,
+                "ro": 80.0,
+                "roa": 75.0,
+                "ec": 88.0,
+                "status": "Good",
+                "status_color": "🟢"
+            },
+            {
+                "name": "Cirebon",
+                "kabupaten": [
+                    {
+                        "name": "Kota Cirebon",
+                        "kecamatan": [
+                            {"name": "Kejaksan", "target_outlets": 28, "actual_outlets": 20},
+                            {"name": "Lemahwungkuk", "target_outlets": 25, "actual_outlets": 18}
+                        ]
+                    }
+                ],
+                "target": 1500000000,
+                "actual": 1000000000,
+                "achievement": 67.0,
+                "growth": -5.0,
+                "ro": 68.0,
+                "roa": 61.0,
+                "ec": 75.0,
+                "status": "Critical",
+                "status_color": "🔴"
+            }
+        ]
+    },
+    {
+        "region": "DKI Jakarta",
+        "areas": [
+            {
+                "name": "Jakarta Selatan & Pusat",
+                "kabupaten": [
+                    {
+                        "name": "Jakarta Selatan",
+                        "kecamatan": [
+                            {"name": "Setiabudi", "target_outlets": 60, "actual_outlets": 58},
+                            {"name": "Kebayoran Baru", "target_outlets": 55, "actual_outlets": 52}
+                        ]
+                    },
+                    {
+                        "name": "Jakarta Pusat",
+                        "kecamatan": [
+                            {"name": "Menteng", "target_outlets": 50, "actual_outlets": 48},
+                            {"name": "Tanah Abang", "target_outlets": 65, "actual_outlets": 61}
+                        ]
+                    }
+                ],
+                "target": 3500000000,
+                "actual": 3220000000,
+                "achievement": 92.0,
+                "growth": 8.0,
+                "ro": 85.0,
+                "roa": 80.0,
+                "ec": 94.0,
+                "status": "Good",
+                "status_color": "🟢"
+            }
+        ]
+    }
+]

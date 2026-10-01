@@ -1,0 +1,12 @@
+{
+    "roa_rate": 76.2,
+    "target_roa": 85.0,
+    "active_outlets": 3995,
+    "total_outlets": 5240,
+    "area_roa": [
+        {"area": "Jakarta", "roa": 80.0, "status": "Good", "color": "🟢"},
+        {"area": "Bandung", "roa": 72.0, "status": "Warning", "color": "🟡"},
+        {"area": "Cirebon", "roa": 61.0, "status": "Critical", "color": "🔴"},
+        {"area": "Bogor", "roa": 75.0, "status": "Good", "color": "🟢"}
+    ]
+}

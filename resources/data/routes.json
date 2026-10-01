@@ -1,0 +1,43 @@
+[
+    {
+        "route_code": "RT001",
+        "sales_npk": "S001",
+        "sales_name": "Andi Pratama",
+        "day": "Monday",
+        "area": "Bandung",
+        "kecamatan": "Sumur Bandung",
+        "target_outlets": 20,
+        "visited_outlets": 19,
+        "compliance_rate": 95.0,
+        "planned_waypoints": [
+            {"order": 1, "card_code": "C10001", "name": "Toko Berkah Utama", "lat": -6.9218, "lng": 107.6071, "status": "Visited"},
+            {"order": 2, "card_code": "C10002", "name": "Toserba Sumber Rejeki", "lat": -6.8905, "lng": 107.6104, "status": "Visited"}
+        ],
+        "actual_gps_route": [
+            {"lat": -6.9218, "lng": 107.6071, "timestamp": "08:15"},
+            {"lat": -6.9150, "lng": 107.6090, "timestamp": "08:45"},
+            {"lat": -6.8905, "lng": 107.6104, "timestamp": "09:20"}
+        ],
+        "status": "Valid"
+    },
+    {
+        "route_code": "RT002",
+        "sales_npk": "S002",
+        "sales_name": "Budi Raharjo",
+        "day": "Tuesday",
+        "area": "Cirebon",
+        "kecamatan": "Kejaksan",
+        "target_outlets": 18,
+        "visited_outlets": 11,
+        "compliance_rate": 61.1,
+        "planned_waypoints": [
+            {"order": 1, "card_code": "C10003", "name": "Warung Makan Resto Bundo", "lat": -6.7063, "lng": 108.557, "status": "Skipped"},
+            {"order": 2, "card_code": "C10004", "name": "Minimarket Sederhana", "lat": -6.7120, "lng": 108.568, "status": "Visited"}
+        ],
+        "actual_gps_route": [
+            {"lat": -6.7300, "lng": 108.540, "timestamp": "08:30"},
+            {"lat": -6.7120, "lng": 108.568, "timestamp": "09:50"}
+        ],
+        "status": "Deviation Detected"
+    }
+]

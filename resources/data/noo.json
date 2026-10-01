@@ -1,0 +1,28 @@
+{
+    "noo_today": 28,
+    "noo_mtd": 542,
+    "target_mtd": 600,
+    "achievement_rate": 90.3,
+    "recent_noo": [
+        {
+            "card_code": "C10007",
+            "card_name": "Toko Berkah Bersama",
+            "sales_name": "Andi Pratama",
+            "area": "Bandung",
+            "market": "GT",
+            "date": "2026-10-01",
+            "status": "Verified SAP",
+            "sap_code": "C10007"
+        },
+        {
+            "card_code": "C10008",
+            "card_name": "Kedai Kopi Harapan",
+            "sales_name": "Budi Raharjo",
+            "area": "Cirebon",
+            "market": "HOREKA",
+            "date": "2026-10-01",
+            "status": "Pending SAP Sync",
+            "sap_code": "TEMP-901"
+        }
+    ]
+}

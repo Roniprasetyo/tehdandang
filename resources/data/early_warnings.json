@@ -1,0 +1,58 @@
+{
+    "summary": {
+        "critical": 12,
+        "high": 35,
+        "medium": 87,
+        "low": 124
+    },
+    "warnings": [
+        {
+            "id": "EW001",
+            "severity": "Critical",
+            "severity_color": "🔴",
+            "warning_type": "RO Inactive",
+            "message": "Outlet telah 60 hari tidak melakukan Repeat Order",
+            "area": "Cirebon",
+            "sales": "Budi Raharjo",
+            "outlet": "Warung Makan Resto Bundo",
+            "date": "2026-10-01",
+            "status": "Open"
+        },
+        {
+            "id": "EW002",
+            "severity": "Critical",
+            "severity_color": "🔴",
+            "warning_type": "Route Deviation",
+            "message": "Terdeteksi deviasi rute > 3km dari jalur terencana",
+            "area": "Bandung",
+            "sales": "Andi Pratama",
+            "outlet": "-",
+            "date": "2026-10-01",
+            "status": "Open"
+        },
+        {
+            "id": "EW003",
+            "severity": "High",
+            "severity_color": "🟠",
+            "warning_type": "EC Rendah",
+            "message": "Effective Call di bawah target bulanan (< 80%)",
+            "area": "Jakarta",
+            "sales": "Rudi Hermawan",
+            "outlet": "-",
+            "date": "2026-09-30",
+            "status": "Open"
+        },
+        {
+            "id": "EW004",
+            "severity": "Medium",
+            "severity_color": "🟡",
+            "warning_type": "RO Item Turun",
+            "message": "Pembelian SKU Teh Dandang Merah turun 50%",
+            "area": "Bogor",
+            "sales": "Deni Kurniadi",
+            "outlet": "Toko Manis Sentosa",
+            "date": "2026-09-29",
+            "status": "Open"
+        }
+    ]
+}

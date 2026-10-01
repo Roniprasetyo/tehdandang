@@ -1,0 +1,43 @@
+{
+    "overall_ro_rate": 82.4,
+    "overall_roa_rate": 76.2,
+    "total_outlets": 5240,
+    "active_outlets": 3995,
+    "inactive_outlets": 1245,
+    "warning_outlets": 482,
+    "outlet_ro_list": [
+        {
+            "card_code": "C10001",
+            "outlet_name": "Toko Berkah Utama",
+            "area": "Bandung",
+            "sales_name": "Andi Pratama",
+            "last_order_date": "2026-09-28",
+            "ro_frequency_month": 4,
+            "roa_status": "Active",
+            "status": "Active",
+            "status_color": "🟢"
+        },
+        {
+            "card_code": "C10002",
+            "outlet_name": "Toserba Sumber Rejeki",
+            "area": "Bandung",
+            "sales_name": "Andi Pratama",
+            "last_order_date": "2026-09-15",
+            "ro_frequency_month": 2,
+            "roa_status": "Active",
+            "status": "Warning",
+            "status_color": "🟡"
+        },
+        {
+            "card_code": "C10003",
+            "outlet_name": "Warung Makan Resto Bundo",
+            "area": "Cirebon",
+            "sales_name": "Budi Raharjo",
+            "last_order_date": "2026-08-01",
+            "ro_frequency_month": 0,
+            "roa_status": "Inactive",
+            "status": "Inactive",
+            "status_color": "🔴"
+        }
+    ]
+}

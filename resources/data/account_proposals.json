@@ -1,0 +1,38 @@
+[
+    {
+        "area": "Bandung",
+        "ap_count": 120,
+        "revenue_before": 500000000,
+        "revenue_after": 580000000,
+        "growth_percent": 16.0,
+        "effectiveness": "Effective",
+        "effectiveness_color": "🟢"
+    },
+    {
+        "area": "Cirebon",
+        "ap_count": 80,
+        "revenue_before": 300000000,
+        "revenue_after": 290000000,
+        "growth_percent": -3.3,
+        "effectiveness": "Warning",
+        "effectiveness_color": "🟡"
+    },
+    {
+        "area": "Jakarta",
+        "ap_count": 210,
+        "revenue_before": 1200000000,
+        "revenue_after": 1450000000,
+        "growth_percent": 20.8,
+        "effectiveness": "Effective",
+        "effectiveness_color": "🟢"
+    },
+    {
+        "area": "Bogor",
+        "ap_count": 95,
+        "revenue_before": 400000000,
+        "revenue_after": 440000000,
+        "growth_percent": 10.0,
+        "effectiveness": "Effective",
+        "effectiveness_color": "🟢"
+    }
+]

@@ -1,0 +1,36 @@
+{
+    "executive": {
+        "kpi": {
+            "sales_value": "Rp 12.8 M",
+            "sales_target": "Rp 14.6 M",
+            "achievement": 87.4,
+            "growth": 8.2,
+            "ro_rate": 82.4,
+            "roa_rate": 76.2,
+            "ec_rate": 91.5
+        },
+        "sales_trend": {
+            "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+            "actual": [1.1, 1.2, 1.35, 1.28, 1.4, 1.45, 1.5, 1.48, 1.54],
+            "target": [1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.52, 1.55]
+        },
+        "ro_trend": {
+            "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+            "ro": [78, 79, 81, 80, 83, 82, 84, 83, 82.4],
+            "roa": [71, 72, 74, 73, 75, 74, 77, 76, 76.2],
+            "ec": [85, 87, 88, 89, 90, 89, 91, 92, 91.5]
+        },
+        "area_performance": [
+            {"area": "Jakarta", "target": "2.5B", "actual": "2.3B", "achievement": 92.0, "growth": 8.0, "ro": 85.0, "roa": 80.0, "ec": 94.0, "status": "Good", "color": "🟢"},
+            {"area": "Bandung", "target": "2.0B", "actual": "1.6B", "achievement": 80.0, "growth": 2.0, "ro": 77.0, "roa": 72.0, "ec": 89.0, "status": "Warning", "color": "🟡"},
+            {"area": "Cirebon", "target": "1.5B", "actual": "1.0B", "achievement": 67.0, "growth": -5.0, "ro": 68.0, "roa": 61.0, "ec": 75.0, "status": "Critical", "color": "🔴"},
+            {"area": "Bogor", "target": "1.8B", "actual": "1.5B", "achievement": 85.0, "growth": 4.5, "ro": 80.0, "roa": 75.0, "ec": 90.0, "status": "Good", "color": "🟢"}
+        ],
+        "product_performance": [
+            {"product": "Teh Dandang Biru Celup 25s", "sales_box": 45000, "revenue": 382500000, "share": 45.0},
+            {"product": "Teh Dandang Merah Tubruk 40g", "sales_box": 32000, "revenue": 144000000, "share": 25.0},
+            {"product": "Teh Dandang Jasmine Premium Box", "sales_box": 12000, "revenue": 198000000, "share": 18.0},
+            {"product": "Teh Dandang Hijau Herbal 20s", "sales_box": 6000, "revenue": 114000000, "share": 12.0}
+        ]
+    }
+}

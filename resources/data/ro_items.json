@@ -1,0 +1,35 @@
+[
+    {
+        "card_code": "C10001",
+        "outlet_name": "Toko Berkah Utama",
+        "area": "Bandung",
+        "dandang_biru_qty": 20,
+        "dandang_merah_qty": 10,
+        "dandang_jasmine_qty": 5,
+        "last_order_date": "2026-09-29",
+        "status": "Good",
+        "status_color": "🟢"
+    },
+    {
+        "card_code": "C10002",
+        "outlet_name": "Toserba Sumber Rejeki",
+        "area": "Bandung",
+        "dandang_biru_qty": 15,
+        "dandang_merah_qty": 0,
+        "dandang_jasmine_qty": 0,
+        "last_order_date": "2026-09-20",
+        "status": "Warning",
+        "status_color": "🟡"
+    },
+    {
+        "card_code": "C10003",
+        "outlet_name": "Warung Makan Resto Bundo",
+        "area": "Cirebon",
+        "dandang_biru_qty": 0,
+        "dandang_merah_qty": 0,
+        "dandang_jasmine_qty": 0,
+        "last_order_date": "2026-08-01",
+        "status": "Critical",
+        "status_color": "🔴"
+    }
+]

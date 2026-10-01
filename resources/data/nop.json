@@ -1,0 +1,26 @@
+[
+    {
+        "card_code": "C10001",
+        "outlet_name": "Toko Berkah Utama",
+        "sales_name": "Andi Pratama",
+        "area": "Bandung",
+        "before_products": ["Teh Dandang Biru"],
+        "after_products": ["Teh Dandang Biru", "Teh Dandang Merah"],
+        "nop_item": "Teh Dandang Merah",
+        "item_code": "DM001",
+        "date_added": "2026-09-25",
+        "status": "Active"
+    },
+    {
+        "card_code": "C10005",
+        "outlet_name": "Supermarket Grand City",
+        "sales_name": "Rudi Hermawan",
+        "area": "Jakarta",
+        "before_products": ["Teh Dandang Biru", "Teh Dandang Merah"],
+        "after_products": ["Teh Dandang Biru", "Teh Dandang Merah", "Teh Dandang Jasmine Box"],
+        "nop_item": "Teh Dandang Jasmine Box",
+        "item_code": "DJ001",
+        "date_added": "2026-09-28",
+        "status": "Active"
+    }
+]

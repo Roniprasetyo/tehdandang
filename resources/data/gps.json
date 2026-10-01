@@ -1,0 +1,65 @@
+{
+    "total_vehicles": 48,
+    "active_gps": 42,
+    "offline_gps": 6,
+    "sales_on_route": 38,
+    "sales_off_route": 4,
+    "route_compliance": 90.5,
+    "gps_model": "Concox GT06N (ACC Ignition Detection & Remote Cut-off)",
+    "tracksolid_status": "Connected (Concox GT06N Webhook Active)",
+    "tracksolid_last_sync": "2026-10-01 10:20:00",
+    "vehicles": [
+        {
+            "vehicle_id": "V006",
+            "plate_no": "AD 8899 TD",
+            "sales_name": "Eko Prasetyo (Top Sales Cepogo)",
+            "area": "Cepogo, Boyolali (Jawa Tengah)",
+            "status": "On Route",
+            "speed": "35 km/h",
+            "battery": "98%",
+            "gps_device_id": "GT06N-880912",
+            "last_location": "Jl. Raya Cepogo - Selo, Boyolali",
+            "compliance": "98%",
+            "status_color": "🟢"
+        },
+        {
+            "vehicle_id": "V001",
+            "plate_no": "D 1234 TD",
+            "sales_name": "Andi Pratama",
+            "area": "Bandung",
+            "status": "On Route",
+            "speed": "28 km/h",
+            "battery": "92%",
+            "gps_device_id": "GT06N-990101",
+            "last_location": "Jl. Asia Afrika, Bandung",
+            "compliance": "95%",
+            "status_color": "🟢"
+        },
+        {
+            "vehicle_id": "V002",
+            "plate_no": "E 5678 TD",
+            "sales_name": "Budi Raharjo",
+            "area": "Cirebon",
+            "status": "Off Route",
+            "speed": "0 km/h",
+            "battery": "65%",
+            "gps_device_id": "GT06N-990102",
+            "last_location": "Jl. Kartini, Cirebon",
+            "compliance": "61%",
+            "status_color": "🔴"
+        },
+        {
+            "vehicle_id": "V003",
+            "plate_no": "B 9988 TD",
+            "sales_name": "Rudi Hermawan",
+            "area": "Jakarta",
+            "status": "Offline",
+            "speed": "0 km/h",
+            "battery": "15%",
+            "gps_device_id": "GT06N-990103",
+            "last_location": "Jl. Sudirman, Jakarta",
+            "compliance": "88%",
+            "status_color": "⚪"
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+[
+    {
+        "doc_entry": 10001,
+        "doc_num": 202609001,
+        "doc_date": "2026-09-28",
+        "delivery_date": "2026-09-30",
+        "card_code": "C10001",
+        "card_name": "Toko Berkah Utama",
+        "slp_code": 101,
+        "slp_name": "Andi Pratama",
+        "area": "Bandung",
+        "items": [
+            {
+                "line_num": 0,
+                "item_code": "DP001",
+                "dscription": "Teh Dandang Biru Celup 25s",
+                "quantity": 20,
+                "uom": "Box",
+                "price": 8500,
+                "discount_percent": 5,
+                "line_total": 161500
+            },
+            {
+                "line_num": 1,
+                "item_code": "DM001",
+                "dscription": "Teh Dandang Merah Tubruk 40g",
+                "quantity": 10,
+                "uom": "Pack",
+                "price": 4500,
+                "discount_percent": 0,
+                "line_total": 45000
+            }
+        ],
+        "subtotal": 206500,
+        "discount_amount": 8500,
+        "tax_amount": 21780,
+        "doc_total": 219780,
+        "sap_status": "Synced to SAP B1",
+        "sap_doc_entry": 88120
+    },
+    {
+        "doc_entry": 10002,
+        "doc_num": 202609002,
+        "doc_date": "2026-09-29",
+        "delivery_date": "2026-10-01",
+        "card_code": "C10005",
+        "card_name": "Supermarket Grand City",
+        "slp_code": 103,
+        "slp_name": "Rudi Hermawan",
+        "area": "Jakarta",
+        "items": [
+            {
+                "line_num": 0,
+                "item_code": "DJ001",
+                "dscription": "Teh Dandang Jasmine Premium Box",
+                "quantity": 100,
+                "uom": "Box",
+                "price": 16500,
+                "discount_percent": 10,
+                "line_total": 1485000
+            },
+            {
+                "line_num": 1,
+                "item_code": "DH001",
+                "dscription": "Teh Dandang Hijau Herbal 20s",
+                "quantity": 50,
+                "uom": "Box",
+                "price": 19000,
+                "discount_percent": 5,
+                "line_total": 902500
+            }
+        ],
+        "subtotal": 2387500,
+        "discount_amount": 212500,
+        "tax_amount": 239250,
+        "doc_total": 2414250,
+        "sap_status": "Synced to SAP B1",
+        "sap_doc_entry": 88125
+    }
+]

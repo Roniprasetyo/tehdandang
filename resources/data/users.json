@@ -1,0 +1,101 @@
+[
+    {
+        "username": "sales01",
+        "name": "Andi Pratama",
+        "role": "Sales",
+        "area": "Bandung",
+        "region": "Jawa Barat",
+        "email": "andi.pratama@tehdandang.co.id",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+        "slp_code": 101,
+        "npk": "S001"
+    },
+    {
+        "username": "admin-cirebon",
+        "name": "Siti Rahma",
+        "role": "Admin Area",
+        "area": "Cirebon",
+        "region": "Jawa Barat",
+        "email": "siti.cirebon@tehdandang.co.id",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
+        "slp_code": null,
+        "npk": "ADM-CRB"
+    },
+    {
+        "username": "admin-pusat",
+        "name": "Roni Wijaya",
+        "role": "Admin Pusat",
+        "area": "Semua",
+        "region": "Nasional",
+        "email": "roni.pusat@tehdandang.co.id",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+        "slp_code": null,
+        "npk": "ADM-PST"
+    },
+    {
+        "username": "asm-jabar",
+        "name": "Hendra Gunawan",
+        "role": "ASM",
+        "area": "Jawa Barat",
+        "region": "Jawa Barat",
+        "email": "hendra.asm@tehdandang.co.id",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150",
+        "slp_code": null,
+        "npk": "ASM01"
+    },
+    {
+        "username": "manager-jabar",
+        "name": "Budi Santoso",
+        "role": "Manager",
+        "area": "Jawa Barat",
+        "region": "Jawa Barat",
+        "email": "budi.mgr@tehdandang.co.id",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
+        "slp_code": null,
+        "npk": "MGR01"
+    },
+    {
+        "username": "gm",
+        "name": "Bambang Haryanto",
+        "role": "GM",
+        "area": "Semua",
+        "region": "Nasional",
+        "email": "bambang.gm@tehdandang.co.id",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150",
+        "slp_code": null,
+        "npk": "GM01"
+    },
+    {
+        "username": "finance",
+        "name": "Dewi Lestari",
+        "role": "Finance",
+        "area": "Semua",
+        "region": "Nasional",
+        "email": "dewi.finance@tehdandang.co.id",
+        "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150",
+        "slp_code": null,
+        "npk": "FIN01"
+    },
+    {
+        "username": "fleet",
+        "name": "Eko Supriyanto",
+        "role": "Fleet Admin",
+        "area": "Semua",
+        "region": "Nasional",
+        "email": "eko.fleet@tehdandang.co.id",
+        "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150",
+        "slp_code": null,
+        "npk": "FLT01"
+    },
+    {
+        "username": "it-admin",
+        "name": "Agus Setiawan",
+        "role": "IT",
+        "area": "Semua",
+        "region": "Nasional",
+        "email": "agus.it@tehdandang.co.id",
+        "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+        "slp_code": null,
+        "npk": "IT01"
+    }
+]

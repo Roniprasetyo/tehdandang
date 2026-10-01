@@ -1,0 +1,72 @@
+[
+    {
+        "item_code": "DP001",
+        "item_name": "Teh Dandang Biru Celup 25s",
+        "category": "Teh Celup",
+        "itms_grp_cod": 10,
+        "invntry_uom": "Box",
+        "sal_unit_msr": "Box",
+        "buy_unit_msr": "Karton",
+        "avg_price": 7200,
+        "price": 8500,
+        "price_formatted": "Rp 8.500",
+        "active": "tYES",
+        "status": "Active"
+    },
+    {
+        "item_code": "DM001",
+        "item_name": "Teh Dandang Merah Tubruk 40g",
+        "category": "Teh Tubruk",
+        "itms_grp_cod": 11,
+        "invntry_uom": "Pack",
+        "sal_unit_msr": "Pack",
+        "buy_unit_msr": "Karton",
+        "avg_price": 3800,
+        "price": 4500,
+        "price_formatted": "Rp 4.500",
+        "active": "tYES",
+        "status": "Active"
+    },
+    {
+        "item_code": "DJ001",
+        "item_name": "Teh Dandang Jasmine Premium Box",
+        "category": "Premium Tea",
+        "itms_grp_cod": 12,
+        "invntry_uom": "Box",
+        "sal_unit_msr": "Box",
+        "buy_unit_msr": "Karton",
+        "avg_price": 14000,
+        "price": 16500,
+        "price_formatted": "Rp 16.500",
+        "active": "tYES",
+        "status": "Active"
+    },
+    {
+        "item_code": "DH001",
+        "item_name": "Teh Dandang Hijau Herbal 20s",
+        "category": "Herbal Tea",
+        "itms_grp_cod": 13,
+        "invntry_uom": "Box",
+        "sal_unit_msr": "Box",
+        "buy_unit_msr": "Karton",
+        "avg_price": 16000,
+        "price": 19000,
+        "price_formatted": "Rp 19.000",
+        "active": "tYES",
+        "status": "Active"
+    },
+    {
+        "item_code": "DW001",
+        "item_name": "Teh Dandang White Tea Special",
+        "category": "Premium Tea",
+        "itms_grp_cod": 12,
+        "invntry_uom": "Box",
+        "sal_unit_msr": "Box",
+        "buy_unit_msr": "Karton",
+        "avg_price": 28000,
+        "price": 32500,
+        "price_formatted": "Rp 32.500",
+        "active": "tYES",
+        "status": "Active"
+    }
+]
