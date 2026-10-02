@@ -184,17 +184,36 @@
                 </a>
             @endif
 
+            <!-- Tracking Section -->
+            <div class="pt-4 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Tracking</div>
+
+            <div x-data="{ trackingOpen: {{ str_contains($currentRoute, 'checkin-gps') || str_contains($currentRoute, 'tracking') ? 'true' : 'false' }} }">
+                <button @click="trackingOpen = !trackingOpen" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-100 transition-all">
+                    <div class="flex items-center">
+                        <i data-lucide="compass" class="w-4 h-4 mr-3 flex-shrink-0 text-indigo-600"></i>
+                        <span x-show="sidebarOpen">Tracking</span>
+                    </div>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform" :class="trackingOpen ? 'rotate-180' : ''" x-show="sidebarOpen"></i>
+                </button>
+                <div x-show="trackingOpen && sidebarOpen" x-cloak class="mt-1 ml-4 pl-3 border-l-2 border-indigo-100 space-y-1">
+                    <a href="{{ route('transaksi.checkin-gps') }}" class="flex items-center px-3 py-2 rounded-lg text-xs {{ str_contains($currentRoute, 'transaksi.checkin-gps') ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                        <i data-lucide="radio" class="w-3.5 h-3.5 mr-2"></i> Live Tracking
+                    </a>
+                    <a href="{{ route('master.vehicle') }}" class="flex items-center px-3 py-2 rounded-lg text-xs {{ str_contains($currentRoute, 'master.vehicle') ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                        <i data-lucide="cpu" class="w-3.5 h-3.5 mr-2"></i> Perangkat FMC003
+                    </a>
+                    <a href="{{ route('administration.integration') }}" class="flex items-center px-3 py-2 rounded-lg text-xs {{ str_contains($currentRoute, 'administration.integration') ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                        <i data-lucide="wifi" class="w-3.5 h-3.5 mr-2"></i> Koneksi Flespi
+                    </a>
+                </div>
+            </div>
+
             <!-- Transaksi Section -->
             <div class="pt-4 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Transaksi</div>
 
             <a href="{{ route('transaksi.sales-visit') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.sales-visit') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                 <i data-lucide="clipboard-check" class="w-4 h-4 mr-3 flex-shrink-0"></i>
                 <span x-show="sidebarOpen">Sales Visit GPS</span>
-            </a>
-
-            <a href="{{ route('transaksi.checkin-gps') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.checkin-gps') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                <i data-lucide="navigation" class="w-4 h-4 mr-3 flex-shrink-0"></i>
-                <span x-show="sidebarOpen">Live Map GT06N</span>
             </a>
 
             <a href="{{ route('transaksi.sales-order') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.sales-order') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">

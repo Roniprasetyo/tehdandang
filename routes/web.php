@@ -38,6 +38,11 @@ Route::prefix('master')->group(function () {
     Route::get('/market', [MasterController::class, 'market'])->name('master.market');
 });
 
+// Tracking Group
+Route::prefix('tracking')->group(function () {
+    Route::get('/live', [TransactionController::class, 'checkinGps'])->name('tracking.live');
+});
+
 // Transaksi Group
 Route::prefix('transaksi')->group(function () {
     Route::get('/sales-visit', [TransactionController::class, 'salesVisit'])->name('transaksi.sales-visit');
