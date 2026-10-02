@@ -22,5 +22,41 @@
         "item_code": "DJ001",
         "date_added": "2026-09-28",
         "status": "Active"
+    },
+    {
+        "card_code": "C10002",
+        "outlet_name": "Warung Makan Resto Bundo",
+        "sales_name": "Budi Raharjo",
+        "area": "Cirebon",
+        "before_products": ["Teh Dandang Merah"],
+        "after_products": ["Teh Dandang Merah", "Teh Dandang Hijau Celup"],
+        "nop_item": "Teh Dandang Hijau Celup",
+        "item_code": "DH002",
+        "date_added": "2026-09-29",
+        "status": "Active"
+    },
+    {
+        "card_code": "C10006",
+        "outlet_name": "Toko Sembako Rejeki",
+        "sales_name": "Eko Prasetyo",
+        "area": "Boyolali",
+        "before_products": ["Teh Dandang Biru"],
+        "after_products": ["Teh Dandang Biru", "Teh Dandang Premium Tubruk"],
+        "nop_item": "Teh Dandang Premium Tubruk",
+        "item_code": "DP003",
+        "date_added": "2026-10-01",
+        "status": "Active"
+    },
+    {
+        "card_code": "C10003",
+        "outlet_name": "Grosir Jaya Abadi",
+        "sales_name": "Hadi Wijaya",
+        "area": "Cikarang",
+        "before_products": ["Teh Dandang Biru", "Teh Dandang Merah"],
+        "after_products": ["Teh Dandang Biru", "Teh Dandang Merah", "Teh Dandang Vanilla Special"],
+        "nop_item": "Teh Dandang Vanilla Special",
+        "item_code": "DV004",
+        "date_added": "2026-10-01",
+        "status": "Active"
     }
 ]
