@@ -70,12 +70,14 @@
                 <i data-lucide="history" class="w-3.5 h-3.5 text-indigo-600"></i>
                 <span>Riwayat Rute</span>
             </button>
-            <button 
-                @click="openDeviceModal = true"
-                class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md shadow-indigo-200 flex items-center gap-1.5 transition-all">
-                <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-                <span>Manajemen Device</span>
-            </button>
+            @if(in_array($authUser['role'] ?? $user['role'] ?? '', ['IT', 'Admin Pusat', 'Fleet Admin']))
+                <button 
+                    @click="openDeviceModal = true"
+                    class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md shadow-indigo-200 flex items-center gap-1.5 transition-all">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                    <span>Manajemen Device (IT)</span>
+                </button>
+            @endif
         </div>
     </div>
 
