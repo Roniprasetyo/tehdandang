@@ -399,7 +399,7 @@
             <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                 <div class="flex items-center gap-2">
                     <i data-lucide="cpu" class="w-5 h-5 text-indigo-600"></i>
-                    <h3 class="text-base font-bold text-slate-900">Manajemen Perangkat Concox GT06N & Teltonika FMC003</h3>
+                    <h3 class="text-base font-bold text-slate-900">Manajemen Perangkat GPS Concox GT06N</h3>
                 </div>
                 <button @click="openDeviceModal = false" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
                     <i data-lucide="x" class="w-5 h-5"></i>
@@ -423,7 +423,7 @@
                             <tr class="hover:bg-slate-50">
                                 <td class="py-2.5 px-3 font-mono font-bold text-slate-900" x-text="v.plate_no"></td>
                                 <td class="py-2.5 px-3 font-mono text-indigo-600 font-semibold" x-text="v.gps_device_id"></td>
-                                <td class="py-2.5 px-3 font-medium text-slate-600" x-text="v.gps_device_id.startsWith('FMC') ? 'Teltonika FMC003 (OBD-II)' : 'Concox GT06N (ACC)'"></td>
+                                <td class="py-2.5 px-3 font-medium text-slate-600">Concox GT06N Protocol (ACC)</td>
                                 <td class="py-2.5 px-3 font-mono text-slate-500">+62812998877x</td>
                                 <td class="py-2.5 px-3">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold" :class="v.acc_status === 'ON' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-600'" x-text="'ACC ' + v.acc_status"></span>

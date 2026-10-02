@@ -200,10 +200,10 @@
                         <i data-lucide="radio" class="w-3.5 h-3.5 mr-2"></i> Live Tracking
                     </a>
                     <a href="{{ route('master.vehicle') }}" class="flex items-center px-3 py-2 rounded-lg text-xs {{ str_contains($currentRoute, 'master.vehicle') ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                        <i data-lucide="cpu" class="w-3.5 h-3.5 mr-2"></i> Perangkat FMC003
+                        <i data-lucide="cpu" class="w-3.5 h-3.5 mr-2"></i> Perangkat Concox GT06N
                     </a>
                     <a href="{{ route('administration.integration') }}" class="flex items-center px-3 py-2 rounded-lg text-xs {{ str_contains($currentRoute, 'administration.integration') ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                        <i data-lucide="wifi" class="w-3.5 h-3.5 mr-2"></i> Koneksi Flespi
+                        <i data-lucide="wifi" class="w-3.5 h-3.5 mr-2"></i> Koneksi Tracksolid
                     </a>
                 </div>
             </div>
