@@ -26,7 +26,7 @@ class TransactionController extends Controller
     public function checkinGps()
     {
         $user = session('user');
-        $gps = $this->mockData->getGpsData();
+        $gps = $this->mockData->getGpsData($user);
         $visits = $this->mockData->getVisits($user);
 
         return view('transaksi.checkin_gps', compact('gps', 'visits', 'user'));

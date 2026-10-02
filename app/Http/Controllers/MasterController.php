@@ -123,7 +123,7 @@ class MasterController extends Controller
     public function vehicle()
     {
         $user = session('user');
-        $vehicles = $this->mockData->getVehicles();
+        $vehicles = $this->mockData->getVehicles($user);
         return view('master.vehicle', compact('vehicles', 'user'));
     }
 

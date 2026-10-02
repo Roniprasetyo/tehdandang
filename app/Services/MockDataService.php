@@ -88,9 +88,21 @@ class MockDataService
         return $routes;
     }
 
-    public function getVehicles()
+    public function getVehicles($user = null)
     {
-        return $this->getJsonData('vehicles');
+        $vehicles = $this->getJsonData('vehicles');
+        if (!$user) return $vehicles;
+
+        if ($user['role'] === 'Sales') {
+            return array_values(array_filter($vehicles, fn($v) => ($v['sales_npk'] ?? '') === $user['npk'] || stripos($v['assigned_sales'] ?? '', $user['name']) !== false));
+        }
+        if ($user['role'] === 'Admin Area') {
+            return array_values(array_filter($vehicles, fn($v) => stripos($v['area'] ?? '', $user['area']) !== false));
+        }
+        if ($user['role'] === 'ASM' || $user['role'] === 'Manager') {
+            return array_values(array_filter($vehicles, fn($v) => stripos($v['area'] ?? '', $user['region']) !== false || stripos($v['area'] ?? '', $user['area']) !== false));
+        }
+        return $vehicles;
     }
 
     public function getSalesOrders($user = null)
@@ -151,9 +163,44 @@ class MockDataService
         return $this->getJsonData('account_proposals');
     }
 
-    public function getGpsData()
+    public function getGpsData($user = null)
     {
-        return $this->getJsonData('gps');
+        $gps = $this->getJsonData('gps');
+        if (!$user || !isset($gps['vehicles'])) {
+            return $gps;
+        }
+
+        $allVehicles = $gps['vehicles'];
+        $filteredVehicles = $allVehicles;
+
+        if ($user['role'] === 'Sales') {
+            $filteredVehicles = array_values(array_filter($allVehicles, function ($v) use ($user) {
+                return (isset($v['sales_npk']) && $v['sales_npk'] === $user['npk']) || 
+                       (isset($v['driver_sales']) && stripos($v['driver_sales'], $user['name']) !== false);
+            }));
+        } elseif ($user['role'] === 'Admin Area') {
+            $filteredVehicles = array_values(array_filter($allVehicles, function ($v) use ($user) {
+                return isset($v['area']) && stripos($v['area'], $user['area']) !== false;
+            }));
+        } elseif ($user['role'] === 'ASM' || $user['role'] === 'Manager') {
+            $filteredVehicles = array_values(array_filter($allVehicles, function ($v) use ($user) {
+                return isset($v['area']) && (
+                    stripos($v['area'], $user['region']) !== false ||
+                    stripos($v['area'], $user['area']) !== false
+                );
+            }));
+        }
+
+        $gps['vehicles'] = $filteredVehicles;
+        $gps['total_vehicles'] = count($filteredVehicles);
+        $gps['active_gps'] = count(array_filter($filteredVehicles, fn($v) => strtolower($v['status']) !== 'offline'));
+        $gps['offline_gps'] = count(array_filter($filteredVehicles, fn($v) => strtolower($v['status']) === 'offline'));
+        $gps['moving_gps'] = count(array_filter($filteredVehicles, fn($v) => strtolower($v['status_code'] ?? '') === 'moving'));
+        $gps['idle_gps'] = count(array_filter($filteredVehicles, fn($v) => strtolower($v['status_code'] ?? '') === 'idle'));
+        $gps['parked_gps'] = count(array_filter($filteredVehicles, fn($v) => strtolower($v['status_code'] ?? '') === 'parked'));
+        $gps['sales_on_route'] = count($filteredVehicles);
+
+        return $gps;
     }
 
     public function getEarlyWarnings()
