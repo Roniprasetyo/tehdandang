@@ -116,21 +116,21 @@
                 </a>
             @endif
 
-            @if(in_array($role, ['Sales', 'Admin Pusat', 'ASM', 'Manager', 'Admin Area']))
+            @if(in_array($role, ['Sales', 'Admin Area', 'ASM', 'Manager', 'Admin Pusat']))
                 <a href="{{ route('dashboard.sales') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.sales') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i data-lucide="user-check" class="w-4 h-4 mr-3 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">Sales Dashboard</span>
                 </a>
             @endif
 
-            @if(in_array($role, ['Admin Pusat', 'GM', 'Manager', 'ASM', 'Admin Area']))
+            @if(in_array($role, ['Admin Area', 'ASM', 'Manager', 'GM', 'Fleet Admin', 'Admin Pusat']))
                 <a href="{{ route('dashboard.area') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.area') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i data-lucide="map-pin" class="w-4 h-4 mr-3 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">Area Dashboard</span>
                 </a>
             @endif
 
-            @if(in_array($role, ['Admin Pusat', 'GM', 'Manager', 'ASM', 'Admin Area', 'IT']))
+            @if(in_array($role, ['ASM', 'Manager', 'GM', 'Admin Area', 'Admin Pusat', 'IT']))
                 <a href="{{ route('dashboard.early-warning') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.early-warning') ? 'bg-rose-50 text-rose-700 border border-rose-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <div class="flex items-center">
                         <i data-lucide="alert-triangle" class="w-4 h-4 mr-3 flex-shrink-0 text-amber-500"></i>
@@ -140,10 +140,10 @@
                 </a>
             @endif
 
-            <!-- Master Section -->
+            <!-- Master Data Section -->
             <div class="pt-4 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Master Data</div>
 
-            @if(in_array($role, ['Admin Pusat', 'Admin Area', 'ASM', 'Manager', 'GM', 'IT']))
+            @if(in_array($role, ['Admin Area', 'ASM', 'Manager', 'GM', 'Admin Pusat', 'IT']))
                 <a href="{{ route('master.sales') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.sales') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i data-lucide="users" class="w-4 h-4 mr-3 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">Sales Directory</span>
@@ -166,18 +166,21 @@
                 </a>
             @endif
 
-            @if(in_array($role, ['Admin Pusat', 'Admin Area', 'Fleet Admin', 'ASM', 'IT']))
+            @if(in_array($role, ['Sales', 'Admin Area', 'ASM', 'Manager', 'Fleet Admin', 'Admin Pusat', 'IT']))
                 <a href="{{ route('master.route') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.route') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i data-lucide="route" class="w-4 h-4 mr-3 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">Master Route</span>
                 </a>
             @endif
 
-            @if(in_array($role, ['Admin Pusat', 'Fleet Admin', 'IT']))
+            @if(in_array($role, ['Fleet Admin', 'Admin Pusat', 'IT']))
                 <a href="{{ route('master.vehicle') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.vehicle') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i data-lucide="truck" class="w-4 h-4 mr-3 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">Vehicle (Concox GT06N)</span>
                 </a>
+            @endif
+
+            @if(in_array($role, ['Manager', 'GM', 'Admin Pusat', 'IT']))
                 <a href="{{ route('master.market') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.market') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i data-lucide="shopping-bag" class="w-4 h-4 mr-3 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">Market / Channel</span>
@@ -191,13 +194,13 @@
                 <button @click="trackingOpen = !trackingOpen" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-100 transition-all">
                     <div class="flex items-center">
                         <i data-lucide="compass" class="w-4 h-4 mr-3 flex-shrink-0 text-indigo-600"></i>
-                        <span x-show="sidebarOpen">Tracking</span>
+                        <span x-show="sidebarOpen">Tracking Armada</span>
                     </div>
                     <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform" :class="trackingOpen ? 'rotate-180' : ''" x-show="sidebarOpen"></i>
                 </button>
                 <div x-show="trackingOpen && sidebarOpen" x-cloak class="mt-1 ml-4 pl-3 border-l-2 border-indigo-100 space-y-1">
                     <a href="{{ route('transaksi.checkin-gps') }}" class="flex items-center px-3 py-2 rounded-lg text-xs {{ str_contains($currentRoute, 'transaksi.checkin-gps') ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                        <i data-lucide="radio" class="w-3.5 h-3.5 mr-2"></i> Live Tracking
+                        <i data-lucide="radio" class="w-3.5 h-3.5 mr-2"></i> Live Tracking Map
                     </a>
                     @if(in_array($role, ['IT', 'Admin Pusat', 'Fleet Admin']))
                         <a href="{{ route('master.vehicle') }}" class="flex items-center px-3 py-2 rounded-lg text-xs {{ str_contains($currentRoute, 'master.vehicle') ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
@@ -206,7 +209,7 @@
                     @endif
                     @if(in_array($role, ['IT', 'Admin Pusat']))
                         <a href="{{ route('administration.integration') }}" class="flex items-center px-3 py-2 rounded-lg text-xs {{ str_contains($currentRoute, 'administration.integration') ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                            <i data-lucide="wifi" class="w-3.5 h-3.5 mr-2"></i> Technical Koneksi (IT)
+                            <i data-lucide="wifi" class="w-3.5 h-3.5 mr-2"></i> Technical Integration (IT)
                         </a>
                     @endif
                 </div>
@@ -215,37 +218,43 @@
             <!-- Transaksi Section -->
             <div class="pt-4 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Transaksi</div>
 
-            <a href="{{ route('transaksi.sales-visit') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.sales-visit') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                <i data-lucide="clipboard-check" class="w-4 h-4 mr-3 flex-shrink-0"></i>
-                <span x-show="sidebarOpen">Sales Visit GPS</span>
-            </a>
+            @if(in_array($role, ['Sales', 'Admin Area', 'ASM', 'Manager', 'Fleet Admin', 'Admin Pusat', 'IT']))
+                <a href="{{ route('transaksi.sales-visit') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.sales-visit') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <i data-lucide="clipboard-check" class="w-4 h-4 mr-3 flex-shrink-0"></i>
+                    <span x-show="sidebarOpen">Sales Visit GPS</span>
+                </a>
+            @endif
 
-            <a href="{{ route('transaksi.sales-order') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.sales-order') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                <i data-lucide="shopping-cart" class="w-4 h-4 mr-3 flex-shrink-0"></i>
-                <span x-show="sidebarOpen">Sales Order (SAP)</span>
-            </a>
+            @if(in_array($role, ['Sales', 'Admin Area', 'ASM', 'Manager', 'GM', 'Finance', 'Admin Pusat']))
+                <a href="{{ route('transaksi.sales-order') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.sales-order') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <i data-lucide="shopping-cart" class="w-4 h-4 mr-3 flex-shrink-0"></i>
+                    <span x-show="sidebarOpen">Sales Order (SAP)</span>
+                </a>
+            @endif
 
-            <a href="{{ route('transaksi.noo') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.noo') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                <i data-lucide="user-plus" class="w-4 h-4 mr-3 flex-shrink-0"></i>
-                <span x-show="sidebarOpen">NOO (New Outlet)</span>
-            </a>
+            @if(in_array($role, ['Sales', 'Admin Area', 'ASM', 'Manager', 'Admin Pusat']))
+                <a href="{{ route('transaksi.noo') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.noo') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <i data-lucide="user-plus" class="w-4 h-4 mr-3 flex-shrink-0"></i>
+                    <span x-show="sidebarOpen">NOO (New Outlet)</span>
+                </a>
+                <a href="{{ route('transaksi.nop') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.nop') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <i data-lucide="box" class="w-4 h-4 mr-3 flex-shrink-0"></i>
+                    <span x-show="sidebarOpen">NOP (New Product)</span>
+                </a>
+            @endif
 
-            <a href="{{ route('transaksi.nop') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.nop') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                <i data-lucide="box" class="w-4 h-4 mr-3 flex-shrink-0"></i>
-                <span x-show="sidebarOpen">NOP (New Product)</span>
-            </a>
+            @if(in_array($role, ['Sales', 'Admin Area', 'ASM', 'Manager', 'Finance', 'Admin Pusat']))
+                <a href="{{ route('transaksi.ro') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.ro') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <i data-lucide="repeat" class="w-4 h-4 mr-3 flex-shrink-0"></i>
+                    <span x-show="sidebarOpen">RO / ROA</span>
+                </a>
+                <a href="{{ route('transaksi.ro-item') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.ro-item') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <i data-lucide="list-checks" class="w-4 h-4 mr-3 flex-shrink-0"></i>
+                    <span x-show="sidebarOpen">RO Item</span>
+                </a>
+            @endif
 
-            <a href="{{ route('transaksi.ro') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.ro') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                <i data-lucide="repeat" class="w-4 h-4 mr-3 flex-shrink-0"></i>
-                <span x-show="sidebarOpen">RO / ROA</span>
-            </a>
-
-            <a href="{{ route('transaksi.ro-item') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.ro-item') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                <i data-lucide="list-checks" class="w-4 h-4 mr-3 flex-shrink-0"></i>
-                <span x-show="sidebarOpen">RO Item</span>
-            </a>
-
-            @if(!in_array($role, ['Sales']))
+            @if(in_array($role, ['Admin Area', 'ASM', 'Manager', 'GM', 'Finance', 'Admin Pusat']))
                 <a href="{{ route('transaksi.account-proposal') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.account-proposal') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i data-lucide="file-text" class="w-4 h-4 mr-3 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">Account Proposal</span>
@@ -253,15 +262,17 @@
             @endif
 
             <!-- Report Section -->
-            <div class="pt-4 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Report</div>
-            <a href="{{ route('report.index') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'report') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                <i data-lucide="bar-chart-3" class="w-4 h-4 mr-3 flex-shrink-0"></i>
-                <span x-show="sidebarOpen">Reporting Center</span>
-            </a>
+            @if(in_array($role, ['Admin Area', 'ASM', 'Manager', 'GM', 'Finance', 'Fleet Admin', 'Admin Pusat', 'IT']))
+                <div class="pt-4 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Report</div>
+                <a href="{{ route('report.index') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'report') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <i data-lucide="bar-chart-3" class="w-4 h-4 mr-3 flex-shrink-0"></i>
+                    <span x-show="sidebarOpen">Reporting Center</span>
+                </a>
+            @endif
 
-            <!-- Administration Section -->
+            <!-- Administration Section (IT & Admin Pusat Only) -->
             @if(in_array($role, ['Admin Pusat', 'IT']))
-                <div class="pt-4 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Administration</div>
+                <div class="pt-4 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Administration (IT)</div>
                 <a href="{{ route('administration.user') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'administration.user') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i data-lucide="shield-check" class="w-4 h-4 mr-3 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">User Management</span>
@@ -285,7 +296,7 @@
     <!-- Main Content Area -->
     <div class="flex-1 flex flex-col min-w-0 overflow-hidden bg-slate-50">
         
-        <!-- Clean Header (No Header Status Badges) -->
+        <!-- Clean Header -->
         <header class="h-16 bg-white border-b border-slate-200/80 px-4 md:px-6 flex items-center justify-between z-20 shadow-xs">
             
             <div class="flex items-center space-x-3 md:space-x-4">
