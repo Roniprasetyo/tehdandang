@@ -337,26 +337,6 @@
                                 }
                             }
                         }
-                    },
-                    'Jawa Timur': {
-                        title: 'Region Jawa Timur',
-                        levelName: 'Region',
-                        depth: 2,
-                        items: [
-                            { label: 'Surabaya Raya', target: 8000000000, actual: 7600000000, achievement: 95.0, growth: 8.0, statusEmoji: '🟢', color: '#4f46e5' },
-                            { label: 'Malang Raya', target: 5000000000, actual: 4850000000, achievement: 97.0, growth: 9.2, statusEmoji: '🟢', color: '#10b981' },
-                            { label: 'Kediri & Madiun', target: 5000000000, actual: 4650000000, achievement: 93.0, growth: 7.5, statusEmoji: '🟡', color: '#f59e0b' }
-                        ]
-                    },
-                    'Jawa Barat': {
-                        title: 'Region Jawa Barat',
-                        levelName: 'Region',
-                        depth: 2,
-                        items: [
-                            { label: 'Bandung Raya', target: 7000000000, actual: 6300000000, achievement: 90.0, growth: 5.0, statusEmoji: '🟢', color: '#06b6d4' },
-                            { label: 'Bogor & Depok', target: 5500000000, actual: 4950000000, achievement: 90.0, growth: 4.5, statusEmoji: '🟢', color: '#6366f1' },
-                            { label: 'Cirebon & Karawang', target: 4000000000, actual: 3550000000, achievement: 88.8, growth: 3.2, statusEmoji: '🟡', color: '#f59e0b' }
-                        ]
                     }
                 }
             },
@@ -365,10 +345,11 @@
             stack: [],
 
             init() {
-                // Initialize level 1
                 this.stack = [this.rawHierarchy];
                 this.$nextTick(() => {
-                    this.renderChart();
+                    setTimeout(() => {
+                        this.renderChart();
+                    }, 50);
                 });
             },
 
@@ -396,15 +377,15 @@
             },
 
             get isLowestLevel() {
-                return !!this.currentLevel.isLowest || !this.currentLevel.children;
+                return !!this.currentLevel.isLowest || this.currentDepth >= 7;
             },
 
             get totalTarget() {
-                return this.currentLevel.items.reduce((acc, i) => acc + i.target, 0);
+                return (this.currentLevel.items || []).reduce((acc, i) => acc + (i.target || 0), 0);
             },
 
             get totalActual() {
-                return this.currentLevel.items.reduce((acc, i) => acc + i.actual, 0);
+                return (this.currentLevel.items || []).reduce((acc, i) => acc + (i.actual || 0), 0);
             },
 
             get avgAchievement() {
@@ -413,18 +394,20 @@
             },
 
             get itemCount() {
-                return this.currentLevel.items.length;
+                return (this.currentLevel.items || []).length;
             },
 
             get filteredRows() {
+                const items = this.currentLevel.items || [];
                 if (!this.searchQuery.trim()) {
-                    return this.currentLevel.items;
+                    return items;
                 }
                 const q = this.searchQuery.toLowerCase();
-                return this.currentLevel.items.filter(i => i.label.toLowerCase().includes(q));
+                return items.filter(i => i.label.toLowerCase().includes(q));
             },
 
             formatCurrency(val) {
+                if (!val) return 'Rp 0';
                 if (val >= 1000000000) {
                     return 'Rp ' + (val / 1000000000).toFixed(2) + ' M';
                 } else if (val >= 1000000) {
@@ -433,38 +416,64 @@
                 return 'Rp ' + val.toLocaleString('id-ID');
             },
 
-            drillDownTo(label) {
-                const node = this.currentLevel;
-                if (!node.children || !node.children[label]) {
-                    // Generates dynamic placeholder sub-level data if deep explicit tree node isn't defined
-                    const dynamicChild = {
-                        title: label,
-                        levelName: this.getNextLevelName(node.levelName),
-                        depth: node.depth + 1,
-                        isLowest: node.depth >= 6,
-                        items: [
-                            { label: label + ' - Sektor A', target: 500000000, actual: 580000000, achievement: 116.0, growth: 14.0, statusEmoji: '🟢', color: '#10b981' },
-                            { label: label + ' - Sektor B', target: 400000000, actual: 440000000, achievement: 110.0, growth: 12.0, statusEmoji: '🟢', color: '#6366f1' },
-                            { label: label + ' - Sektor C', target: 300000000, actual: 315000000, achievement: 105.0, growth: 8.0, statusEmoji: '🟢', color: '#06b6d4' }
-                        ]
-                    };
-                    this.stack.push(dynamicChild);
-                } else {
-                    this.stack.push(node.children[label]);
-                }
-                this.searchQuery = '';
-                this.$nextTick(() => {
-                    this.renderChart();
-                });
-            },
-
             getNextLevelName(currentName) {
-                const levels = ['Nasional', 'Region', 'Area', 'Kabupaten', 'Kecamatan', 'Salesperson', 'Outlet (SKU)'];
+                const levels = ['Nasional', 'Region', 'Area', 'Kabupaten', 'Kecamatan', 'Salesperson', 'Outlet (SKU)', 'Produk SKU'];
                 const idx = levels.indexOf(currentName);
                 if (idx !== -1 && idx < levels.length - 1) {
                     return levels[idx + 1];
                 }
-                return 'Sub-Detail';
+                return 'Detail SKU';
+            },
+
+            generateSubItems(parentLabel, nextLevelName, isLowest) {
+                if (isLowest) {
+                    return [
+                        { label: 'Teh Dandang 2in1 25g', target: 45000000, actual: 55000000, achievement: 122.2, growth: 30.0, statusEmoji: '🟢', color: '#10b981' },
+                        { label: 'Teh Dandang Celup Black Tea', target: 35000000, actual: 40000000, achievement: 114.3, growth: 20.0, statusEmoji: '🟢', color: '#6366f1' },
+                        { label: 'Teh Dandang Hijau Jasmine', target: 25000000, actual: 30000000, achievement: 120.0, growth: 25.0, statusEmoji: '🟢', color: '#06b6d4' },
+                        { label: 'Teh Dandang Loose Leaf 500g', target: 10000000, actual: 15000000, achievement: 150.0, growth: 40.0, statusEmoji: '🟢', color: '#f59e0b' },
+                        { label: 'Teh Dandang Botol RTD 350ml', target: 5000000, actual: 10000000, achievement: 200.0, growth: 50.0, statusEmoji: '🟢', color: '#ec4899' }
+                    ];
+                }
+
+                return [
+                    { label: parentLabel + ' - Sektor Utara', target: 1200000000, actual: 1380000000, achievement: 115.0, growth: 14.0, statusEmoji: '🟢', color: '#10b981' },
+                    { label: parentLabel + ' - Sektor Selatan', target: 950000000, actual: 1045000000, achievement: 110.0, growth: 12.0, statusEmoji: '🟢', color: '#6366f1' },
+                    { label: parentLabel + ' - Sektor Timur', target: 800000000, actual: 840000000, achievement: 105.0, growth: 8.0, statusEmoji: '🟢', color: '#06b6d4' },
+                    { label: parentLabel + ' - Sektor Barat', target: 600000000, actual: 630000000, achievement: 105.0, growth: 7.0, statusEmoji: '🟢', color: '#f59e0b' }
+                ];
+            },
+
+            drillDownTo(label) {
+                if (this.isLowestLevel) return;
+
+                const node = this.currentLevel;
+                let child = null;
+
+                if (node && node.children && node.children[label]) {
+                    child = node.children[label];
+                } else {
+                    const nextLevel = this.getNextLevelName(node.levelName);
+                    const nextDepth = (node.depth || 1) + 1;
+                    const isLowest = nextDepth >= 7;
+
+                    child = {
+                        title: node.levelName + ': ' + label,
+                        levelName: nextLevel,
+                        depth: nextDepth,
+                        isLowest: isLowest,
+                        items: this.generateSubItems(label, nextLevel, isLowest)
+                    };
+                }
+
+                this.stack.push(child);
+                this.searchQuery = '';
+
+                this.$nextTick(() => {
+                    setTimeout(() => {
+                        this.renderChart();
+                    }, 50);
+                });
             },
 
             goBack() {
@@ -472,7 +481,9 @@
                     this.stack.pop();
                     this.searchQuery = '';
                     this.$nextTick(() => {
-                        this.renderChart();
+                        setTimeout(() => {
+                            this.renderChart();
+                        }, 50);
                     });
                 }
             },
@@ -482,7 +493,9 @@
                     this.stack = this.stack.slice(0, index + 1);
                     this.searchQuery = '';
                     this.$nextTick(() => {
-                        this.renderChart();
+                        setTimeout(() => {
+                            this.renderChart();
+                        }, 50);
                     });
                 }
             },
@@ -491,31 +504,43 @@
                 this.stack = [this.rawHierarchy];
                 this.searchQuery = '';
                 this.$nextTick(() => {
-                    this.renderChart();
+                    setTimeout(() => {
+                        this.renderChart();
+                    }, 50);
                 });
             },
 
             setChartType(type) {
                 this.chartType = type;
-                this.renderChart();
+                this.$nextTick(() => {
+                    setTimeout(() => {
+                        this.renderChart();
+                    }, 50);
+                });
             },
 
             renderChart() {
-                const ctx = document.getElementById('multiLevelDrilldownChart').getContext('2d');
+                const canvas = document.getElementById('multiLevelDrilldownChart');
+                if (!canvas) return;
+
                 if (this.chartInstance) {
                     this.chartInstance.destroy();
+                    this.chartInstance = null;
                 }
 
-                const items = this.currentLevel.items;
+                const items = this.currentLevel.items || [];
+                if (items.length === 0) return;
+
                 const labels = items.map(i => i.label);
                 const actualData = items.map(i => i.actual / 1000000); // in Millions
                 const targetData = items.map(i => i.target / 1000000);
-                const bgColors = items.map(i => i.color);
+                const bgColors = items.map(i => i.color || '#4f46e5');
 
                 const isHorizontal = this.chartType === 'horizontalBar';
                 const effectiveType = isHorizontal ? 'bar' : this.chartType;
-
                 const self = this;
+
+                const ctx = canvas.getContext('2d');
 
                 this.chartInstance = new Chart(ctx, {
                     type: effectiveType,
@@ -554,7 +579,11 @@
                             if (elements && elements.length > 0 && !self.isLowestLevel) {
                                 const index = elements[0].index;
                                 const clickedLabel = labels[index];
-                                self.drillDownTo(clickedLabel);
+                                if (clickedLabel) {
+                                    setTimeout(() => {
+                                        self.drillDownTo(clickedLabel);
+                                    }, 50);
+                                }
                             }
                         },
                         plugins: {
@@ -566,9 +595,7 @@
                                 callbacks: {
                                     label: function(context) {
                                         let label = context.dataset.label || '';
-                                        if (label) {
-                                            label += ': ';
-                                        }
+                                        if (label) label += ': ';
                                         if (context.parsed.y !== null || context.parsed.x !== null) {
                                             const val = isHorizontal ? context.parsed.x : (context.parsed.y ?? context.parsed);
                                             label += 'Rp ' + val.toLocaleString('id-ID') + ' Juta';
