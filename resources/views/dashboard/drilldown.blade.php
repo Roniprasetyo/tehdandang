@@ -222,7 +222,7 @@
                     <template x-if="filteredRows.length === 0">
                         <tr>
                             <td colspan="7" class="py-8 text-center text-slate-400">
-                                Tidak ada data yang sesuai dengan pencarian "{{ searchQuery }}".
+                                Tidak ada data yang sesuai dengan pencarian "<span x-text="searchQuery"></span>".
                             </td>
                         </tr>
                     </template>
