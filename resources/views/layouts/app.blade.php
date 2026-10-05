@@ -123,12 +123,17 @@
                 </a>
             @endif
 
-            @if(in_array($role, ['Admin Area', 'ASM', 'Manager', 'GM', 'Fleet Admin', 'Admin Pusat']))
+            @if(in_array($role, ['Admin Area', 'ASM', 'Manager', 'GM', 'Fleet Admin', 'Admin Pusat', 'IT']))
                 <a href="{{ route('dashboard.area') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.area') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i data-lucide="map-pin" class="w-4 h-4 mr-3 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">Area Dashboard</span>
                 </a>
             @endif
+
+            <a href="{{ route('dashboard.drilldown') }}" class="flex items-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.drilldown') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <i data-lucide="bar-chart-2" class="w-4 h-4 mr-3 flex-shrink-0 text-emerald-500"></i>
+                <span x-show="sidebarOpen">Grafik Drilldown</span>
+            </a>
 
             @if(in_array($role, ['ASM', 'Manager', 'GM', 'Admin Area', 'Admin Pusat', 'IT']))
                 <a href="{{ route('dashboard.early-warning') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.early-warning') ? 'bg-rose-50 text-rose-700 border border-rose-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">

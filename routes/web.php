@@ -23,6 +23,7 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/sales', [DashboardController::class, 'sales'])->name('dashboard.sales');
     Route::get('/area', [DashboardController::class, 'area'])->name('dashboard.area');
     Route::get('/early-warning', [DashboardController::class, 'earlyWarning'])->name('dashboard.early-warning');
+    Route::get('/drilldown', [DashboardController::class, 'drilldown'])->name('dashboard.drilldown');
 });
 
 // Master Group

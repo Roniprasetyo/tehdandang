@@ -19,10 +19,10 @@
             <p class="text-xs text-slate-500 mt-0.5">Hierarki Rantai Cabang: Region → Area → Kabupaten → Kecamatan → Sales → Outlet</p>
         </div>
         <div class="flex items-center gap-2 text-xs">
-            <span class="px-3 py-1.5 rounded-full bg-indigo-50 text-indigo-700 font-bold border border-indigo-200 flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
-                <span>Hierarki Wilayah Aktiv</span>
-            </span>
+            <a href="{{ route('dashboard.drilldown') }}" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex items-center gap-2 shadow-xs transition-all">
+                <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
+                <span>Grafik Drilldown Interactive</span>
+            </a>
         </div>
     </div>
 

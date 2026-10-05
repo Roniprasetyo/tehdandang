@@ -136,19 +136,36 @@
     </div>
 
     <!-- Area Performance & Top Sales Highlight (PRD Section 8) -->
+    <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-700 text-white rounded-2xl p-5 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center flex-shrink-0 text-white border border-white/20">
+                <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase font-bold tracking-widest bg-white/20 px-2 py-0.5 rounded-full text-white">Fitur Grafik Drilldown Bertingkat</span>
+                <h2 class="text-lg font-bold mt-0.5">Grafik Sales Interactive Drill-Down (7 Level Depth)</h2>
+                <p class="text-xs text-emerald-100 mt-0.5">Klik batang bar grafik untuk menelusuri hierarki: Nasional ➔ Region ➔ Area ➔ Kabupaten ➔ Kecamatan ➔ Sales ➔ Outlet ➔ Produk SKU.</p>
+            </div>
+        </div>
+        <a href="{{ route('dashboard.drilldown') }}" class="px-5 py-2.5 rounded-xl bg-white text-emerald-800 hover:bg-emerald-50 font-bold text-xs shadow-lg transition-all flex items-center gap-2 flex-shrink-0">
+            <span>Buka Grafik Drilldown</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+    </div>
+
     <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
             <div>
                 <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-                    <i data-lucide="map" class="w-4 h-4 text-emerald-600"></i> Regional Performance & Multi-Level Drill Down
+                    <i data-lucide="map" class="w-4 h-4 text-emerald-600"></i> Regional Performance Overview
                 </h3>
-                <p class="text-xs text-slate-500">Klik area untuk drilldown: Region → Area → Kabupaten → Kecamatan → Sales → Outlet → Product</p>
+                <p class="text-xs text-slate-500">Klik area untuk drilldown langsung via tabel atau buka Grafik Drilldown</p>
             </div>
             <div class="flex items-center gap-2">
-                <span class="text-xs text-slate-500 font-medium">Status:</span>
-                <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-200">🟢 Good</span>
-                <span class="text-xs px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 font-bold border border-amber-200">🟡 Warning</span>
-                <span class="text-xs px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 font-bold border border-rose-200">🔴 Critical</span>
+                <a href="{{ route('dashboard.drilldown') }}" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 text-xs flex items-center gap-1.5 hover:bg-emerald-100">
+                    <i data-lucide="bar-chart-2" class="w-3.5 h-3.5"></i>
+                    <span>Mode Grafik Drilldown</span>
+                </a>
             </div>
         </div>
 

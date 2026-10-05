@@ -67,4 +67,15 @@ class DashboardController extends Controller
 
         return view('dashboard.early_warning', compact('warnings', 'salesList', 'areas', 'user'));
     }
+
+    public function drilldown()
+    {
+        $user = session('user');
+        $areas = $this->mockData->getAreas();
+        $salesList = $this->mockData->getSales($user);
+        $outlets = $this->mockData->getOutlets($user);
+        $products = $this->mockData->getProducts();
+
+        return view('dashboard.drilldown', compact('areas', 'salesList', 'outlets', 'products', 'user'));
+    }
 }
