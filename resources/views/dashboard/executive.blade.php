@@ -145,21 +145,28 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
         <!-- Tren Penjualan Chart (Col 5) -->
-        <div class="lg:col-span-5 bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs flex flex-col justify-between">
+        <div class="lg:col-span-5 bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs flex flex-col justify-between relative">
             <div>
-                <div class="flex items-center justify-between mb-2">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <div>
                         <h3 class="text-sm font-bold text-slate-900">Tren Penjualan</h3>
                         <p class="text-xs text-slate-500">Perbandingan Realisasi vs Target (dalam Miliar Rupiah)</p>
                     </div>
-                    <button @click="openModal('sales_trend')" class="text-xs text-indigo-600 font-bold hover:underline">
-                        Detail ➔
-                    </button>
+                    
+                    <!-- Chart Legend matching mockup -->
+                    <div class="flex items-center gap-2.5 text-[10px] font-semibold text-slate-600">
+                        <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Realisasi</span>
+                        <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-400"></span> Target</span>
+                        <span class="flex items-center gap-1"><span class="text-slate-400 font-mono">--</span> Tahun Lalu</span>
+                    </div>
                 </div>
-                <!-- Callout Badge -->
-                <div class="bg-indigo-50/80 border border-indigo-100 rounded-xl p-2.5 flex items-center justify-between my-2 text-xs">
-                    <span class="font-bold text-indigo-900">Okt 2026</span>
-                    <span class="font-extrabold text-indigo-700">Rp 2,87 M <span class="text-[11px] font-medium text-indigo-600">(92,6%)</span></span>
+
+                <!-- Callout Badge anchored like mockup -->
+                <div class="flex justify-end pr-2 pt-1">
+                    <div class="bg-white border border-slate-200 shadow-md rounded-xl px-3 py-1.5 text-center text-xs ring-1 ring-slate-900/5">
+                        <div class="text-[10px] font-bold text-slate-500">Okt 2026</div>
+                        <div class="font-extrabold text-blue-700 text-xs">Rp 2,87 M <span class="font-medium text-slate-600">(92,6%)</span></div>
+                    </div>
                 </div>
             </div>
 
@@ -912,7 +919,7 @@
                         type: 'bar',
                         label: 'Realisasi (Miliar Rp)',
                         data: [1.5, 1.7, 2.1, 2.0, 2.3, 2.5, 2.6, 2.8, 3.0, 2.87],
-                        backgroundColor: '#3b82f6',
+                        backgroundColor: '#2563eb',
                         borderRadius: 6,
                         barThickness: 16
                     },
@@ -920,19 +927,24 @@
                         type: 'line',
                         label: 'Target',
                         data: [1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.7, 2.9, 3.0, 3.10],
-                        borderColor: '#64748b',
-                        borderDash: [4, 4],
+                        borderColor: '#60a5fa',
                         borderWidth: 2,
-                        pointRadius: 3,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#2563eb',
+                        pointBorderWidth: 2,
+                        pointRadius: 5,
+                        tension: 0.3,
                         fill: false
                     },
                     {
                         type: 'line',
                         label: 'Tahun Lalu',
                         data: [1.2, 1.4, 1.6, 1.7, 1.9, 2.0, 2.1, 2.2, 2.4, 2.5],
-                        borderColor: '#94a3b8',
+                        borderColor: '#cbd5e1',
+                        borderDash: [5, 5],
                         borderWidth: 1.5,
                         pointRadius: 0,
+                        tension: 0.3,
                         fill: false
                     }
                 ]
@@ -944,8 +956,8 @@
                     legend: { display: false }
                 },
                 scales: {
-                    x: { ticks: { color: '#94a3b8', font: { size: 9 } }, grid: { display: false } },
-                    y: { ticks: { color: '#94a3b8', font: { size: 9 } }, grid: { color: '#f1f5f9' }, min: 0, max: 4 }
+                    x: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { display: false } },
+                    y: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#f1f5f9' }, min: 0, max: 4 }
                 }
             }
         });

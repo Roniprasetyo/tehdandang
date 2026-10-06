@@ -1,5 +1,16 @@
 [
     {
+        "username": "owner",
+        "name": "Bapak/Ibu Owner",
+        "role": "Owner",
+        "area": "Semua",
+        "region": "Nasional",
+        "email": "owner@tehdandang.co.id",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+        "slp_code": null,
+        "npk": "OWN01"
+    },
+    {
         "username": "sales01",
         "name": "Andi Pratama",
         "role": "Sales",

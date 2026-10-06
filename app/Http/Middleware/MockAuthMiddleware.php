@@ -27,7 +27,7 @@ class MockAuthMiddleware
         }
 
         if (!session()->has('user')) {
-            $defaultUser = $this->mockData->getUserByUsername('admin-pusat');
+            $defaultUser = $this->mockData->getUserByUsername('owner') ?? $this->mockData->getUserByUsername('admin-pusat');
             session(['user' => $defaultUser]);
         }
 
