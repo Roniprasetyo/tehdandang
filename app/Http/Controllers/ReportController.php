@@ -24,19 +24,24 @@ class ReportController extends Controller
         $products = $this->mockData->getProducts();
         $outlets = $this->mockData->getOutlets();
 
-        // Data arrays for various report types
+        $roRaw = $this->mockData->getRoData();
+        $roaRaw = $this->mockData->getRoaData();
+        $gpsRaw = $this->mockData->getGpsData();
+        $ewRaw = $this->mockData->getEarlyWarnings();
+
+        // Data arrays for all 13 report types normalized cleanly
         $reportData = [
             'sales' => $this->mockData->getSalesOrders(),
             'outlet' => $outlets,
             'product' => $products,
-            'ro' => $this->mockData->getRoData(),
-            'roa' => $this->mockData->getRoaData(),
+            'ro' => $roRaw['outlet_ro_list'] ?? [],
+            'roa' => $roaRaw['outlet_roa_list'] ?? [],
             'ro_item' => $this->mockData->getRoItems(),
-            'gps' => $this->mockData->getGpsData(),
+            'gps' => $gpsRaw['vehicles'] ?? [],
             'route' => $this->mockData->getRoutes(),
             'performance' => $salesList,
             'sap' => $this->mockData->getSalesOrders(),
-            'early_warning' => $this->mockData->getEarlyWarnings(),
+            'early_warning' => $ewRaw['warnings'] ?? [],
             'daily' => $this->mockData->getVisits(),
             'closing' => $this->mockData->getSalesOrders(),
         ];
