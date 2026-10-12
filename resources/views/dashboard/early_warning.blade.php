@@ -9,14 +9,14 @@
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
             <h1 class="text-xl font-semibold text-slate-900 flex items-center gap-2">
-                <i class="mdi mdi-alert-outline text-secondary text-2xl"></i> Sistem Peringatan Dini (Early Warning System)
+                <i class="mdi mdi-alert-outline text-secondary text-2xl"></i> Sistem Peringatan Dini
             </h1>
-            <p class="text-xs text-slate-500 mt-1">Deteksi dini penurunan repeat order, deviasi rute GPS, kepatuhan EC, dan anomali SKU</p>
+            <p class="text-xs text-slate-500 mt-1">Pemantauan deviasi rute armada, kepatuhan repeat order, dan anomali penjualan</p>
         </div>
         <div class="flex items-center gap-2">
             <span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-rose-500"></span>
-                <span>Peringatan Aktif: 158 Tiket</span>
+                <span>158 Peringatan Aktif</span>
             </span>
         </div>
     </div>
@@ -64,13 +64,13 @@
     <div class="bg-white border border-slate-200/90 rounded-xl p-4 flex flex-wrap items-center justify-between gap-3 text-xs shadow-xs">
         <div class="flex flex-wrap items-center gap-3">
             <div class="flex items-center gap-2">
-                <label class="text-slate-500 font-medium">Tingkat Bahaya:</label>
+                <label class="text-slate-500 font-medium">Tingkat Urgensi:</label>
                 <select x-model="severityFilter" class="bg-slate-50 border border-slate-200 text-slate-800 rounded-lg h-9 px-3 focus:outline-none focus:border-primary cursor-pointer transition-all">
-                    <option value="All">Semua Tingkat Bahaya</option>
-                    <option value="Critical">Kritis (Critical)</option>
-                    <option value="High">Tinggi (High)</option>
-                    <option value="Medium">Sedang (Medium)</option>
-                    <option value="Low">Rendah (Low)</option>
+                    <option value="All">Semua Tingkat</option>
+                    <option value="Critical">Kritis</option>
+                    <option value="High">Tinggi</option>
+                    <option value="Medium">Sedang</option>
+                    <option value="Low">Rendah</option>
                 </select>
             </div>
 
@@ -136,7 +136,7 @@
                         <td class="py-3 px-3.5 text-right">
                             <button 
                                 type="button"
-                                @click="notify('Aksi investigasi untuk tiket #{{ $w['id'] }} telah dipicu.', 'info')" 
+                                @click="notify('Investigasi untuk peringatan #{{ $w['id'] }} telah diproses.', 'info')" 
                                 class="text-xs px-2.5 py-1 rounded-lg bg-primary-50 text-primary-700 hover:bg-primary-100 border border-primary-200 font-medium active:translate-y-px transition-colors cursor-pointer"
                             >
                                 Tindak Lanjut

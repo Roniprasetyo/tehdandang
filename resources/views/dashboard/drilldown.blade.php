@@ -151,10 +151,10 @@
     <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-                <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2 font-normal">
-                    <i class="mdi mdi-table text-primary text-base"></i> Data Sinkronisasi Tabel Level: <span class="text-primary font-bold" x-text="currentLevelTitle"></span>
+                <h3 class="text-sm font-semibold text-slate-900 flex items-center gap-2">
+                    <i class="mdi mdi-table text-primary text-base"></i> Rincian Data: <span class="text-primary font-bold" x-text="currentLevelTitle"></span>
                 </h3>
-                <p class="text-xs text-slate-500">Anda juga dapat mengklik tombol "Drill Down" atau baris tabel untuk menelusuri data.</p>
+                <p class="text-xs text-slate-500 mt-0.5">Metrik penjualan dan pertumbuhan per entitas</p>
             </div>
             
             <div class="w-full sm:w-64">
@@ -172,7 +172,7 @@
                         <th class="py-3 px-4">Capaian (%)</th>
                         <th class="py-3 px-4">Growth (MoM)</th>
                         <th class="py-3 px-4 text-center">Status</th>
-                        <th class="py-3 px-4 text-right">Aksi Drilldown</th>
+                        <th class="py-3 px-4 text-right">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
