@@ -53,7 +53,7 @@
 </head>
 <body class="h-full flex items-center justify-center p-4 font-sans bg-slate-100">
 
-    <div class="w-full max-w-2xl bg-white border border-slate-200/90 rounded-3xl p-6 md:p-8 shadow-xl relative overflow-hidden">
+    <div class="w-full max-w-2xl bg-white border border-slate-200/90 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
         
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary p-0.5 shadow-md shadow-emerald-900/10 mb-4">
@@ -61,11 +61,11 @@
                     <i class="mdi mdi-tea text-3xl text-primary"></i>
                 </div>
             </div>
-            <h1 class="text-2xl font-bold text-slate-900 tracking-wide font-normal">TEH DANDANG</h1>
+            <h1 class="text-2xl font-bold text-slate-900 tracking-wide">TEH DANDANG</h1>
             <p class="text-xs text-slate-500 mt-1 uppercase tracking-widest font-semibold">PT. Kartini Teh Nasional — Batang, Jawa Tengah</p>
             <div class="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold">
-                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                <span>Sales Monitoring System & Enterprise Portal</span>
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                <span>Portal Sistem Monitoring Penjualan</span>
             </div>
         </div>
 
@@ -76,7 +76,7 @@
                     <form action="{{ route('login') }}" method="POST">
                         @csrf
                         <input type="hidden" name="username" value="{{ $u['username'] }}">
-                        <button type="submit" class="w-full text-left p-3.5 rounded-2xl bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-primary/50 transition-all duration-150 active:translate-y-px group flex flex-col justify-between h-full shadow-xs cursor-pointer">
+                        <button type="submit" class="w-full text-left p-3.5 rounded-xl bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-primary/50 transition-all duration-150 active:translate-y-px group flex flex-col justify-between h-full shadow-xs cursor-pointer">
                             <div class="flex items-center space-x-3 mb-2">
                                 <img src="{{ $u['avatar'] }}" class="w-8 h-8 rounded-lg object-cover ring-1 ring-slate-200" alt="Avatar">
                                 <div class="overflow-hidden">

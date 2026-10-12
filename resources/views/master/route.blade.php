@@ -1,39 +1,40 @@
 @extends('layouts.app')
 
-@section('title', 'Master Route & Compliance')
+@section('title', 'Master Rute & Kepatuhan GPS')
 
 @section('content')
 <div class="space-y-6">
 
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <h1 class="text-xl font-bold font-display text-slate-900 font-normal">Master Rute (Target Rencana vs Aktual Rute GPS)</h1>
-            <p class="text-xs text-slate-500 mt-0.5">Rute harian salesman, waypoint target outlet vs rute aktual dari GPS Concox GT06N</p>
+            <h1 class="text-xl font-semibold text-slate-900">Master Rute & Kepatuhan GPS</h1>
+            <p class="text-xs text-slate-500 mt-1">Perbandingan waypoint target rencana kunjungan vs rute aktual dari GPS Concox GT06N</p>
         </div>
     </div>
 
     <!-- Route Cards -->
     <div class="space-y-4">
         @foreach($routes as $r)
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
                 <div class="flex items-center gap-3">
-                    <span class="px-2.5 py-1 rounded-lg bg-primary/10 text-primary font-mono tabular-nums font-bold text-xs border border-primary/20">
+                    <span class="px-2.5 py-1 rounded bg-primary-50 text-primary-700 font-mono tabular-nums font-medium text-xs border border-primary-200">
                         {{ $r['route_code'] }}
                     </span>
                     <div>
-                        <h3 class="text-sm font-bold text-slate-900 font-normal">{{ $r['sales_name'] }} (NPK: {{ $r['sales_npk'] }})</h3>
-                        <p class="text-xs text-slate-500">Hari: {{ $r['day'] }} | Area: {{ $r['area'] }} (Kecamatan {{ $r['kecamatan'] }})</p>
+                        <h3 class="text-sm font-semibold text-slate-900">{{ $r['sales_name'] }} (NPK: {{ $r['sales_npk'] }})</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Hari: {{ $r['day'] }} &bull; Area: {{ $r['area'] }} (Kecamatan {{ $r['kecamatan'] }})</p>
                     </div>
                 </div>
 
                 <div class="flex items-center gap-3">
                     <div class="text-right text-xs">
-                        <span class="text-slate-500 block font-medium">Kepatuhan Rute:</span>
-                        <span class="font-bold text-primary text-sm font-mono tabular-nums">{{ $r['compliance_rate'] }}%</span>
+                        <span class="text-slate-500 block font-medium">Kepatuhan Rute</span>
+                        <span class="font-semibold text-primary text-sm font-mono tabular-nums">{{ $r['compliance_rate'] }}%</span>
                     </div>
-                    <span class="px-3 py-1 rounded-full text-xs font-bold border {{ $r['status'] === 'Valid' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border-rose-200' }}">
-                        {{ $r['status'] }}
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium border {{ $r['status'] === 'Valid' ? 'bg-primary-50 text-primary-700 border-primary-200' : 'bg-rose-50 text-rose-700 border-rose-200' }}">
+                        <i class="mdi {{ $r['status'] === 'Valid' ? 'mdi-check-circle-outline' : 'mdi-alert-circle-outline' }} mr-1"></i>
+                        <span>{{ $r['status'] }}</span>
                     </span>
                 </div>
             </div>

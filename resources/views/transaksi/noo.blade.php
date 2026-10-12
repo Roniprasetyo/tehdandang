@@ -5,9 +5,10 @@
 @section('content')
 <div class="space-y-6">
 
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+    <!-- Header Banner -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <h1 class="text-xl font-bold font-display text-slate-900 font-normal">NOO (New Open Outlet) Dashboard</h1>
+            <h1 class="text-xl font-bold text-slate-900">NOO (New Open Outlet)</h1>
             <p class="text-xs text-slate-500 mt-0.5">Penambahan outlet baru terdaftar & verifikasi ke SAP Business One</p>
         </div>
         <button 
@@ -15,40 +16,40 @@
             @click="notify('Formulir pendaftaran NOO baru disiapkan.', 'info')" 
             class="btn-primary text-xs flex items-center gap-1.5 active:translate-y-px"
         >
-            <i class="mdi mdi-account-plus text-base"></i> + Registrasi NOO Baru
+            <i class="mdi mdi-account-plus text-base"></i> Registrasi NOO Baru
         </button>
     </div>
 
     <!-- 4 NOO Metric Cards -->
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
-            <span class="text-[10px] font-bold uppercase text-slate-400 block">NOO HARI INI</span>
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
+            <span class="text-[10px] font-bold uppercase text-slate-400 block tracking-wider">NOO Hari Ini</span>
             <span class="text-2xl font-bold font-mono tabular-nums text-slate-900 mt-1 block">{{ number_format($noo['noo_today'], 0, ',', '.') }}</span>
-            <span class="text-[11px] text-emerald-600 font-semibold">Terdaftar Hari Ini</span>
+            <span class="text-[11px] text-emerald-700 font-medium">Terdaftar Hari Ini</span>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
-            <span class="text-[10px] font-bold uppercase text-slate-400 block">NOO MTD</span>
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
+            <span class="text-[10px] font-bold uppercase text-slate-400 block tracking-wider">NOO MTD</span>
             <span class="text-2xl font-bold font-mono tabular-nums text-primary mt-1 block">{{ number_format($noo['noo_mtd'], 0, ',', '.') }}</span>
-            <span class="text-[11px] text-slate-500 font-semibold">Akumulasi Bulan Berjalan</span>
+            <span class="text-[11px] text-slate-500 font-medium">Akumulasi Bulan Berjalan</span>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
-            <span class="text-[10px] font-bold uppercase text-slate-400 block">TARGET MTD</span>
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
+            <span class="text-[10px] font-bold uppercase text-slate-400 block tracking-wider">Target MTD</span>
             <span class="text-2xl font-bold font-mono tabular-nums text-secondary mt-1 block">{{ number_format($noo['target_mtd'], 0, ',', '.') }}</span>
-            <span class="text-[11px] text-slate-500 font-semibold">Target Pembukaan Outlet</span>
+            <span class="text-[11px] text-slate-500 font-medium">Target Pembukaan Outlet</span>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
-            <span class="text-[10px] font-bold uppercase text-slate-400 block">ACHIEVEMENT RATE</span>
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
+            <span class="text-[10px] font-bold uppercase text-slate-400 block tracking-wider">Tingkat Pencapaian</span>
             <span class="text-2xl font-bold font-mono tabular-nums text-accent mt-1 block">{{ $noo['achievement_rate'] }}%</span>
-            <span class="text-[11px] text-emerald-600 font-semibold">On Track</span>
+            <span class="text-[11px] text-emerald-700 font-medium">Sesuai Target</span>
         </div>
     </div>
 
     <!-- NOO Registered List -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
-        <h3 class="text-sm font-bold text-slate-900 mb-4 font-normal">Pengajuan NOO Terbaru & Verifikasi SAP B1</h3>
+    <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
+        <h2 class="text-sm font-bold text-slate-900 mb-4">Pengajuan NOO Terbaru & Verifikasi SAP B1</h2>
         <div class="overflow-x-auto">
             <table class="w-full text-left text-xs text-slate-700">
                 <thead class="bg-slate-50 text-slate-500 uppercase text-[10px] tracking-wider border-b border-slate-200">

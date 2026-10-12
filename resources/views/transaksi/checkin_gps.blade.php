@@ -43,7 +43,7 @@
 <div class="space-y-6" x-data="liveTrackingApp()">
 
     <!-- Header Section -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
             <!-- Breadcrumbs -->
             <div class="flex items-center space-x-2 text-xs text-slate-400 mb-1 font-medium">
@@ -53,31 +53,31 @@
                 <span>/</span>
                 <span class="text-primary font-semibold">Live Tracking</span>
             </div>
-            <h1 class="text-xl font-bold font-display text-slate-900 flex items-center gap-2 font-normal">
-                <i class="mdi mdi-access-point text-primary text-2xl"></i> Live Map Concox GT06N & Tracksolid Dashboard
+            <h1 class="text-xl font-semibold text-slate-900 flex items-center gap-2">
+                <i class="mdi mdi-access-point text-primary text-2xl"></i> Live Map Concox GT06N & Pelacakan Armada
             </h1>
-            <p class="text-xs text-slate-500 mt-0.5">Monitoring posisi armada salesman, rute compliance, & alarm deviasi real-time</p>
+            <p class="text-xs text-slate-500 mt-1">Monitoring posisi armada salesman, kepatuhan rute, dan deteksi deviasi perjalanan</p>
         </div>
 
-        <div class="flex flex-wrap items-center gap-2.5">
-            <span class="px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono tabular-nums font-bold flex items-center gap-1.5 shadow-xs">
-                <span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
-                <span>Concox GT06N Webhook: Active</span>
+        <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-medium flex items-center gap-1.5 shadow-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Concox GT06N Webhook: Aktif</span>
             </span>
             <button 
                 type="button"
                 @click="openHistoryModal = true"
-                class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all hover:border-primary/40 active:translate-y-px">
-                <i class="mdi mdi-history text-primary text-base"></i>
+                class="btn-secondary-outline">
+                <i class="mdi mdi-history text-base"></i>
                 <span>Riwayat Rute</span>
             </button>
             @if(in_array($authUser['role'] ?? $user['role'] ?? '', ['IT', 'Admin Pusat', 'Fleet Admin']))
                 <button 
                     type="button"
                     @click="openDeviceModal = true"
-                    class="btn-primary text-xs flex items-center gap-1.5 active:translate-y-px">
+                    class="btn-primary">
                     <i class="mdi mdi-chip text-base"></i>
-                    <span>Manajemen Device (IT)</span>
+                    <span>Manajemen Perangkat</span>
                 </button>
             @endif
         </div>
@@ -85,31 +85,31 @@
 
     <!-- 5 Fleet KPI Cards -->
     <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs">
             <span class="text-[10px] font-bold uppercase text-slate-400 block">TOTAL VEHICLES</span>
             <span class="text-2xl font-bold text-slate-900 mt-1 block">{{ number_format($gps['total_vehicles'] ?? 48, 0, ',', '.') }} Armada</span>
             <span class="text-[10px] text-slate-500 font-semibold">Motor & Box Van</span>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs">
             <span class="text-[10px] font-bold uppercase text-slate-400 block">ACTIVE GPS</span>
             <span class="text-2xl font-bold text-emerald-600 mt-1 block">{{ number_format($gps['active_gps'] ?? 42, 0, ',', '.') }} Online</span>
             <span class="text-[10px] text-emerald-600 font-semibold">Normal Signal</span>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs">
             <span class="text-[10px] font-bold uppercase text-slate-400 block">OFFLINE GPS</span>
             <span class="text-2xl font-bold text-rose-600 mt-1 block">{{ number_format($gps['offline_gps'] ?? 6, 0, ',', '.') }} Devices</span>
             <span class="text-[10px] text-rose-600 font-semibold">Signal Lost / Low Bat</span>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs">
             <span class="text-[10px] font-bold uppercase text-slate-400 block">SALES ON ROUTE</span>
             <span class="text-2xl font-bold text-indigo-600 mt-1 block">{{ number_format($gps['sales_on_route'] ?? 38, 0, ',', '.') }} Sales</span>
             <span class="text-[10px] text-indigo-600 font-semibold">Following Waypoints</span>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs">
             <span class="text-[10px] font-bold uppercase text-slate-400 block">ROUTE COMPLIANCE</span>
             <span class="text-2xl font-bold text-purple-600 mt-1 block">{{ $gps['route_compliance'] ?? 90.5 }}%</span>
             <span class="text-[10px] text-slate-500 font-semibold">Kepatuhan Rute</span>
@@ -120,7 +120,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 h-[620px]">
 
         <!-- MAP CONTAINER (Left 8 Cols) -->
-        <div class="lg:col-span-8 bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-xs relative flex flex-col">
+        <div class="lg:col-span-8 bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-xs relative flex flex-col">
             
             <!-- Map Toolbar Top Overlay -->
             <div class="absolute top-3 left-3 right-3 z-[400] flex items-center justify-between pointer-events-none">
@@ -137,8 +137,9 @@
                     </button>
                 </div>
 
-                <div class="bg-slate-900/80 text-white backdrop-blur shadow-md rounded-xl px-3 py-1.5 text-[11px] font-mono font-medium pointer-events-auto hidden sm:block">
-                    📡 Concox GT06N Protocol v2.4
+                <div class="bg-slate-900/80 text-white backdrop-blur shadow-md rounded-lg px-3 py-1.5 text-xs font-mono font-medium pointer-events-auto hidden sm:flex items-center gap-1.5">
+                    <i class="mdi mdi-access-point text-emerald-400"></i>
+                    <span>Protokol Concox GT06N v2.4</span>
                 </div>
             </div>
 
@@ -174,7 +175,7 @@
         </div>
 
         <!-- RIGHT SIDEBAR PANEL ("Armada Kendaraan") (Right 4 Cols) -->
-        <div class="lg:col-span-4 bg-white border border-slate-200/80 rounded-2xl flex flex-col shadow-xs overflow-hidden h-full">
+        <div class="lg:col-span-4 bg-white border border-slate-200/90 rounded-xl flex flex-col shadow-xs overflow-hidden h-full">
             
             <!-- Panel Header -->
             <div class="p-4 border-b border-slate-100 space-y-3">
@@ -307,7 +308,7 @@
     </div>
 
     <!-- Vehicles Live Status Table -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
+    <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
         <h3 class="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2 font-normal">
             <i class="mdi mdi-format-list-bulleted text-primary text-base"></i> Detail Status Fleet & Concox GT06N Tracksolid
         </h3>
@@ -336,8 +337,9 @@
                         <td class="py-3 px-4 text-slate-600">{{ $v['last_location'] }}</td>
                         <td class="py-3 px-4 font-bold text-purple-600">{{ $v['compliance'] }}</td>
                         <td class="py-3 px-4 text-center">
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold border {{ strtolower($v['status']) === 'bergerak' || strtolower($v['status']) === 'on route' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : (strtolower($v['status']) === 'idle' ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-rose-50 text-rose-700 border-rose-200') }}">
-                                {{ $v['status_color'] ?? '🟢' }} {{ $v['status'] }}
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium border {{ strtolower($v['status']) === 'bergerak' || strtolower($v['status']) === 'on route' ? 'bg-primary-50 text-primary-700 border-primary-200' : (strtolower($v['status']) === 'idle' ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-rose-50 text-rose-700 border-rose-200') }}">
+                                <i class="mdi {{ strtolower($v['status']) === 'bergerak' || strtolower($v['status']) === 'on route' ? 'mdi-truck-fast-outline' : (strtolower($v['status']) === 'idle' ? 'mdi-clock-outline' : 'mdi-alert-circle-outline') }} mr-1"></i>
+                                <span>{{ $v['status'] }}</span>
                             </span>
                         </td>
                     </tr>
@@ -536,10 +538,10 @@
                         <div class="text-xs text-slate-600 font-semibold">${v.brand_type}</div>
                         <div class="text-[11px] text-indigo-600 font-medium">${v.driver_sales}</div>
                         <div class="text-[10px] text-slate-500 font-mono">${v.last_location}</div>
-                        <div class="flex items-center justify-between text-[10px] font-mono text-slate-700 bg-slate-50 p-1.5 rounded">
-                            <span>⚡ ${v.battery_v}</span>
-                            <span>📡 ${v.satellites} Sats</span>
-                            <span>💨 ${v.speed}</span>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-slate-700 bg-slate-50 p-2 rounded-lg">
+                            <span class="flex items-center gap-1"><i class="mdi mdi-battery-charging text-amber-500"></i> ${v.battery_v}</span>
+                            <span class="flex items-center gap-1"><i class="mdi mdi-satellite-variant text-sky-500"></i> ${v.satellites} Sat</span>
+                            <span class="flex items-center gap-1"><i class="mdi mdi-speedometer text-primary"></i> ${v.speed}</span>
                         </div>
                     </div>
                 `;

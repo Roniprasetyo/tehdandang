@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · theme: Tri-Tone Heritage (Tea Green, Amber Brew, Sky Accent) · genre: modern-minimal -->
 <html lang="id" class="h-full bg-slate-50 text-slate-800">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +13,7 @@
     <!-- Material Design Icons (MDI) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
     
-    <!-- Hallmark Design Tokens (Tokens canonical source) -->
+    <!-- Teh Dandang Design Tokens -->
     <link rel="stylesheet" href="/css/tokens.css">
     
     <!-- Tailwind CSS CDN -->
@@ -112,7 +111,7 @@
                     <i class="mdi mdi-tea text-xl"></i>
                 </div>
                 <div class="leading-tight transition-opacity duration-200" x-show="sidebarOpen">
-                    <span class="font-display font-bold text-sm tracking-tight text-slate-900 block">TEH DANDANG</span>
+                    <span class="font-bold text-sm tracking-tight text-slate-900 block">TEH DANDANG</span>
                     <span class="text-[9px] tracking-wider text-primary font-semibold uppercase block">Sales Force Automation</span>
                 </div>
             </a>
@@ -140,123 +139,123 @@
             @endphp
 
             <!-- DASHBOARD & MONITORING SECTION -->
-            <div class="pt-2 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">
-                {{ $isOwner ? 'Monitoring & Executive' : 'Dashboard' }}
+            <div class="pt-2 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">
+                {{ $isOwner ? 'Pemantauan Eksekutif' : 'Dashboard' }}
             </div>
             
             @if(in_array($role, ['Owner', 'GM', 'Manager', 'ASM', 'Admin Pusat', 'Finance', 'IT']))
-                <a href="{{ route('dashboard.executive') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'dashboard.executive') || $currentRoute === 'dashboard' ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <a href="{{ route('dashboard.executive') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.executive') || $currentRoute === 'dashboard' ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-view-dashboard-outline text-lg mr-2.5 flex-shrink-0"></i>
-                    <span x-show="sidebarOpen">Executive Dashboard</span>
+                    <span x-show="sidebarOpen">Dashboard Eksekutif</span>
                 </a>
             @endif
 
             @if(in_array($role, ['Sales', 'Admin Area', 'ASM', 'Manager', 'GM', 'Admin Pusat', 'Owner']))
-                <a href="{{ route('dashboard.sales') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'dashboard.sales') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <a href="{{ route('dashboard.sales') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.sales') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-account-tie-outline text-lg mr-2.5 flex-shrink-0"></i>
-                    <span x-show="sidebarOpen">Sales Dashboard</span>
+                    <span x-show="sidebarOpen">Dashboard Sales</span>
                 </a>
             @endif
 
             @if(in_array($role, ['Admin Area', 'ASM', 'Manager', 'GM', 'Fleet Admin', 'Admin Pusat', 'Owner', 'IT']))
-                <a href="{{ route('dashboard.area') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'dashboard.area') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <a href="{{ route('dashboard.area') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.area') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-map-marker-radius-outline text-lg mr-2.5 flex-shrink-0"></i>
-                    <span x-show="sidebarOpen">Area Dashboard</span>
+                    <span x-show="sidebarOpen">Dashboard Wilayah</span>
                 </a>
             @endif
 
-            <a href="{{ route('dashboard.drilldown') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'dashboard.drilldown') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                <i class="mdi mdi-chart-timeline-variant text-lg mr-2.5 flex-shrink-0 text-primary"></i>
-                <span x-show="sidebarOpen">Grafik Drilldown 7 Level</span>
+            <a href="{{ route('dashboard.drilldown') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.drilldown') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <i class="mdi mdi-chart-timeline-variant text-lg mr-2.5 flex-shrink-0"></i>
+                <span x-show="sidebarOpen">Grafik Drilldown 7 Tingkat</span>
             </a>
 
             @if(in_array($role, ['Owner', 'GM', 'Manager', 'ASM', 'Admin Area', 'Admin Pusat', 'IT', 'Fleet Admin']))
-                <a href="{{ route('dashboard.early-warning') }}" class="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'dashboard.early-warning') ? 'bg-rose-50 text-rose-700 border border-rose-200 font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <a href="{{ route('dashboard.early-warning') }}" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.early-warning') ? 'bg-rose-50 text-rose-700 border border-rose-200 font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <div class="flex items-center">
-                        <i class="mdi mdi-shield-alert-outline text-lg mr-2.5 flex-shrink-0 text-rose-500"></i>
-                        <span x-show="sidebarOpen">Risk & Fraud (Early Warning)</span>
+                        <i class="mdi mdi-shield-alert-outline text-lg mr-2.5 flex-shrink-0 text-rose-600"></i>
+                        <span x-show="sidebarOpen">Peringatan Dini (Early Warning)</span>
                     </div>
-                    <span x-show="sidebarOpen" class="bg-rose-100 text-rose-700 text-[10px] px-2 py-0.5 rounded-full font-bold">12</span>
+                    <span x-show="sidebarOpen" class="bg-rose-100 text-rose-700 text-xs px-2 py-0.5 rounded-full font-semibold font-mono tabular-nums">12</span>
                 </a>
             @endif
 
             <!-- TRACKING & FIELD MONITORING -->
-            <div class="pt-3 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Tracking</div>
+            <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Pelacakan</div>
 
-            <a href="{{ route('transaksi.checkin-gps') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'transaksi.checkin-gps') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
-                <i class="mdi mdi-crosshairs-gps text-lg mr-2.5 flex-shrink-0 text-accent"></i>
-                <span x-show="sidebarOpen">Live Tracking GPS</span>
+            <a href="{{ route('transaksi.checkin-gps') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.checkin-gps') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <i class="mdi mdi-crosshairs-gps text-lg mr-2.5 flex-shrink-0"></i>
+                <span x-show="sidebarOpen">Pelacakan GPS Armada</span>
             </a>
 
             <!-- EXECUTIVE REPORT SECTION -->
-            <div class="pt-3 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Report</div>
-            <a href="{{ route('report.index') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'report') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+            <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Laporan</div>
+            <a href="{{ route('report.index') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'report') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                 <i class="mdi mdi-file-chart-outline text-lg mr-2.5 flex-shrink-0"></i>
-                <span x-show="sidebarOpen">Reporting Center</span>
+                <span x-show="sidebarOpen">Pusat Laporan Eksekutif</span>
             </a>
 
             <!-- OPERATIONAL MASTER DATA -->
             @if(!$isOwner)
-                <div class="pt-3 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Master Data</div>
+                <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Data Master</div>
 
                 @if(in_array($role, ['GM', 'Manager', 'ASM', 'Admin Area', 'Admin Pusat', 'IT']))
-                    <a href="{{ route('master.sales') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'master.sales') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <a href="{{ route('master.sales') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.sales') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                         <i class="mdi mdi-account-group-outline text-lg mr-2.5 flex-shrink-0"></i>
-                        <span x-show="sidebarOpen">Sales Directory</span>
+                        <span x-show="sidebarOpen">Direktori Sales</span>
                     </a>
                 @endif
 
-                <a href="{{ route('master.outlet') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'master.outlet') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <a href="{{ route('master.outlet') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.outlet') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-storefront-outline text-lg mr-2.5 flex-shrink-0"></i>
-                    <span x-show="sidebarOpen">Outlet (SAP OCRD)</span>
+                    <span x-show="sidebarOpen">Outlet Pelanggan (OCRD)</span>
                 </a>
 
                 @if(in_array($role, ['GM', 'Manager', 'ASM', 'Admin Area', 'Finance', 'Admin Pusat', 'IT']))
-                    <a href="{{ route('master.product') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'master.product') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <a href="{{ route('master.product') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.product') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                         <i class="mdi mdi-package-variant-closed text-lg mr-2.5 flex-shrink-0"></i>
-                        <span x-show="sidebarOpen">Product (SAP OITM)</span>
+                        <span x-show="sidebarOpen">Katalog Produk (OITM)</span>
                     </a>
-                    <a href="{{ route('master.area') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'master.area') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <a href="{{ route('master.area') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.area') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                         <i class="mdi mdi-layers-triple-outline text-lg mr-2.5 flex-shrink-0"></i>
-                        <span x-show="sidebarOpen">Area Hierarki</span>
+                        <span x-show="sidebarOpen">Hierarki Wilayah</span>
                     </a>
                 @endif
 
-                <a href="{{ route('master.route') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'master.route') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <a href="{{ route('master.route') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.route') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-routes text-lg mr-2.5 flex-shrink-0"></i>
-                    <span x-show="sidebarOpen">Master Route</span>
+                    <span x-show="sidebarOpen">Rute Sales</span>
                 </a>
 
                 @if(in_array($role, ['Fleet Admin', 'Admin Pusat', 'IT']))
-                    <a href="{{ route('master.vehicle') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'master.vehicle') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <a href="{{ route('master.vehicle') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.vehicle') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                         <i class="mdi mdi-truck-delivery-outline text-lg mr-2.5 flex-shrink-0"></i>
-                        <span x-show="sidebarOpen">Fleet (Concox GT06N)</span>
+                        <span x-show="sidebarOpen">Armada GPS (Concox)</span>
                     </a>
                 @endif
             @endif
 
             <!-- OPERATIONAL TRANSACTIONS -->
             @if(!$isOwner)
-                <div class="pt-3 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Transaksi</div>
+                <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Transaksi</div>
 
-                <a href="{{ route('transaksi.sales-visit') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'transaksi.sales-visit') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <a href="{{ route('transaksi.sales-visit') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.sales-visit') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-clipboard-check-outline text-lg mr-2.5 flex-shrink-0"></i>
-                    <span x-show="sidebarOpen">Sales Visit GPS</span>
+                    <span x-show="sidebarOpen">Kunjungan Sales (Visit)</span>
                 </a>
 
-                <a href="{{ route('transaksi.sales-order') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'transaksi.sales-order') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <a href="{{ route('transaksi.sales-order') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.sales-order') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-cart-outline text-lg mr-2.5 flex-shrink-0"></i>
-                    <span x-show="sidebarOpen">Sales Order (SAP)</span>
+                    <span x-show="sidebarOpen">Pesanan Penjualan (SO)</span>
                 </a>
 
-                <a href="{{ route('transaksi.noo') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'transaksi.noo') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <a href="{{ route('transaksi.noo') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.noo') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-account-plus-outline text-lg mr-2.5 flex-shrink-0"></i>
-                    <span x-show="sidebarOpen">NOO (New Outlet)</span>
+                    <span x-show="sidebarOpen">NOO (Outlet Baru)</span>
                 </a>
 
-                <a href="{{ route('transaksi.nop') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'transaksi.nop') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                <a href="{{ route('transaksi.nop') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.nop') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-archive-plus-outline text-lg mr-2.5 flex-shrink-0"></i>
-                    <span x-show="sidebarOpen">NOP (New Product)</span>
+                    <span x-show="sidebarOpen">NOP (Ekspansi Produk)</span>
                 </a>
 
                 <a href="{{ route('transaksi.ro') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'transaksi.ro') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">

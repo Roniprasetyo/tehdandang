@@ -1,188 +1,201 @@
-<!-- Hallmark & Anti-Slop Active · Theme: Tri-Tone Heritage (Tea Green, Amber Brew, Sky Accent) -->
 @extends('layouts.app')
 
-@section('title', 'Sales Directory')
+@section('title', 'Direktori Tenaga Penjual')
 
 @section('content')
 <div class="space-y-6">
 
-    <!-- Top Header & Actions -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs">
+    <!-- Header & Aksi Utama -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <div class="flex items-center gap-2 mb-1">
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary-50 text-primary-700 border border-primary-200">
-                    <i class="mdi mdi-account-group-outline mr-1"></i> Sales Force SFA
-                </span>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-accent-50 text-accent-700 border border-accent-200">
-                    SAP SlpCode Mapped
-                </span>
-            </div>
-            <h1 class="text-xl font-bold font-display text-slate-900 tracking-tight">Sales Directory & Target MTD</h1>
-            <p class="text-xs text-slate-500 mt-1">Kelola data tenaga penjualan, pemetaan SlpCode SAP B1, alokasi armada, dan target pencapaian area</p>
+            <h1 class="text-xl font-semibold text-slate-900">Direktori Tenaga Penjual</h1>
+            <p class="text-xs text-slate-500 mt-1">Data profil salesman, pemetaan SlpCode SAP Business One, dan target pencapaian MTD</p>
         </div>
         <div class="flex items-center gap-2">
             <button 
                 type="button" 
-                @click="notify('Data direktori sales berhasil diekspor ke format Excel/CSV.', 'success')" 
-                class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 active:translate-y-px shadow-xs flex items-center gap-1.5 transition-all cursor-pointer"
+                @click="notify('Data direktori sales berhasil diekspor ke Excel.', 'success')" 
+                class="btn-secondary-outline"
             >
-                <i class="mdi mdi-file-excel-box text-base text-primary-600"></i>
-                <span>Export</span>
+                <i class="mdi mdi-download text-base"></i>
+                <span>Ekspor</span>
             </button>
             <button 
                 type="button" 
-                @click="notify('Silakan pilih berkas Excel direktori sales untuk sinkronisasi SAP.', 'info')" 
-                class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 active:translate-y-px shadow-xs flex items-center gap-1.5 transition-all cursor-pointer"
+                @click="notify('Pilih berkas Excel untuk impor pembaharuan data sales.', 'info')" 
+                class="btn-secondary-outline"
             >
-                <i class="mdi mdi-upload text-base text-slate-500"></i>
-                <span>Import</span>
+                <i class="mdi mdi-upload text-base"></i>
+                <span>Impor</span>
             </button>
             @if(in_array($authUser['role'], ['Admin Pusat', 'IT', 'Admin Area', 'Manager', 'ASM']))
             <button 
                 type="button" 
                 @click="notify('Formulir registrasi tenaga penjual baru siap diisi.', 'info')" 
-                class="px-4 py-2 rounded-xl bg-primary hover:bg-primary-hover active:translate-y-px text-white text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all cursor-pointer"
+                class="btn-primary"
             >
                 <i class="mdi mdi-account-plus text-base"></i>
-                <span>+ Tambah Sales</span>
+                <span>Tambah Sales</span>
             </button>
             @endif
         </div>
     </div>
 
-    <!-- 4 Summary KPI Cards -->
+    <!-- 4 Ringkasan Metrik Konsisten -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-xs flex items-center justify-between">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex items-center justify-between">
             <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Total Sales Force</span>
-                <span class="text-2xl font-bold font-display text-slate-900 mt-1 block tabular-nums">{{ count($salesList) }} Tenaga Penjual</span>
-                <span class="text-[11px] text-primary font-semibold">Aktif di 4 Wilayah Regional</span>
+                <span class="text-xs font-medium text-slate-500 block">Total Tenaga Penjual</span>
+                <span class="text-2xl font-semibold font-mono tabular-nums text-slate-900 mt-1 block">{{ count($salesList) }}</span>
+                <span class="text-xs text-slate-500 mt-1 block">Aktif di 4 wilayah regional</span>
             </div>
-            <div class="w-10 h-10 rounded-xl bg-primary-50 text-primary flex items-center justify-center">
-                <i class="mdi mdi-account-group-outline text-xl"></i>
+            <div class="w-9 h-9 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center text-lg flex-shrink-0">
+                <i class="mdi mdi-account-group-outline"></i>
             </div>
         </div>
 
-        <div class="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-xs flex items-center justify-between">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex items-center justify-between">
             <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Top Sales Performer</span>
-                <span class="text-2xl font-bold font-display text-primary mt-1 block tabular-nums">115.0%</span>
-                <span class="text-[11px] text-primary font-semibold">★ Eko Prasetyo (Cepogo)</span>
+                <span class="text-xs font-medium text-slate-500 block">Pencapaian Tertinggi</span>
+                <span class="text-2xl font-semibold font-mono tabular-nums text-primary mt-1 block">115.0%</span>
+                <span class="text-xs text-slate-500 mt-1 block">Eko Prasetyo (Cepogo)</span>
             </div>
-            <div class="w-10 h-10 rounded-xl bg-primary-50 text-primary flex items-center justify-center">
-                <i class="mdi mdi-trophy-award text-xl"></i>
+            <div class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-lg flex-shrink-0">
+                <i class="mdi mdi-trophy-outline"></i>
             </div>
         </div>
 
-        <div class="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-xs flex items-center justify-between">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex items-center justify-between">
             <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Rata-rata Pencapaian</span>
-                <span class="text-2xl font-bold font-display text-secondary mt-1 block tabular-nums">89.8%</span>
-                <span class="text-[11px] text-secondary font-semibold">Target MTD Nasional</span>
+                <span class="text-xs font-medium text-slate-500 block">Rata-rata Pencapaian</span>
+                <span class="text-2xl font-semibold font-mono tabular-nums text-secondary mt-1 block">89.8%</span>
+                <span class="text-xs text-slate-500 mt-1 block">Target kuota MTD</span>
             </div>
-            <div class="w-10 h-10 rounded-xl bg-secondary-50 text-secondary flex items-center justify-center">
-                <i class="mdi mdi-chart-areaspline text-xl"></i>
+            <div class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center text-lg flex-shrink-0">
+                <i class="mdi mdi-chart-line"></i>
             </div>
         </div>
 
-        <div class="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-xs flex items-center justify-between">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex items-center justify-between">
             <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Armada Ber-GPS</span>
-                <span class="text-2xl font-bold font-display text-accent mt-1 block tabular-nums">100%</span>
-                <span class="text-[11px] text-slate-400">Terintegrasi Concox GT06N</span>
+                <span class="text-xs font-medium text-slate-500 block">Cakupan Outlet Aktif</span>
+                <span class="text-2xl font-semibold font-mono tabular-nums text-accent mt-1 block">92.4%</span>
+                <span class="text-xs text-slate-500 mt-1 block">Cakupan repeat order</span>
             </div>
-            <div class="w-10 h-10 rounded-xl bg-accent-50 text-accent flex items-center justify-center">
-                <i class="mdi mdi-truck-delivery-outline text-xl"></i>
+            <div class="w-9 h-9 rounded-lg bg-accent/10 text-accent flex items-center justify-center text-lg flex-shrink-0">
+                <i class="mdi mdi-storefront-outline"></i>
             </div>
         </div>
     </div>
 
-    <!-- Sales Table Container -->
-    <div class="bg-white border border-slate-200/90 rounded-2xl shadow-xs">
+    <!-- Tabel Data Tenaga Penjual -->
+    <div class="bg-white border border-slate-200/90 rounded-xl shadow-xs overflow-hidden">
         
-        <!-- Search Toolbar -->
+        <!-- Filter & Pencarian -->
         <form action="{{ route('master.sales') }}" method="GET" class="p-4 border-b border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-900 flex-shrink-0">Daftar Tenaga Penjual Terdaftar</h3>
+            <h2 class="text-sm font-semibold text-slate-900 flex-shrink-0">Daftar Tenaga Penjual</h2>
 
             <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
                 <div class="relative flex-1 sm:w-64">
-                    <i class="mdi mdi-magnify text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 text-base"></i>
+                    <i class="mdi mdi-magnify text-slate-400 text-base absolute left-3 top-1/2 -translate-y-1/2"></i>
                     <input 
                         type="text" 
                         name="search" 
                         value="{{ request('search') }}" 
-                        placeholder="Cari NPK atau nama sales..." 
-                        class="w-full bg-slate-50 border border-slate-200 text-xs rounded-xl pl-9 pr-4 py-2 text-slate-800 placeholder-slate-400 hover:border-slate-300 focus:bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary-100 transition-all"
+                        placeholder="Cari nama, NPK, atau area..." 
+                        class="w-full bg-slate-50 border border-slate-200 text-xs rounded-lg pl-9 pr-3 py-2 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-primary focus:bg-white transition-colors"
                     >
                 </div>
 
-                <button type="submit" class="px-4 py-2 bg-primary-50 text-primary-700 border border-primary-200 rounded-xl text-xs font-bold hover:bg-primary-100 active:translate-y-px transition-all cursor-pointer">
-                    Filter
-                </button>
+                <select name="area" onchange="this.form.submit()" class="bg-slate-50 border border-slate-200 text-xs text-slate-700 rounded-lg px-3 py-2 focus:outline-none focus:border-primary">
+                    <option value="">Semua Wilayah Area</option>
+                    <option value="Bandung" {{ request('area') === 'Bandung' ? 'selected' : '' }}>Bandung</option>
+                    <option value="Cirebon" {{ request('area') === 'Cirebon' ? 'selected' : '' }}>Cirebon</option>
+                    <option value="Jakarta" {{ request('area') === 'Jakarta' ? 'selected' : '' }}>Jakarta</option>
+                    <option value="Bogor" {{ request('area') === 'Bogor' ? 'selected' : '' }}>Bogor</option>
+                    <option value="Solo Raya" {{ request('area') === 'Solo Raya' ? 'selected' : '' }}>Solo Raya</option>
+                    <option value="Cepogo" {{ request('area') === 'Cepogo' ? 'selected' : '' }}>Cepogo</option>
+                </select>
             </div>
         </form>
 
-        <!-- Table -->
         <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs text-slate-700 divide-y divide-slate-200">
-                <thead class="bg-slate-50/90 text-slate-600 uppercase text-[10px] font-bold tracking-wider">
+            <table class="w-full text-left text-xs text-slate-700">
+                <thead class="bg-slate-50 text-slate-600 uppercase text-xs font-semibold tracking-wider border-b border-slate-200">
                     <tr>
-                        <th class="py-3 px-4 w-10">
+                        <th class="py-2.5 px-4 w-10">
                             <input type="checkbox" class="rounded border-slate-300 text-primary focus:ring-primary">
                         </th>
-                        <th class="py-3 px-4">NPK</th>
-                        <th class="py-3 px-4">Tenaga Penjual</th>
-                        <th class="py-3 px-4">Wilayah / Area</th>
-                        <th class="py-3 px-4">Supervisor (ASM)</th>
-                        <th class="py-3 px-4 text-right">Target MTD</th>
-                        <th class="py-3 px-4 text-center">Pencapaian</th>
-                        <th class="py-3 px-4 text-center">Status</th>
-                        <th class="py-3 px-4 text-right">Aksi</th>
+                        <th class="py-2.5 px-4">NPK & KODE SAP</th>
+                        <th class="py-2.5 px-4">NAMA SALES</th>
+                        <th class="py-2.5 px-4">WILAYAH OPERASIONAL</th>
+                        <th class="py-2.5 px-4">TARGET PENJUALAN</th>
+                        <th class="py-2.5 px-4">REALISASI</th>
+                        <th class="py-2.5 px-4 text-center">PENCAPAIAN</th>
+                        <th class="py-2.5 px-4 text-center">STATUS</th>
+                        <th class="py-2.5 px-4 text-right">AKSI</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-slate-100 bg-white">
+                <tbody class="divide-y divide-slate-100">
                     @foreach($salesList as $s)
-                    <tr class="hover:bg-slate-50/80 transition-colors {{ str_contains($s['status'], 'Top Performer') ? 'bg-primary-50/20' : '' }}">
+                    <tr class="hover:bg-slate-50/80 transition-colors">
                         <td class="py-3 px-4">
                             <input type="checkbox" class="rounded border-slate-300 text-primary focus:ring-primary">
                         </td>
-                        <td class="py-3 px-4 font-mono font-bold text-primary">{{ $s['npk'] }}</td>
-                        <td class="py-3 px-4 font-semibold text-slate-900">
-                            <div>{{ $s['name'] }}</div>
-                            <div class="text-[10px] text-slate-400 font-normal">SlpCode: {{ $s['slp_code'] }} | Plat: {{ $s['vehicle_plate'] }}</div>
+                        <td class="py-3 px-4">
+                            <div class="font-mono tabular-nums font-semibold text-slate-900">{{ $s['npk'] }}</div>
+                            <div class="font-mono tabular-nums text-slate-400 text-[11px]">SlpCode: {{ $s['slp_code'] }}</div>
                         </td>
-                        <td class="py-3 px-4 text-slate-600 font-medium">{{ $s['area'] }} ({{ $s['region'] }})</td>
-                        <td class="py-3 px-4 text-slate-600">{{ $s['asm'] }}</td>
-                        <td class="py-3 px-4 text-right font-mono text-slate-700 tabular-nums">Rp {{ number_format($s['target'], 0, ',', '.') }}</td>
-                        <td class="py-3 px-4 text-center">
-                            <span class="font-bold tabular-nums {{ $s['achievement'] >= 100 ? 'text-primary font-extrabold' : ($s['achievement'] >= 80 ? 'text-accent' : 'text-rose-600') }}">
-                                {{ $s['achievement'] }}%
-                            </span>
+                        <td class="py-3 px-4">
+                            <div class="font-semibold text-slate-900">{{ $s['name'] }}</div>
+                            <div class="font-mono tabular-nums text-slate-400 text-[11px]">{{ $s['phone'] }}</div>
+                        </td>
+                        <td class="py-3 px-4">
+                            <div class="font-medium text-slate-800">{{ $s['area'] }}</div>
+                            <div class="text-slate-400 text-[11px]">{{ $s['region'] }}</div>
+                        </td>
+                        <td class="py-3 px-4 font-mono tabular-nums text-slate-600">
+                            Rp {{ number_format($s['target'], 0, ',', '.') }}
+                        </td>
+                        <td class="py-3 px-4 font-mono tabular-nums font-semibold text-slate-900">
+                            Rp {{ number_format($s['actual'], 0, ',', '.') }}
                         </td>
                         <td class="py-3 px-4 text-center">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold {{ str_contains($s['status'], 'Top Performer') ? 'bg-primary text-white' : 'bg-primary-50 text-primary-700 border border-primary-200' }}">
-                                {{ $s['status'] }}
+                            <div class="font-mono tabular-nums font-semibold {{ $s['achievement'] >= 100 ? 'text-primary' : ($s['achievement'] >= 85 ? 'text-secondary' : 'text-rose-600') }}">
+                                {{ number_format($s['achievement'], 1, ',', '.') }}%
+                            </div>
+                            <div class="w-16 bg-slate-100 h-1 rounded-full mx-auto mt-1 overflow-hidden">
+                                <div class="h-full rounded-full {{ $s['achievement'] >= 100 ? 'bg-primary' : ($s['achievement'] >= 85 ? 'bg-secondary' : 'bg-rose-500') }}" style="width: {{ min(100, $s['achievement']) }}%"></div>
+                            </div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <span class="inline-flex px-2 py-0.5 rounded-full text-xs font-medium border {{ $s['status'] === 'Active' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-100 text-slate-600 border-slate-200' }}">
+                                {{ $s['status'] === 'Active' ? 'Aktif' : 'Non-Aktif' }}
                             </span>
                         </td>
                         <td class="py-3 px-4 text-right space-x-1">
-                            <a href="{{ route('master.sales.detail', $s['npk']) }}" class="p-1.5 text-slate-400 hover:text-primary hover:bg-slate-100 rounded-lg inline-block transition-colors" title="Lihat Profil">
+                            <a 
+                                href="{{ route('master.sales.detail', $s['npk']) }}" 
+                                class="p-1.5 text-slate-500 hover:text-primary hover:bg-slate-100 rounded-md inline-block transition-colors"
+                                title="Lihat Profil Sales"
+                            >
                                 <i class="mdi mdi-eye-outline text-base"></i>
                             </a>
                             <button 
                                 type="button" 
                                 @click="notify('Data salesman {{ $s['name'] }} dibuka untuk penyuntingan.', 'info')" 
-                                class="p-1.5 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer" 
-                                title="Edit"
+                                class="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-md transition-colors"
+                                title="Edit Data"
                             >
                                 <i class="mdi mdi-pencil-outline text-base"></i>
                             </button>
                             <button 
                                 type="button" 
-                                @click="notify('Konfirmasi penghapusan salesman {{ $s['name'] }} memerlukan otorisasi IT / GM.', 'warning')" 
-                                class="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer" 
-                                title="Hapus"
+                                @click="notify('Penghapusan salesman {{ $s['name'] }} memerlukan otorisasi GM.', 'warning')" 
+                                class="p-1.5 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-md transition-colors"
+                                title="Hapus Sales"
                             >
-                                <i class="mdi mdi-delete-outline text-base"></i>
+                                <i class="mdi mdi-trash-can-outline text-base"></i>
                             </button>
                         </td>
                     </tr>
@@ -192,11 +205,11 @@
         </div>
 
         <div class="p-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>Menampilkan {{ number_format(count($salesList), 0, ',', '.') }} dari {{ number_format(count($salesList), 0, ',', '.') }} tenaga penjual</span>
-            <div class="flex items-center gap-1">
-                <button class="px-3 py-1 bg-white border border-slate-200 rounded-lg text-slate-400 cursor-not-allowed">Sebelumnya</button>
-                <button class="px-3 py-1 bg-primary text-white font-bold rounded-lg shadow-xs">1</button>
-                <button class="px-3 py-1 bg-white border border-slate-200 rounded-lg text-slate-600 hover:bg-slate-50 cursor-pointer">Selanjutnya</button>
+            <span>Menampilkan {{ number_format(count($salesList), 0, ',', '.') }} tenaga penjual</span>
+            <div class="flex items-center gap-1 font-mono tabular-nums">
+                <button class="px-3 py-1 bg-white border border-slate-200 rounded-md text-slate-400 cursor-not-allowed">Sebelumnya</button>
+                <button class="px-3 py-1 bg-primary text-white font-medium rounded-md">1</button>
+                <button class="px-3 py-1 bg-white border border-slate-200 rounded-md text-slate-600 hover:bg-slate-50">Berikutnya</button>
             </div>
         </div>
 

@@ -5,9 +5,10 @@
 @section('content')
 <div class="space-y-6">
 
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+    <!-- Header Banner -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <h1 class="text-xl font-bold font-display text-slate-900 flex items-center gap-2 font-normal">
+            <h1 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <i class="mdi mdi-chip text-primary text-2xl"></i> Integrasi Sistem SAP Business One & Concox GT06N GPS
             </h1>
             <p class="text-xs text-slate-500 mt-0.5">Kesiapan skema database SAP (OCRD, OITM, ORDR) & Webhook Tracksolid Concox GT06N</p>
@@ -24,12 +25,12 @@
     </div>
 
     <!-- Corporate History & HQ Info Card -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-3">
+    <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-3">
         <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2 font-normal">
+            <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <i class="mdi mdi-office-building text-primary text-lg"></i> Profil Korporasi — PT. Kartini Teh Nasional
-            </h3>
-            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20 font-mono tabular-nums">Est. 1957</span>
+            </h2>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-50 text-primary-700 border border-primary-200 font-mono tabular-nums">Est. 1957</span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
             <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
@@ -55,15 +56,15 @@
     </div>
 
     <!-- Concox GT06N & SAP Integration Cards -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
         
         <!-- Concox GT06N GPS Webhook Monitoring -->
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-4">
             <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2 font-normal">
+                <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
                     <i class="mdi mdi-access-point text-primary text-lg"></i> Integrasi GPS Tracksolid — Concox GT06N
-                </h3>
-                <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
+                </h2>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-50 text-primary-700 border border-primary-200">
                     Concox GT06N Aktif
                 </span>
             </div>
@@ -89,10 +90,10 @@
         </div>
 
         <!-- SAP B1 Schema Mapping (PRD Section 24) -->
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
-            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2 font-normal">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-4">
+            <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <i class="mdi mdi-database text-primary text-lg"></i> Pemetaan Kolom Data SAP Business One
-            </h3>
+            </h2>
             <div class="space-y-3">
                 @foreach($sapMapping as $entityName => $map)
                 <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/60 space-y-2">

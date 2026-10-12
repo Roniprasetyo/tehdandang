@@ -11,15 +11,15 @@
 }">
 
     <!-- Top Headline & Info -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <h1 class="text-xl font-bold font-display text-slate-900 flex items-center gap-2 font-normal">
+            <h1 class="text-xl font-semibold text-slate-900 flex items-center gap-2">
                 <i class="mdi mdi-layers-outline text-primary text-2xl"></i> Performa Area & Hierarki Multi-Tingkat
             </h1>
-            <p class="text-xs text-slate-500 mt-0.5">Hierarki Rantai Cabang: Region → Area → Kabupaten → Kecamatan → Sales → Outlet</p>
+            <p class="text-xs text-slate-500 mt-1">Hierarki Wilayah: Region &rarr; Area &rarr; Kabupaten &rarr; Kecamatan &rarr; Sales &rarr; Outlet</p>
         </div>
         <div class="flex items-center gap-2 text-xs">
-            <a href="{{ route('dashboard.drilldown') }}" class="btn-primary text-xs flex items-center gap-2 active:translate-y-px">
+            <a href="{{ route('dashboard.drilldown') }}" class="btn-primary">
                 <i class="mdi mdi-chart-box-outline text-base"></i>
                 <span>Grafik Drilldown Interaktif</span>
             </a>
@@ -27,7 +27,7 @@
     </div>
 
     <!-- Top Cascading Multi-Level Navigation Bar -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+    <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-4">
         
         <!-- Level 1: Region Selection Tabs -->
         <div>
@@ -61,8 +61,8 @@
                     :class="activeArea === '{{ $a['name'] }}' ? 'bg-primary/10 border-primary ring-2 ring-primary/20 shadow-xs' : 'bg-slate-50 border-slate-200/80 hover:bg-slate-100/80'"
                 >
                     <div class="flex items-start justify-between gap-2">
-                        <span class="text-xs font-bold text-slate-900 leading-snug">{{ $a['name'] }}</span>
-                        <span class="text-base flex-shrink-0">{{ $a['status_color'] }}</span>
+                        <span class="text-xs font-semibold text-slate-900 leading-snug">{{ $a['name'] }}</span>
+                        <span class="w-2 h-2 rounded-full mt-1" :class="'{{ $a['achievement'] }}' >= 100 ? 'bg-primary' : 'bg-amber-500'"></span>
                     </div>
                     <div class="mt-2 flex items-center justify-between text-[11px] font-mono tabular-nums">
                         <span class="text-slate-500 font-sans">Achievement:</span>
@@ -119,15 +119,15 @@
         <div x-show="activeRegion === '{{ $r['region'] }}' && activeArea === '{{ $a['name'] }}'" class="space-y-6">
             
             <!-- Main Metrics Card -->
-            <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+            <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-4">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-3 gap-2">
                     <div>
-                        <span class="text-[10px] text-primary font-bold uppercase tracking-widest">{{ $r['region'] }} → Area: {{ $a['name'] }}</span>
-                        <h2 class="text-lg font-bold text-slate-900 font-normal">{{ $a['name'] }}</h2>
+                        <span class="text-[11px] text-slate-400 font-medium uppercase tracking-wider">{{ $r['region'] }} &rarr; Area: {{ $a['name'] }}</span>
+                        <h2 class="text-lg font-semibold text-slate-900">{{ $a['name'] }}</h2>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full text-xs font-bold border flex items-center gap-1.5" :class="'{{ $a['status'] }}'.includes('Good') ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : ('{{ $a['status'] }}'.includes('Warning') ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-rose-50 text-rose-700 border-rose-200')">
-                            <span>{{ $a['status_color'] }}</span>
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium border" :class="'{{ $a['status'] }}'.includes('Good') ? 'bg-primary-50 text-primary-700 border-primary-200' : ('{{ $a['status'] }}'.includes('Warning') ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-rose-50 text-rose-700 border-rose-200')">
+                            <i class="mdi {{ '{{ $a['status'] }}'.includes('Good') ? 'mdi-check-circle-outline' : 'mdi-alert-circle-outline' }} mr-1"></i>
                             <span>Status: {{ $a['status'] }}</span>
                         </span>
                     </div>
@@ -216,8 +216,9 @@
                                             {{ round(($kec['actual_outlets'] / max(1, $kec['target_outlets'])) * 100, 1) }}%
                                         </td>
                                         <td class="py-3 px-4 text-center">
-                                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border {{ ($kec['actual_outlets'] / max(1, $kec['target_outlets'])) >= 0.9 ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-amber-50 text-amber-700 border-amber-200' }}">
-                                                {{ ($kec['actual_outlets'] / max(1, $kec['target_outlets'])) >= 0.9 ? '🟢 Excellent' : '🟡 Fair' }}
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium border {{ ($kec['actual_outlets'] / max(1, $kec['target_outlets'])) >= 0.9 ? 'bg-primary-50 text-primary-700 border-primary-200' : 'bg-amber-50 text-amber-700 border-amber-200' }}">
+                                                <i class="mdi {{ ($kec['actual_outlets'] / max(1, $kec['target_outlets'])) >= 0.9 ? 'mdi-check-circle-outline' : 'mdi-alert-circle-outline' }} mr-1"></i>
+                                                <span>{{ ($kec['actual_outlets'] / max(1, $kec['target_outlets'])) >= 0.9 ? 'Optimal' : 'Cukup' }}</span>
                                             </span>
                                         </td>
                                     </tr>
@@ -235,7 +236,7 @@
     @endforeach
 
     <!-- Sales Representatives Assigned in Scope (Full Width) -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+    <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-4">
         <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2 font-normal">
             <i class="mdi mdi-account-group-outline text-primary text-lg"></i> Sales Forces Assigned di Wilayah Ini
         </h3>

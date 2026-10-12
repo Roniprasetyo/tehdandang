@@ -1,14 +1,9 @@
-/* Hallmark · project: TehDandang SFA · theme: Tri-Tone Heritage (Tea Forest Green, Amber Brew, Sky Accent)
- * Typography: Poppins · Icons: Material Design Icons (MDI)
- * Pre-emit critique: P5 H5 E5 S5 R5 V5
- */
-
 :root {
   /* =========================================================================
-     3 KOMBINASI WARNA UTAMA TEH DANDANG (Primer, Sekunder, Aksen)
+     3 WARNA UTAMA TEH DANDANG (Primer, Sekunder, Aksen)
      ========================================================================= */
   
-  /* 1. WARNA PRIMER (Deep Forest Tea Green - Heritage identity daun teh Dandang) */
+  /* 1. WARNA PRIMER: Deep Forest Tea Green (#15803d) */
   --color-primary: #15803d;
   --color-primary-hover: #166534;
   --color-primary-active: #14532d;
@@ -16,7 +11,7 @@
   --color-primary-border: #bbf7d0;
   --color-primary-ink: #14532d;
 
-  /* 2. WARNA SEKUNDER (Warm Amber Brew - Karakter seduhan teh kental harum) */
+  /* 2. WARNA SEKUNDER: Warm Amber Brew (#b45309) */
   --color-secondary: #b45309;
   --color-secondary-hover: #92400e;
   --color-secondary-active: #78350f;
@@ -24,7 +19,7 @@
   --color-secondary-border: #fde68a;
   --color-secondary-ink: #78350f;
 
-  /* 3. WARNA AKSEN (Sky Telemetry Blue - Kontras analitik, GPS & digital actions) */
+  /* 3. WARNA AKSEN: Sky Telemetry Blue (#0284c7) */
   --color-accent: #0284c7;
   --color-accent-hover: #0369a1;
   --color-accent-active: #075985;
@@ -32,9 +27,7 @@
   --color-accent-border: #bae6fd;
   --color-accent-ink: #075985;
 
-  /* =========================================================================
-     NEUTRAL PAPER & INK (Strict Minimalist Contrast)
-     ========================================================================= */
+  /* Neutral Base & Slate Surface */
   --color-paper: #f8fafc;
   --color-paper-card: #ffffff;
   --color-paper-muted: #f1f5f9;
@@ -46,62 +39,44 @@
   --color-ink-subtle: #94a3b8;
   --color-ink-inverse: #ffffff;
 
-  /* Hairlines and Rules */
   --color-rule: #e2e8f0;
   --color-rule-subtle: #f1f5f9;
   --color-rule-strong: #cbd5e1;
-  --color-focus: #15803d;
 
-  /* Semantic Alerts */
-  --color-danger: #ef4444;
-  --color-danger-bg: #fef2f2;
-  --color-danger-border: #fecaca;
-  --color-danger-ink: #991b1b;
-
-  /* =========================================================================
-     TYPOGRAPHY: POPPINS (Roman Upright Headings & Tabular Numeral Stacks)
-     ========================================================================= */
+  /* Tipografi Konsisten */
   --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Radii */
-  --radius-xs: 6px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-pill: 9999px;
+  /* Ukuran Standar (Border Radius) */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 
-  /* Shadows (Subtle, tactile, non-blurry) */
-  --shadow-hairline: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
-  --shadow-card: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.03);
-  --shadow-elevated: 0 10px 15px -3px rgba(15, 23, 42, 0.06), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
-
-  /* Transitions */
+  /* Micro Animation */
   --ease-tactile: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-fast: 150ms;
-  --dur-base: 220ms;
 }
 
 body {
   font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
 }
 
-/* Tabular numbers for clean financial & operational telemetry */
-.tabular-data, .font-tabular {
+/* Numerik & Finansial Tabular JetBrains Mono */
+.tabular-data, .font-mono, [data-tabular] {
+  font-family: var(--font-mono) !important;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.01em;
 }
 
-/* Headings display strictly roman (no italic header AI slop) */
-h1, h2, h3, h4, h5, h6, .font-display {
-  font-family: var(--font-display);
+/* Headings Strictly Roman */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
   font-style: normal !important;
-  letter-spacing: -0.02em;
 }
 
-/* MDI Icon default alignment helper */
+/* Icon Alignment */
 .mdi {
   display: inline-flex;
   align-items: center;
@@ -110,14 +85,23 @@ h1, h2, h3, h4, h5, h6, .font-display {
   vertical-align: middle;
 }
 
-/* Primary Button with tactile press state */
+/* Tombol Utama (btn-primary) - Ukuran & Press Feedback Konsisten */
 .btn-primary {
-  background-color: var(--color-primary);
-  color: var(--color-ink-inverse);
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  height: 2.25rem;
+  padding: 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-hairline);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 1px solid transparent;
   transition: all var(--dur-fast) var(--ease-tactile);
+  cursor: pointer;
+  white-space: nowrap;
 }
 .btn-primary:hover {
   background-color: var(--color-primary-hover);
@@ -126,59 +110,46 @@ h1, h2, h3, h4, h5, h6, .font-display {
   background-color: var(--color-primary-active);
   transform: translateY(1px);
 }
-.btn-primary:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
 
-/* Secondary Button (Tea Amber Warmth) */
-.btn-secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-ink-inverse);
-  font-weight: 600;
+/* Tombol Sekunder / Garis Tepi (btn-secondary-outline) */
+.btn-secondary-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  height: 2.25rem;
+  padding: 0 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-hairline);
-  transition: all var(--dur-fast) var(--ease-tactile);
-}
-.btn-secondary:hover {
-  background-color: var(--color-secondary-hover);
-}
-.btn-secondary:active {
-  background-color: var(--color-secondary-active);
-  transform: translateY(1px);
-}
-
-/* Accent Button (Sky Telemetry Blue) */
-.btn-accent {
-  background-color: var(--color-accent);
-  color: var(--color-ink-inverse);
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-hairline);
-  transition: all var(--dur-fast) var(--ease-tactile);
-}
-.btn-accent:hover {
-  background-color: var(--color-accent-hover);
-}
-.btn-accent:active {
-  background-color: var(--color-accent-active);
-  transform: translateY(1px);
-}
-
-/* Crisp Input Styles */
-.form-input-clean {
-  background-color: var(--color-paper-muted);
+  background-color: #ffffff;
+  color: var(--color-ink-secondary);
   border: 1px solid var(--color-rule);
-  border-radius: var(--radius-md);
-  color: var(--color-ink);
   transition: all var(--dur-fast) var(--ease-tactile);
+  cursor: pointer;
+  white-space: nowrap;
 }
-.form-input-clean:hover {
+.btn-secondary-outline:hover {
+  background-color: var(--color-paper-muted);
   border-color: var(--color-rule-strong);
 }
-.form-input-clean:focus {
-  background-color: var(--color-paper-card);
-  border-color: var(--color-primary);
+.btn-secondary-outline:active {
+  transform: translateY(1px);
+}
+
+/* Form Input Standar */
+.form-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-rule);
+  background-color: #ffffff;
+  color: var(--color-ink);
+  transition: border-color var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
+}
+.form-input:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.15);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(21, 128, 61, 0.15);
 }

@@ -6,23 +6,23 @@
 <div class="space-y-6" x-data="executiveDashboard()">
 
     <!-- Header Section -->
-    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <h1 class="text-xl font-bold font-display text-slate-900">Selamat datang, Bapak/Ibu Owner</h1>
-            <p class="text-xs text-slate-500 mt-0.5">Berikut ringkasan kinerja bisnis Anda hari ini</p>
+            <h1 class="text-xl font-semibold text-slate-900">Dashboard Eksekutif & Pemilik Bisnis</h1>
+            <p class="text-xs text-slate-500 mt-1">Ringkasan performa penjualan nasional, kepatuhan armada, dan penetrasi outlet</p>
         </div>
         
-        <div class="flex items-center flex-wrap gap-3">
+        <div class="flex items-center flex-wrap gap-2.5">
             <!-- Date Picker Filter -->
-            <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-semibold text-slate-700">
-                <i class="mdi mdi-calendar w-4 h-4 text-slate-500"></i>
-                <input type="text" value="06 Oktober 2026" readonly class="bg-transparent border-none p-0 text-xs font-bold text-slate-800 focus:outline-none w-28 cursor-pointer">
+            <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg px-3 h-9 text-xs font-medium text-slate-700">
+                <i class="mdi mdi-calendar text-slate-500 text-base"></i>
+                <input type="text" value="06 Oktober 2026" readonly class="bg-transparent border-none p-0 text-xs font-mono tabular-nums font-medium text-slate-800 focus:outline-none w-28 cursor-pointer">
             </div>
 
             <!-- Region Filter -->
-            <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-semibold text-slate-700">
-                <i class="mdi mdi-earth w-4 h-4 text-slate-500"></i>
-                <select x-model="selectedRegion" @change="filterByRegion()" class="bg-transparent border-none p-0 text-xs font-bold text-slate-800 focus:outline-none cursor-pointer">
+            <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg px-3 h-9 text-xs font-medium text-slate-700">
+                <i class="mdi mdi-earth text-slate-500 text-base"></i>
+                <select x-model="selectedRegion" @change="filterByRegion()" class="bg-transparent border-none p-0 text-xs font-medium text-slate-800 focus:outline-none cursor-pointer">
                     <option value="all">Semua Wilayah</option>
                     <option value="Region 1">Region 1 (Solo Raya)</option>
                     <option value="Region 2">Region 2 (Semarang)</option>
@@ -33,14 +33,14 @@
             </div>
 
             <!-- Owner Badge -->
-            <div class="flex items-center gap-2 bg-indigo-50 border border-indigo-200/80 rounded-xl px-3 py-1.5 text-xs text-indigo-700 font-bold">
-                <div class="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-[10px] flex items-center justify-center">OW</div>
+            <div class="flex items-center gap-1.5 bg-slate-100 border border-slate-200 rounded-lg px-2.5 h-9 text-xs text-slate-700 font-medium">
+                <i class="mdi mdi-shield-account text-primary text-base"></i>
                 <span>Owner</span>
             </div>
 
             <!-- Drilldown Quick Link -->
-            <a href="{{ route('dashboard.drilldown') }}" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-xs transition-all flex items-center gap-1.5">
-                <i class="mdi mdi-chart-box-outline w-4 h-4"></i>
+            <a href="{{ route('dashboard.drilldown') }}" class="btn-primary">
+                <i class="mdi mdi-chart-box-outline text-base"></i>
                 <span>Grafik Drilldown 7 Level</span>
             </a>
         </div>
@@ -50,92 +50,92 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         
         <!-- Card 1: Penjualan (Sales) -->
-        <div @click="openModal('sales')" class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer group">
+        <div @click="openModal('sales')" class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:border-slate-300 transition-all cursor-pointer group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-slate-700">Penjualan (Sales)</span>
-                <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <i class="mdi mdi-trending-up w-4 h-4"></i>
+                <span class="text-xs font-medium text-slate-500">Penjualan (Sales)</span>
+                <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                    <i class="mdi mdi-trending-up text-base"></i>
                 </div>
             </div>
-            <div class="text-2xl font-extrabold font-display text-emerald-600 mt-2">Rp 2,8 M</div>
-            <div class="text-[11px] text-slate-500 mt-1">Target Rp 3,10 M | <span class="font-bold text-slate-700">92,6%</span></div>
-            <div class="mt-2 text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-lg px-2 py-0.5 inline-flex items-center gap-1">
-                <i class="mdi mdi-arrow-up w-3 h-3"></i> +8,2% vs periode lalu
+            <div class="text-2xl font-semibold font-mono tabular-nums text-emerald-700 mt-2">Rp 2,8 M</div>
+            <div class="text-xs text-slate-500 mt-1">Target Rp 3,10 M | <span class="font-medium font-mono text-slate-700">92,6%</span></div>
+            <div class="mt-2 text-[11px] font-medium text-emerald-700 bg-emerald-50 border border-emerald-100 rounded px-2 py-0.5 inline-flex items-center gap-1 font-mono">
+                <i class="mdi mdi-arrow-up text-xs"></i> +8,2% vs periode lalu
             </div>
         </div>
 
         <!-- Card 2: Sales Aktif -->
-        <div @click="openModal('sales_active')" class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer group">
+        <div @click="openModal('sales_active')" class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:border-slate-300 transition-all cursor-pointer group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-slate-700">Sales Aktif</span>
-                <div class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <i class="mdi mdi-account-group w-4 h-4"></i>
+                <span class="text-xs font-medium text-slate-500">Sales Aktif</span>
+                <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                    <i class="mdi mdi-account-group text-base"></i>
                 </div>
             </div>
-            <div class="text-2xl font-extrabold font-display text-slate-900 mt-2">876 <span class="text-xs text-slate-400 font-normal">/ 920</span></div>
-            <div class="text-[11px] text-indigo-600 font-bold mt-1">95,2% aktif</div>
-            <div class="mt-2 text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-lg px-2 py-0.5 inline-flex items-center gap-1">
-                <i class="mdi mdi-arrow-up w-3 h-3"></i> +2,1% vs bulan lalu
+            <div class="text-2xl font-semibold font-mono tabular-nums text-slate-900 mt-2">876 <span class="text-xs text-slate-400 font-normal">/ 920</span></div>
+            <div class="text-xs text-indigo-600 font-medium mt-1 font-mono">95,2% aktif</div>
+            <div class="mt-2 text-[11px] font-medium text-emerald-700 bg-emerald-50 border border-emerald-100 rounded px-2 py-0.5 inline-flex items-center gap-1 font-mono">
+                <i class="mdi mdi-arrow-up text-xs"></i> +2,1% vs bulan lalu
             </div>
         </div>
 
         <!-- Card 3: Visit Compliance -->
-        <div @click="openModal('visit_compliance')" class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer group">
+        <div @click="openModal('visit_compliance')" class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:border-slate-300 transition-all cursor-pointer group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-slate-700">Visit Compliance</span>
-                <div class="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <i class="mdi mdi-map-marker w-4 h-4"></i>
+                <span class="text-xs font-medium text-slate-500">Kepatuhan Kunjungan</span>
+                <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+                    <i class="mdi mdi-map-marker text-base"></i>
                 </div>
             </div>
-            <div class="text-2xl font-extrabold font-display text-slate-900 mt-2">91%</div>
-            <div class="text-[11px] text-slate-500 mt-1">7.735 / 8.500 visit</div>
-            <div class="mt-2 text-[10px] font-bold text-rose-600 bg-rose-50 border border-rose-100 rounded-lg px-2 py-0.5 inline-flex items-center gap-1">
-                <i class="mdi mdi-arrow-down w-3 h-3"></i> -3,4% vs kemarin
+            <div class="text-2xl font-semibold font-mono tabular-nums text-slate-900 mt-2">91%</div>
+            <div class="text-xs text-slate-500 mt-1 font-mono">7.735 / 8.500 kunjungan</div>
+            <div class="mt-2 text-[11px] font-medium text-rose-700 bg-rose-50 border border-rose-100 rounded px-2 py-0.5 inline-flex items-center gap-1 font-mono">
+                <i class="mdi mdi-arrow-down text-xs"></i> -3,4% vs kemarin
             </div>
         </div>
 
         <!-- Card 4: Outlet Baru -->
-        <div @click="openModal('new_outlet')" class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer group">
+        <div @click="openModal('new_outlet')" class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:border-slate-300 transition-all cursor-pointer group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-slate-700">Outlet Baru</span>
-                <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <i class="mdi mdi-store w-4 h-4"></i>
+                <span class="text-xs font-medium text-slate-500">Outlet Baru</span>
+                <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+                    <i class="mdi mdi-store text-base"></i>
                 </div>
             </div>
-            <div class="text-2xl font-extrabold font-display text-slate-900 mt-2">132</div>
-            <div class="text-[11px] text-slate-500 mt-1">Target 150</div>
-            <div class="mt-2 text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-lg px-2 py-0.5 inline-flex items-center gap-1">
-                <i class="mdi mdi-arrow-up w-3 h-3"></i> +15% vs bulan lalu
+            <div class="text-2xl font-semibold font-mono tabular-nums text-slate-900 mt-2">132</div>
+            <div class="text-xs text-slate-500 mt-1 font-mono">Target 150</div>
+            <div class="mt-2 text-[11px] font-medium text-emerald-700 bg-emerald-50 border border-emerald-100 rounded px-2 py-0.5 inline-flex items-center gap-1 font-mono">
+                <i class="mdi mdi-arrow-up text-xs"></i> +15% vs bulan lalu
             </div>
         </div>
 
         <!-- Card 5: Outlet Aktif -->
-        <div @click="openModal('active_outlet')" class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer group">
+        <div @click="openModal('active_outlet')" class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:border-slate-300 transition-all cursor-pointer group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-slate-700">Outlet Aktif</span>
-                <div class="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <i class="mdi mdi-shopping w-4 h-4"></i>
+                <span class="text-xs font-medium text-slate-500">Outlet Aktif</span>
+                <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center">
+                    <i class="mdi mdi-shopping text-base"></i>
                 </div>
             </div>
-            <div class="text-2xl font-extrabold font-display text-slate-900 mt-2">7.850</div>
-            <div class="text-[11px] text-slate-500 mt-1">vs bulan lalu</div>
-            <div class="mt-2 text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-lg px-2 py-0.5 inline-flex items-center gap-1">
-                <i class="mdi mdi-arrow-up w-3 h-3"></i> +4,2%
+            <div class="text-2xl font-semibold font-mono tabular-nums text-slate-900 mt-2">7.850</div>
+            <div class="text-xs text-slate-500 mt-1">vs bulan lalu</div>
+            <div class="mt-2 text-[11px] font-medium text-emerald-700 bg-emerald-50 border border-emerald-100 rounded px-2 py-0.5 inline-flex items-center gap-1 font-mono">
+                <i class="mdi mdi-arrow-up text-xs"></i> +4,2%
             </div>
         </div>
 
         <!-- Card 6: Order -->
-        <div @click="openModal('order')" class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer group">
+        <div @click="openModal('order')" class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:border-slate-300 transition-all cursor-pointer group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-slate-700">Order</span>
-                <div class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <i class="mdi mdi-cart w-4 h-4"></i>
+                <span class="text-xs font-medium text-slate-500">Pesanan Masuk</span>
+                <div class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center">
+                    <i class="mdi mdi-cart text-base"></i>
                 </div>
             </div>
-            <div class="text-2xl font-extrabold font-display text-slate-900 mt-2">4.821</div>
-            <div class="text-[11px] text-slate-500 mt-1">vs periode lalu</div>
-            <div class="mt-2 text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-lg px-2 py-0.5 inline-flex items-center gap-1">
-                <i class="mdi mdi-arrow-up w-3 h-3"></i> +8,2%
+            <div class="text-2xl font-semibold font-mono tabular-nums text-slate-900 mt-2">4.821</div>
+            <div class="text-xs text-slate-500 mt-1">vs periode lalu</div>
+            <div class="mt-2 text-[11px] font-medium text-emerald-700 bg-emerald-50 border border-emerald-100 rounded px-2 py-0.5 inline-flex items-center gap-1 font-mono">
+                <i class="mdi mdi-arrow-up text-xs"></i> +8,2%
             </div>
         </div>
 
@@ -145,7 +145,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
         <!-- Tren Penjualan Chart (Col 5) -->
-        <div class="lg:col-span-5 bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs flex flex-col justify-between relative">
+        <div class="lg:col-span-5 bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex flex-col justify-between relative">
             <div>
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <div>
@@ -176,7 +176,7 @@
         </div>
 
         <!-- Performa 5 Wilayah Table (Col 4) -->
-        <div class="lg:col-span-4 bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
+        <div class="lg:col-span-4 bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
             <div class="flex items-center justify-between mb-3">
                 <h3 class="text-sm font-bold text-slate-900">Performa 5 Wilayah</h3>
                 <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Score Overall</span>
@@ -261,7 +261,7 @@
         </div>
 
         <!-- Sales Quality Index Gauge (Col 3) -->
-        <div @click="openModal('sqi')" class="lg:col-span-3 bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs flex flex-col justify-between cursor-pointer hover:shadow-md transition-all">
+        <div @click="openModal('sqi')" class="lg:col-span-3 bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex flex-col justify-between cursor-pointer hover:shadow-md transition-all">
             <div>
                 <h3 class="text-sm font-bold text-slate-900">Sales Quality Index</h3>
                 <p class="text-xs text-slate-500 mt-0.5">Indeks Kualitas Penjualan</p>
@@ -271,7 +271,7 @@
                 <div class="relative w-36 h-36 flex items-center justify-center">
                     <canvas id="sqiDonutChart"></canvas>
                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-                        <span class="text-2xl font-extrabold font-display text-slate-900">78</span>
+                        <span class="text-2xl font-semibold font-mono tabular-nums text-slate-900">78</span>
                         <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">/100</span>
                     </div>
                 </div>
@@ -311,14 +311,14 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
 
         <!-- Outlet Health Card -->
-        <div @click="openModal('outlet_health')" class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+        <div @click="openModal('outlet_health')" class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
             <div>
                 <h3 class="text-xs font-bold text-slate-900">Outlet Health</h3>
                 
                 <div class="relative w-28 h-28 mx-auto my-3 flex items-center justify-center">
                     <canvas id="outletHealthChart"></canvas>
                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-                        <span class="text-sm font-extrabold font-display text-slate-900">7.850</span>
+                        <span class="text-sm font-semibold font-mono tabular-nums text-slate-900">7.850</span>
                         <span class="text-[9px] text-slate-400 font-bold">Total Outlet</span>
                     </div>
                 </div>
@@ -341,7 +341,7 @@
         </div>
 
         <!-- Outlet At Risk Card -->
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs flex flex-col justify-between">
             <div>
                 <div class="flex items-center justify-between mb-2">
                     <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
@@ -374,7 +374,7 @@
         </div>
 
         <!-- Product Expiry Risk Card -->
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs flex flex-col justify-between">
             <div>
                 <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5 mb-3">
                     <i class="mdi mdi-package-variant-closed-remove w-3.5 h-3.5 text-amber-500"></i> Product Expiry Risk
@@ -410,11 +410,11 @@
         </div>
 
         <!-- Company Asset Card -->
-        <div @click="openModal('company_asset')" class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+        <div @click="openModal('company_asset')" class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
             <div>
                 <h3 class="text-xs font-bold text-slate-900 mb-1">Company Asset</h3>
                 <div class="text-[10px] text-slate-400 font-medium">Total Deployed</div>
-                <div class="text-xl font-extrabold font-display text-slate-900 mt-0.5">8.420</div>
+                <div class="text-xl font-semibold font-mono tabular-nums text-slate-900 mt-0.5">8.420</div>
 
                 <div class="space-y-1.5 mt-3 text-[10px]">
                     <div class="flex items-center justify-between">
@@ -438,12 +438,12 @@
         </div>
 
         <!-- Fleet Card -->
-        <div @click="openModal('fleet')" class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+        <div @click="openModal('fleet')" class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
             <div>
                 <h3 class="text-xs font-bold text-slate-900 mb-1 flex items-center gap-1.5">
                     <i class="mdi mdi-truck-fast w-3.5 h-3.5 text-indigo-600"></i> Fleet
                 </h3>
-                <div class="text-xl font-extrabold font-display text-slate-900 mt-1">185 <span class="text-xs text-slate-400 font-normal">Kendaraan</span></div>
+                <div class="text-xl font-semibold font-mono tabular-nums text-slate-900 mt-1">185 <span class="text-xs text-slate-400 font-normal">Kendaraan</span></div>
 
                 <div class="space-y-2 mt-4 text-[10px]">
                     <div class="flex items-center justify-between">
@@ -468,7 +468,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
 
         <!-- Peta Persebaran Sales (Col 3) -->
-        <div @click="openModal('sales_map')" class="lg:col-span-3 bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+        <div @click="openModal('sales_map')" class="lg:col-span-3 bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
             <div>
                 <h3 class="text-xs font-bold text-slate-900 mb-2">Peta Persebaran Sales</h3>
                 
@@ -476,7 +476,6 @@
                 <div class="bg-indigo-50/50 border border-indigo-100 rounded-xl p-3 h-36 relative overflow-hidden flex items-center justify-center">
                     <svg class="w-full h-full text-indigo-200" viewBox="0 0 200 100" fill="currentColor">
                         <path d="M20,40 Q40,25 70,35 T120,40 T170,30 T190,50 Q160,70 120,65 T60,70 Z" opacity="0.4"/>
-                        <circle cx="50" cy="45" r="4" class="fill-emerald-500 animate-ping"/>
                         <circle cx="50" cy="45" r="4" class="fill-emerald-600"/>
                         <circle cx="85" cy="40" r="4" class="fill-amber-500"/>
                         <circle cx="115" cy="50" r="4" class="fill-emerald-500"/>
@@ -499,12 +498,12 @@
         </div>
 
         <!-- Daily Plan Compliance (Col 3) -->
-        <div @click="openModal('daily_plan')" class="lg:col-span-3 bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+        <div @click="openModal('daily_plan')" class="lg:col-span-3 bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
             <div>
                 <h3 class="text-xs font-bold text-slate-900 mb-2">Daily Plan Compliance</h3>
 
                 <div class="flex items-baseline gap-2">
-                    <span class="text-3xl font-extrabold font-display text-emerald-600">88%</span>
+                    <span class="text-3xl font-semibold font-mono tabular-nums text-emerald-700">88%</span>
                     <span class="text-[10px] font-bold text-slate-400 uppercase">Completion Rate</span>
                 </div>
 
@@ -569,7 +568,7 @@
         </div>
 
         <!-- Alert Center (Col 3) -->
-        <div class="lg:col-span-3 bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between">
+        <div class="lg:col-span-3 bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs flex flex-col justify-between">
             <div>
                 <div class="flex items-center justify-between mb-2">
                     <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
@@ -677,7 +676,7 @@
                         <i class="mdi mdi-chart-box-outline w-5 h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-base font-bold font-display text-slate-900" x-text="modalTitle"></h2>
+                        <h2 class="text-base font-semibold text-slate-900" x-text="modalTitle"></h2>
                         <p class="text-xs text-slate-500" x-text="modalSubtitle"></p>
                     </div>
                 </div>
@@ -776,11 +775,11 @@
                     ];
                     this.modalColumns = ['Channel / Region', 'Target', 'Realisasi', 'Achievement', 'Status'];
                     this.modalRows = [
-                        ['General Trade (GT)', 'Rp 2.100.000.000', 'Rp 1.980.000.000', '94,3%', '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-[10px]">🟢 Good</span>'],
-                        ['Modern Trade (MT)', 'Rp 700.000.000', 'Rp 650.000.000', '92,8%', '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-[10px]">🟢 Good</span>'],
-                        ['Horeca & Corporate', 'Rp 300.000.000', 'Rp 240.000.000', '80,0%', '<span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded font-bold text-[10px]">🟡 Warning</span>'],
-                        ['Region 1 Solo Raya', 'Rp 800.000.000', 'Rp 768.000.000', '96,0%', '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-[10px]">🟢 Good</span>'],
-                        ['Region 4 Pati', 'Rp 500.000.000', 'Rp 360.000.000', '72,0%', '<span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded font-bold text-[10px]">🔴 Critical</span>']
+                        ['General Trade (GT)', 'Rp 2.100.000.000', 'Rp 1.980.000.000', '94,3%', '<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-xs font-medium">Baik</span>'],
+                        ['Modern Trade (MT)', 'Rp 700.000.000', 'Rp 650.000.000', '92,8%', '<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-xs font-medium">Baik</span>'],
+                        ['Horeca & Corporate', 'Rp 300.000.000', 'Rp 240.000.000', '80,0%', '<span class="px-2 py-0.5 bg-amber-50 text-amber-700 border border-amber-200 rounded text-xs font-medium">Peringatan</span>'],
+                        ['Region 1 Solo Raya', 'Rp 800.000.000', 'Rp 768.000.000', '96,0%', '<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-xs font-medium">Baik</span>'],
+                        ['Region 4 Pati', 'Rp 500.000.000', 'Rp 360.000.000', '72,0%', '<span class="px-2 py-0.5 bg-rose-50 text-rose-700 border border-rose-200 rounded text-xs font-medium">Kritis</span>']
                     ];
                 } else if (type === 'sales_active') {
                     this.modalTitle = 'Detail Sales Aktif';
@@ -792,10 +791,10 @@
                     ];
                     this.modalColumns = ['Nama Sales', 'Region / Branch', 'Check-in Time', 'Kunjungan', 'Status GPS'];
                     this.modalRows = [
-                        ['Eko Prasetyo', 'Region 1 - Solo', '07:45 WIB', '14 Outlet', '<span class="text-emerald-600 font-bold">🟢 Active (Concox GT06N)</span>'],
-                        ['Agus Setiawan', 'Region 1 - Boyolali', '08:02 WIB', '12 Outlet', '<span class="text-emerald-600 font-bold">🟢 Active</span>'],
-                        ['Budi Santoso', 'Region 2 - Semarang', '08:15 WIB', '10 Outlet', '<span class="text-emerald-600 font-bold">🟢 Active</span>'],
-                        ['Rudi Hermawan', 'Region 4 - Pati', 'Belum Check-in', '0 Outlet', '<span class="text-rose-600 font-bold">🔴 No Signal</span>']
+                        ['Eko Prasetyo', 'Region 1 - Solo', '07:45 WIB', '14 Outlet', '<span class="text-emerald-700 font-medium">Aktif (Concox GT06N)</span>'],
+                        ['Agus Setiawan', 'Region 1 - Boyolali', '08:02 WIB', '12 Outlet', '<span class="text-emerald-700 font-medium">Aktif</span>'],
+                        ['Budi Santoso', 'Region 2 - Semarang', '08:15 WIB', '10 Outlet', '<span class="text-emerald-700 font-medium">Aktif</span>'],
+                        ['Rudi Hermawan', 'Region 4 - Pati', 'Belum Check-in', '0 Outlet', '<span class="text-rose-700 font-medium">Tidak Ada Sinyal</span>']
                     ];
                 } else if (type === 'visit_compliance') {
                     this.modalTitle = 'Detail Visit Compliance (91%)';
@@ -823,10 +822,10 @@
                     ];
                     this.modalColumns = ['Segmentasi Outlet', 'Jumlah Toko', 'Kontribusi Sales', 'Rata-rata Order', 'Status'];
                     this.modalRows = [
-                        ['Toko Kelontong Besar (Gold)', '2.450 Toko', '42%', 'Rp 3.500.000', '<span class="text-emerald-600 font-bold">🟢 High RO</span>'],
-                        ['Warung Makan & Horeca', '3.100 Toko', '35%', 'Rp 1.800.000', '<span class="text-emerald-600 font-bold">🟢 Active</span>'],
-                        ['Mini Market Independen', '1.200 Toko', '15%', 'Rp 4.200.000', '<span class="text-emerald-600 font-bold">🟢 Active</span>'],
-                        ['Toko Grosir & Distributor', '1.100 Toko', '8%', 'Rp 12.000.000', '<span class="text-emerald-600 font-bold">🟢 Active</span>']
+                        ['Toko Kelontong Besar (Gold)', '2.450 Toko', '42%', 'Rp 3.500.000', '<span class="text-emerald-700 font-medium">RO Tinggi</span>'],
+                        ['Warung Makan & Horeca', '3.100 Toko', '35%', 'Rp 1.800.000', '<span class="text-emerald-700 font-medium">Aktif</span>'],
+                        ['Mini Market Independen', '1.200 Toko', '15%', 'Rp 4.200.000', '<span class="text-emerald-700 font-medium">Aktif</span>'],
+                        ['Toko Grosir & Distributor', '1.100 Toko', '8%', 'Rp 12.000.000', '<span class="text-emerald-700 font-medium">Aktif</span>']
                     ];
                 } else if (type === 'order') {
                     this.modalTitle = 'Detail Order & Penjualan (4.821 Transaksi)';
@@ -838,9 +837,9 @@
                     ];
                     this.modalColumns = ['No Sales Order', 'Outlet', 'Salesperson', 'Nilai Order', 'Status'];
                     this.modalRows = [
-                        ['SO-20261006-001', 'Toko Berkah Cepogo', 'Eko Prasetyo', 'Rp 2.450.000', '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-[10px]">Approved</span>'],
-                        ['SO-20261006-002', 'UD Rezeki Subur', 'Agus Setiawan', 'Rp 1.850.000', '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-[10px]">Approved</span>'],
-                        ['SO-20261006-003', 'Warung Makan Bundo', 'Eko Prasetyo', 'Rp 950.000', '<span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-bold text-[10px]">Delivered</span>']
+                        ['SO-20261006-001', 'Toko Berkah Cepogo', 'Eko Prasetyo', 'Rp 2.450.000', '<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-xs font-medium">Approved</span>'],
+                        ['SO-20261006-002', 'UD Rezeki Subur', 'Agus Setiawan', 'Rp 1.850.000', '<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-xs font-medium">Approved</span>'],
+                        ['SO-20261006-003', 'Warung Makan Bundo', 'Eko Prasetyo', 'Rp 950.000', '<span class="px-2 py-0.5 bg-sky-50 text-sky-700 border border-sky-200 rounded text-xs font-medium">Delivered</span>']
                     ];
                 } else if (type === 'outlet_risk' || type === 'expiry_risk') {
                     this.modalTitle = type === 'outlet_risk' ? 'Detail 127 Outlet At Risk' : 'Detail Product Expiry Risk';
@@ -852,9 +851,9 @@
                     ];
                     this.modalColumns = ['Nama Outlet', 'Wilayah', 'Kendala / Risiko', 'Nilai Potensi Loss', 'Tindakan Disarankan'];
                     this.modalRows = [
-                        ['Toko Sumber Rezeki', 'Region 4 - Pati', 'Tidak dikunjungi >14 hari', 'Rp 8.500.000', '<span class="text-rose-600 font-bold">Jadwalkan Visit Ulang</span>'],
-                        ['UD Maju Bersama', 'Region 2 - Semarang', 'Omzet turun >30%', 'Rp 12.000.000', '<span class="text-amber-600 font-bold">Berikan Promo Diskon</span>'],
-                        ['Toko Barokah Solo', 'Region 1 - Solo', 'Near Expiry <14 hari (45 case)', 'Rp 4.500.000', '<span class="text-rose-600 font-bold">Tukar Batch Baru</span>']
+                        ['Toko Sumber Rezeki', 'Region 4 - Pati', 'Tidak dikunjungi >14 hari', 'Rp 8.500.000', '<span class="text-rose-700 font-medium">Jadwalkan Visit Ulang</span>'],
+                        ['UD Maju Bersama', 'Region 2 - Semarang', 'Omzet turun >30%', 'Rp 12.000.000', '<span class="text-amber-700 font-medium">Berikan Promo Diskon</span>'],
+                        ['Toko Barokah Solo', 'Region 1 - Solo', 'Near Expiry <14 hari (45 case)', 'Rp 4.500.000', '<span class="text-rose-700 font-medium">Tukar Batch Baru</span>']
                     ];
                 } else if (type === 'company_asset' || type === 'fleet') {
                     this.modalTitle = type === 'company_asset' ? 'Detail Company Asset (8.420 Unit)' : 'Detail Operational Fleet (185 Vehicle)';
@@ -866,9 +865,9 @@
                     ];
                     this.modalColumns = ['No Polisi / ID Aset', 'Pengemudi / Sales', 'Tipe Kendaraan', 'Status GPS', 'Status Kondisi'];
                     this.modalRows = [
-                        ['AD 8942 CE', 'Eko Prasetyo', 'Motor Box Honda Supra', '🟢 Normal (Inside Route)', '<span class="text-emerald-600 font-bold">Good</span>'],
-                        ['AD 1452 BC', 'Agus Setiawan', 'Blind Van Grand Max', '🟢 Normal (Inside Route)', '<span class="text-emerald-600 font-bold">Good</span>'],
-                        ['K 7812 DF', 'Rudi Hermawan', 'Truck Canter Box', '🔴 Outside Route (Alert)', '<span class="text-rose-600 font-bold">Suspected Misuse</span>']
+                        ['AD 8942 CE', 'Eko Prasetyo', 'Motor Box Honda Supra', 'Normal (Dalam Rute)', '<span class="text-emerald-700 font-medium">Baik</span>'],
+                        ['AD 1452 BC', 'Agus Setiawan', 'Blind Van Grand Max', 'Normal (Dalam Rute)', '<span class="text-emerald-700 font-medium">Baik</span>'],
+                        ['K 7812 DF', 'Rudi Hermawan', 'Truck Canter Box', 'Luar Rute (Peringatan)', '<span class="text-rose-700 font-medium">Penyimpangan Rute</span>']
                     ];
                 } else {
                     this.modalTitle = 'Detail Analytics & Operational Performance';

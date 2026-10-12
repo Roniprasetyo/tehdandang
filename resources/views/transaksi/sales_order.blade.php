@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Sales Order (SAP B1 Form)')
+@section('title', 'Manajemen Pesanan Penjualan (SAP B1)')
 
 @section('content')
 <div class="space-y-6" x-data="{ 
@@ -20,47 +20,48 @@
     }
 }">
 
-    <!-- Top Header & Action -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <!-- Header & Aksi Utama -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <h1 class="text-xl font-bold font-display text-slate-900 font-normal">Sales Order Management (SAP B1 Form)</h1>
-            <p class="text-xs text-slate-500 mt-0.5">Input order penjualan dengan skema field dan struktur ORDR / RDR1 SAP Business One</p>
+            <h1 class="text-xl font-semibold text-slate-900">Manajemen Pesanan Penjualan (SAP B1)</h1>
+            <p class="text-xs text-slate-500 mt-1">Pencatatan order penjualan dengan struktur data dokumen ORDR / RDR1 SAP Business One</p>
         </div>
         <div class="flex items-center gap-2">
             <button 
                 type="button"
                 @click="notify('Data transaksi Sales Order berhasil diekspor.', 'success')" 
-                class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 shadow-xs flex items-center gap-1.5 transition-all active:translate-y-px"
+                class="btn-secondary-outline"
             >
-                <i class="mdi mdi-download text-slate-500 text-base"></i> Ekspor
+                <i class="mdi mdi-download text-base"></i>
+                <span>Ekspor</span>
             </button>
             <button 
                 type="button"
                 @click="showForm = !showForm" 
-                class="btn-primary text-xs flex items-center gap-1.5 active:translate-y-px"
+                class="btn-primary"
             >
                 <i class="mdi" :class="showForm ? 'mdi-close' : 'mdi-plus'"></i>
-                <span x-text="showForm ? 'Tutup Formulir' : '+ Sales Order Baru'">+ Sales Order Baru</span>
+                <span x-text="showForm ? 'Tutup Formulir' : 'Buat Pesanan Baru'"></span>
             </button>
         </div>
     </div>
 
-    <!-- SAP-style Sales Order Entry Form (Clean White Container) -->
-    <div x-show="showForm" x-cloak class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm space-y-6">
+    <!-- SAP-style Sales Order Entry Form -->
+    <div x-show="showForm" x-cloak class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-5">
         <div class="flex items-center justify-between border-b border-slate-100 pb-3">
             <div>
-                <span class="text-[10px] text-primary font-bold uppercase tracking-widest">SAP B1 ORDR Header</span>
-                <h3 class="text-sm font-bold text-slate-900 font-normal">Entry Sales Order — Standard SAP Matrix</h3>
+                <h3 class="text-sm font-semibold text-slate-900">Formulir Pesanan Penjualan (ORDR)</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Integrasi langsung dengan modul Sales & Distribution SAP Business One</p>
             </div>
-            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-mono font-bold">ORDR/RDR1 Ready</span>
+            <span class="px-2.5 py-1 rounded bg-primary-50 text-primary-700 border border-primary-200 text-xs font-mono font-medium">Dokumen ORDR/RDR1</span>
         </div>
 
         <!-- Header Fields -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
             <div>
-                <label class="block text-slate-600 mb-1 font-semibold">Customer (CardCode / CardName):</label>
-                <select x-model="selectedCustomer" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl p-2.5 focus:outline-none focus:border-primary">
-                    <option value="">-- Pilih Outlet Pelanggan --</option>
+                <label class="block text-slate-600 mb-1.5 font-medium">Pelanggan (CardCode / CardName)</label>
+                <select x-model="selectedCustomer" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg h-9 px-3 focus:outline-none focus:border-primary focus:bg-white transition-all cursor-pointer">
+                    <option value="">Pilih Outlet Pelanggan</option>
                     @foreach($outlets as $o)
                     <option value="{{ $o['card_code'] }}">{{ $o['card_code'] }} - {{ $o['card_name'] }}</option>
                     @endforeach
@@ -68,8 +69,8 @@
             </div>
 
             <div>
-                <label class="block text-slate-600 mb-1 font-semibold">Sales Employee (SlpCode):</label>
-                <select class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl p-2.5 focus:outline-none focus:border-primary">
+                <label class="block text-slate-600 mb-1.5 font-medium">Tenaga Penjual (SlpCode)</label>
+                <select class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg h-9 px-3 focus:outline-none focus:border-primary focus:bg-white transition-all cursor-pointer">
                     @foreach($salesList as $s)
                     <option value="{{ $s['slp_code'] }}">{{ $s['name'] }} (SlpCode: {{ $s['slp_code'] }})</option>
                     @endforeach
@@ -77,35 +78,35 @@
             </div>
 
             <div>
-                <label class="block text-slate-600 mb-1 font-semibold">Document Date (DocDate):</label>
-                <input type="date" value="{{ date('Y-m-d') }}" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl p-2.5 focus:outline-none focus:border-primary">
+                <label class="block text-slate-600 mb-1.5 font-medium">Tanggal Dokumen (DocDate)</label>
+                <input type="date" value="{{ date('Y-m-d') }}" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg h-9 px-3 focus:outline-none focus:border-primary focus:bg-white font-mono transition-all">
             </div>
 
             <div>
-                <label class="block text-slate-600 mb-1 font-semibold">Delivery Date (DocDueDate):</label>
-                <input type="date" value="{{ date('Y-m-d', strtotime('+2 days')) }}" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl p-2.5 focus:outline-none focus:border-primary">
+                <label class="block text-slate-600 mb-1.5 font-medium">Jadwal Pengiriman (DocDueDate)</label>
+                <input type="date" value="{{ date('Y-m-d', strtotime('+2 days')) }}" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg h-9 px-3 focus:outline-none focus:border-primary focus:bg-white font-mono transition-all">
             </div>
         </div>
 
         <!-- Item Lines Table (RDR1 Matrix) -->
         <div class="space-y-3">
             <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Item Lines (RDR1 Detail Matrix):</span>
-                <button type="button" @click="addItem()" class="px-3 py-1.5 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 text-xs font-bold border border-primary/20 flex items-center gap-1 active:translate-y-px transition-colors">
-                    <i class="mdi mdi-plus text-base"></i> Tambah Item Line
+                <span class="text-xs font-semibold text-slate-700">Rincian Baris Barang (Matriks RDR1)</span>
+                <button type="button" @click="addItem()" class="h-8 px-3 rounded-lg bg-primary-50 text-primary-700 hover:bg-primary-100 text-xs font-medium border border-primary-200 flex items-center gap-1 active:translate-y-px transition-colors cursor-pointer">
+                    <i class="mdi mdi-plus text-base"></i> Tambah Baris Barang
                 </button>
             </div>
 
-            <div class="overflow-x-auto border border-slate-200 rounded-xl bg-slate-50">
+            <div class="overflow-x-auto border border-slate-200 rounded-lg bg-slate-50">
                 <table class="w-full text-left text-xs text-slate-700">
-                    <thead class="bg-white text-slate-500 uppercase text-[10px] border-b border-slate-200">
+                    <thead class="bg-white text-slate-600 uppercase text-[11px] font-semibold border-b border-slate-200">
                         <tr>
                             <th class="py-2.5 px-3">Kode SKU</th>
                             <th class="py-2.5 px-3">Nama Produk</th>
-                            <th class="py-2.5 px-3 w-20">Kuantitas</th>
+                            <th class="py-2.5 px-3 w-24">Kuantitas</th>
                             <th class="py-2.5 px-3 w-20">Satuan</th>
                             <th class="py-2.5 px-3">Harga Satuan</th>
-                            <th class="py-2.5 px-3 w-20">Diskon %</th>
+                            <th class="py-2.5 px-3 w-24">Diskon %</th>
                             <th class="py-2.5 px-3">Total Baris</th>
                             <th class="py-2.5 px-3 text-center">Aksi</th>
                         </tr>
@@ -114,28 +115,28 @@
                         <template x-for="(item, index) in items" :key="index">
                             <tr>
                                 <td class="py-2 px-3">
-                                    <input type="text" x-model="item.item_code" class="w-full bg-white border border-slate-200 rounded-lg p-1.5 font-mono text-primary font-bold">
+                                    <input type="text" x-model="item.item_code" class="w-full bg-white border border-slate-200 rounded-lg h-8 px-2.5 font-mono tabular-nums text-primary font-medium">
                                 </td>
                                 <td class="py-2 px-3">
-                                    <input type="text" x-model="item.name" class="w-full bg-white border border-slate-200 rounded-lg p-1.5 font-bold text-slate-900">
+                                    <input type="text" x-model="item.name" class="w-full bg-white border border-slate-200 rounded-lg h-8 px-2.5 font-medium text-slate-900">
                                 </td>
                                 <td class="py-2 px-3">
-                                    <input type="number" x-model.number="item.qty" class="w-full bg-white border border-slate-200 rounded-lg p-1.5 text-center font-mono tabular-nums">
+                                    <input type="number" x-model.number="item.qty" class="w-full bg-white border border-slate-200 rounded-lg h-8 px-2.5 text-center font-mono tabular-nums">
                                 </td>
                                 <td class="py-2 px-3">
-                                    <input type="text" x-model="item.uom" class="w-full bg-white border border-slate-200 rounded-lg p-1.5 text-center">
+                                    <input type="text" x-model="item.uom" class="w-full bg-white border border-slate-200 rounded-lg h-8 px-2.5 text-center">
                                 </td>
                                 <td class="py-2 px-3">
-                                    <input type="number" x-model.number="item.price" class="w-full bg-white border border-slate-200 rounded-lg p-1.5 font-mono tabular-nums">
+                                    <input type="number" x-model.number="item.price" class="w-full bg-white border border-slate-200 rounded-lg h-8 px-2.5 font-mono tabular-nums">
                                 </td>
                                 <td class="py-2 px-3">
-                                    <input type="number" x-model.number="item.discount" class="w-full bg-white border border-slate-200 rounded-lg p-1.5 text-center font-mono tabular-nums">
+                                    <input type="number" x-model.number="item.discount" class="w-full bg-white border border-slate-200 rounded-lg h-8 px-2.5 text-center font-mono tabular-nums">
                                 </td>
-                                <td class="py-2 px-3 font-bold text-emerald-700 font-mono tabular-nums">
+                                <td class="py-2 px-3 font-medium text-primary font-mono tabular-nums">
                                     Rp <span x-text="Math.round(item.qty * item.price * (1 - item.discount/100)).toLocaleString('id-ID')"></span>
                                 </td>
                                 <td class="py-2 px-3 text-center">
-                                    <button type="button" @click="removeItem(index)" class="text-rose-600 hover:text-rose-700 p-1">
+                                    <button type="button" @click="removeItem(index)" class="text-rose-600 hover:text-rose-700 p-1 cursor-pointer">
                                         <i class="mdi mdi-trash-can-outline text-base"></i>
                                     </button>
                                 </td>
@@ -149,31 +150,31 @@
         <!-- Totals Footer -->
         <div class="flex flex-col sm:flex-row items-end justify-between border-t border-slate-100 pt-4 gap-4 text-xs">
             <div class="text-slate-500">
-                <span class="block font-semibold">Status Mapping SAP B1: <strong class="text-primary font-bold">Ready for SAP API POST /ORDR</strong></span>
-                <span class="block text-[11px]">Subtotal, Pajak PPN 11%, dan potongan harga dihitung otomatis.</span>
+                <span class="block font-medium">Status Pemetaan SAP B1: <strong class="text-primary font-semibold">Siap Sinkronisasi POST /ORDR</strong></span>
+                <span class="block text-[11px] text-slate-400 mt-0.5">Subtotal, Pajak PPN 11%, dan potongan harga terhitung otomatis</span>
             </div>
-            <div class="w-64 space-y-1.5 bg-slate-50 p-4 rounded-xl border border-slate-200/80">
-                <div class="flex justify-between font-mono tabular-nums">
-                    <span class="text-slate-500 font-sans">Subtotal:</span>
-                    <span class="font-bold text-slate-900">Rp <span x-text="Math.round(getSubtotal()).toLocaleString('id-ID')"></span></span>
+            <div class="w-72 space-y-2 bg-slate-50 p-4 rounded-xl border border-slate-200/80">
+                <div class="flex justify-between font-mono tabular-nums text-slate-600">
+                    <span class="font-sans">Subtotal:</span>
+                    <span class="font-medium text-slate-900">Rp <span x-text="Math.round(getSubtotal()).toLocaleString('id-ID')"></span></span>
                 </div>
-                <div class="flex justify-between font-mono tabular-nums">
-                    <span class="text-slate-500 font-sans">PPN (11%):</span>
-                    <span class="font-bold text-slate-700">Rp <span x-text="Math.round(getSubtotal() * 0.11).toLocaleString('id-ID')"></span></span>
+                <div class="flex justify-between font-mono tabular-nums text-slate-600">
+                    <span class="font-sans">PPN (11%):</span>
+                    <span class="font-medium text-slate-700">Rp <span x-text="Math.round(getSubtotal() * 0.11).toLocaleString('id-ID')"></span></span>
                 </div>
                 <div class="flex justify-between border-t border-slate-200 pt-2 text-sm font-mono tabular-nums">
-                    <span class="font-bold text-primary font-sans">Grand Total:</span>
-                    <span class="font-bold text-primary">Rp <span x-text="Math.round(getSubtotal() * 1.11).toLocaleString('id-ID')"></span></span>
+                    <span class="font-semibold text-primary font-sans">Total Akhir:</span>
+                    <span class="font-semibold text-primary">Rp <span x-text="Math.round(getSubtotal() * 1.11).toLocaleString('id-ID')"></span></span>
                 </div>
             </div>
         </div>
 
-        <div class="flex justify-end gap-2 pt-2">
-            <button type="button" @click="showForm = false" class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 text-xs font-semibold active:translate-y-px">Batal</button>
+        <div class="flex justify-end gap-2 pt-2 border-t border-slate-100">
+            <button type="button" @click="showForm = false" class="btn-secondary-outline">Batal</button>
             <button 
                 type="button" 
                 @click="notify('Sales Order berhasil dibuat & disinkronkan ke SAP B1!', 'success'); showForm = false" 
-                class="btn-primary text-xs shadow-md shadow-emerald-900/10 active:translate-y-px"
+                class="btn-primary"
             >
                 Simpan & Sinkronkan SAP B1
             </button>
@@ -181,35 +182,35 @@
     </div>
 
     <!-- Orders List Container -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl shadow-xs p-5">
-        <h3 class="text-sm font-bold text-slate-900 mb-4 font-normal">Daftar Transaksi Sales Order (ORDR Document List)</h3>
-        <div class="overflow-x-auto">
+    <div class="bg-white border border-slate-200/90 rounded-xl shadow-xs p-5">
+        <h3 class="text-sm font-semibold text-slate-900 mb-4">Daftar Transaksi Pesanan Penjualan (ORDR)</h3>
+        <div class="overflow-x-auto rounded-lg border border-slate-200">
             <table class="w-full text-left text-xs text-slate-700">
-                <thead class="bg-slate-50 text-slate-500 uppercase text-[10px] tracking-wider border-b border-slate-200">
+                <thead class="bg-slate-50 text-slate-600 uppercase text-[11px] font-semibold tracking-wider border-b border-slate-200">
                     <tr>
-                        <th class="py-3 px-4">NO DOKUMEN</th>
-                        <th class="py-3 px-4">SAP ENTRY</th>
-                        <th class="py-3 px-4">TANGGAL</th>
-                        <th class="py-3 px-4">PELANGGAN / OUTLET</th>
-                        <th class="py-3 px-4">TENAGA PENJUAL</th>
-                        <th class="py-3 px-4">SUBTOTAL</th>
-                        <th class="py-3 px-4">GRAND TOTAL</th>
-                        <th class="py-3 px-4 text-center">STATUS SAP</th>
+                        <th class="py-3 px-3.5">No Dokumen</th>
+                        <th class="py-3 px-3.5">SAP Entry</th>
+                        <th class="py-3 px-3.5">Tanggal</th>
+                        <th class="py-3 px-3.5">Pelanggan / Outlet</th>
+                        <th class="py-3 px-3.5">Sales Person</th>
+                        <th class="py-3 px-3.5">Subtotal</th>
+                        <th class="py-3 px-3.5">Total Akhir</th>
+                        <th class="py-3 px-3.5 text-center">Status SAP</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
                     @foreach($orders as $ord)
-                    <tr class="hover:bg-slate-50 transition-colors">
-                        <td class="py-3 px-4 font-mono tabular-nums font-bold text-primary">#{{ $ord['doc_num'] }}</td>
-                        <td class="py-3 px-4 font-mono tabular-nums text-slate-500">{{ $ord['sap_doc_entry'] }}</td>
-                        <td class="py-3 px-4 text-slate-600 font-mono tabular-nums">{{ $ord['doc_date'] }}</td>
-                        <td class="py-3 px-4 font-bold text-slate-900">{{ $ord['card_name'] }}</td>
-                        <td class="py-3 px-4 text-slate-700">{{ $ord['slp_name'] }}</td>
-                        <td class="py-3 px-4 font-mono tabular-nums">Rp {{ number_format($ord['subtotal'], 0, ',', '.') }}</td>
-                        <td class="py-3 px-4 font-bold text-emerald-700 font-mono tabular-nums">Rp {{ number_format($ord['doc_total'], 0, ',', '.') }}</td>
-                        <td class="py-3 px-4 text-center">
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                                {{ $ord['sap_status'] }}
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3 px-3.5 font-mono tabular-nums font-medium text-primary">#{{ $ord['doc_num'] }}</td>
+                        <td class="py-3 px-3.5 font-mono tabular-nums text-slate-500">{{ $ord['sap_doc_entry'] }}</td>
+                        <td class="py-3 px-3.5 text-slate-600 font-mono tabular-nums">{{ $ord['doc_date'] }}</td>
+                        <td class="py-3 px-3.5 font-medium text-slate-900">{{ $ord['card_name'] }}</td>
+                        <td class="py-3 px-3.5 text-slate-700">{{ $ord['slp_name'] }}</td>
+                        <td class="py-3 px-3.5 font-mono tabular-nums">Rp {{ number_format($ord['subtotal'], 0, ',', '.') }}</td>
+                        <td class="py-3 px-3.5 font-medium text-primary font-mono tabular-nums">Rp {{ number_format($ord['doc_total'], 0, ',', '.') }}</td>
+                        <td class="py-3 px-3.5 text-center">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-primary-50 text-primary-700 border border-primary-200">
+                                <i class="mdi mdi-check-circle-outline mr-1"></i> {{ $ord['sap_status'] }}
                             </span>
                         </td>
                     </tr>

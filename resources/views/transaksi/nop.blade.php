@@ -6,7 +6,7 @@
 <div class="space-y-6" x-data="nopApp()">
 
     <!-- Header Section -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
             <div class="flex items-center space-x-2 text-xs text-slate-400 mb-1 font-medium">
                 <a href="{{ route('dashboard') }}" class="hover:text-primary transition-colors">Beranda</a>
@@ -15,8 +15,8 @@
                 <span>/</span>
                 <span class="text-primary font-semibold">NOP Tracking</span>
             </div>
-            <h1 class="text-xl font-bold font-display text-slate-900 flex items-center gap-2 font-normal">
-                <i class="mdi mdi-package-variant-closed text-primary text-2xl"></i> NOP (New Open Product) Expansion Tracking
+            <h1 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <i class="mdi mdi-package-variant-closed text-primary text-2xl"></i> NOP (New Open Product) Tracking
             </h1>
             <p class="text-xs text-slate-500 mt-0.5">Penambahan varian SKU Teh Dandang baru yang berhasil masuk ke outlet existing (Before vs After Expansion)</p>
         </div>
@@ -32,33 +32,33 @@
 
     <!-- 3 Summary Metrics -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex items-center justify-between">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex items-center justify-between">
             <div>
-                <span class="text-[10px] font-bold uppercase text-slate-400 block">TOTAL NOP EXPANSIONS</span>
+                <span class="text-[10px] font-bold uppercase text-slate-400 block tracking-wider">Total Penetrasi NOP</span>
                 <span class="text-2xl font-bold font-mono tabular-nums text-slate-900 mt-1 block">{{ count($nop) }} Outlet SKU</span>
-                <span class="text-[10px] text-emerald-600 font-semibold">+18% MTD SKU Penetration</span>
+                <span class="text-[11px] text-emerald-700 font-medium">+18% Penetrasi MTD</span>
             </div>
             <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
                 <i class="mdi mdi-trending-up text-2xl"></i>
             </div>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex items-center justify-between">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex items-center justify-between">
             <div>
-                <span class="text-[10px] font-bold uppercase text-slate-400 block">TOP NEW SKU ITEM</span>
+                <span class="text-[10px] font-bold uppercase text-slate-400 block tracking-wider">SKU Terlaris Baru</span>
                 <span class="text-xl font-bold text-primary mt-1 block">Teh Dandang Merah</span>
-                <span class="text-[10px] text-slate-500 font-semibold">Code: DM001 (18 Outlets)</span>
+                <span class="text-[11px] text-slate-500 font-medium">Kode: DM001 (18 Outlet)</span>
             </div>
             <div class="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold">
                 <i class="mdi mdi-check-decagram text-2xl"></i>
             </div>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex items-center justify-between">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex items-center justify-between">
             <div>
-                <span class="text-[10px] font-bold uppercase text-slate-400 block">AVG SKU PER OUTLET</span>
+                <span class="text-[10px] font-bold uppercase text-slate-400 block tracking-wider">Rata-rata SKU per Outlet</span>
                 <span class="text-2xl font-bold font-mono tabular-nums text-secondary mt-1 block">2.8 Varian SKU</span>
-                <span class="text-[10px] text-secondary font-semibold">Naik dari 1.6 SKU/Outlet</span>
+                <span class="text-[11px] text-secondary font-medium">Naik dari 1.6 SKU/Outlet</span>
             </div>
             <div class="w-11 h-11 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center font-bold">
                 <i class="mdi mdi-layers-outline text-2xl"></i>
@@ -67,9 +67,9 @@
     </div>
 
     <!-- NOP Comparison Table Container -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+    <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
-            <h3 class="text-sm font-bold text-slate-900 font-normal">Tracking Penambahan SKU Baru per Outlet (Before vs After Expansion)</h3>
+            <h2 class="text-sm font-bold text-slate-900">Tracking Penambahan SKU Baru per Outlet (Before vs After Expansion)</h2>
             
             <!-- Search & Filter Input -->
             <div class="relative w-full sm:w-72">

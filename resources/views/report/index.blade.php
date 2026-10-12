@@ -1,7 +1,6 @@
-<!-- Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · theme: Tri-Tone Heritage (Tea Green, Amber Brew, Sky Accent) · genre: modern-minimal -->
 @extends('layouts.app')
 
-@section('title', 'Reporting & Analytical Center')
+@section('title', 'Pusat Laporan & Analitika')
 
 @section('content')
 <div class="space-y-6" x-data="{ 
@@ -10,44 +9,30 @@
     dateTo: '{{ date('Y-m-d') }}'
 }">
 
-    <!-- Page Header (Hallmark Macrostructure: Analytical Center Header) -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs">
+    <!-- Header & Aksi Utama -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <div class="flex items-center gap-2 mb-1">
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary-50 text-primary-700 border border-primary-200">
-                    <i class="mdi mdi-tea mr-1"></i> FMCG Telemetry
-                </span>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-accent-50 text-accent-700 border border-accent-200">
-                    <i class="mdi mdi-database-sync-outline mr-1"></i> SAP B1 OCRD / OITM
-                </span>
-            </div>
-            <h1 class="text-xl font-bold font-display text-slate-900 tracking-tight flex items-center gap-2.5">
-                <span class="w-9 h-9 rounded-xl bg-primary text-white flex items-center justify-center shadow-xs">
-                    <i class="mdi mdi-file-chart-outline text-xl"></i>
-                </span>
-                Reporting & Analytical Center
-            </h1>
-            <p class="text-xs text-slate-500 mt-1">Universal auditing & telemetry laporan penjualan, outlet SAP, produk, GPS tracking, dan RO compliance</p>
+            <h1 class="text-xl font-semibold text-slate-900">Pusat Laporan & Analitika</h1>
+            <p class="text-xs text-slate-500 mt-1">Audit dan telemetri laporan penjualan, pelanggan SAP B1, pergerakan armada, dan kepatuhan Repeat Order</p>
         </div>
 
-        <!-- Tactile Action Group (Replaced alert with clean toast notifications) -->
-        <div class="flex items-center gap-2.5">
+        <div class="flex items-center gap-2">
             <button 
                 type="button" 
                 @click="notify('Ekspor Excel untuk laporan ' + reportType.toUpperCase() + ' berhasil diunduh.', 'success')" 
-                class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-primary-700 text-xs font-semibold hover:bg-primary-50 hover:border-primary-300 active:translate-y-px focus-visible:ring-2 focus-visible:ring-primary-500 shadow-xs flex items-center gap-2 transition-all cursor-pointer"
+                class="btn-secondary-outline"
             >
-                <i class="mdi mdi-file-excel-box text-base text-primary-600"></i>
-                <span>Export Excel</span>
+                <i class="mdi mdi-file-excel-box text-base text-primary"></i>
+                <span>Ekspor Excel</span>
             </button>
 
             <button 
                 type="button" 
                 @click="notify('Ekspor PDF untuk laporan ' + reportType.toUpperCase() + ' sedang diproses.', 'info')" 
-                class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-rose-700 text-xs font-semibold hover:bg-rose-50 hover:border-rose-300 active:translate-y-px focus-visible:ring-2 focus-visible:ring-rose-500 shadow-xs flex items-center gap-2 transition-all cursor-pointer"
+                class="btn-secondary-outline"
             >
                 <i class="mdi mdi-file-pdf-box text-base text-rose-600"></i>
-                <span>Export PDF</span>
+                <span>Ekspor PDF</span>
             </button>
         </div>
     </div>

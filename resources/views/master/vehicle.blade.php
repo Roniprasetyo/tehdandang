@@ -1,49 +1,51 @@
 @extends('layouts.app')
 
-@section('title', 'Master Vehicle & GPS')
+@section('title', 'Master Armada & GPS')
 
 @section('content')
 <div class="space-y-6">
 
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <h1 class="text-xl font-bold font-display text-slate-900 font-normal">Master Kendaraan & GPS Concox GT06N</h1>
-            <p class="text-xs text-slate-500 mt-0.5">Daftar armada operasional, Sales assigned, status GPS, dan baterai Concox GT06N</p>
+            <h1 class="text-xl font-semibold text-slate-900">Master Armada & GPS Concox GT06N</h1>
+            <p class="text-xs text-slate-500 mt-1">Daftar armada operasional, sales person assigned, status telemetri GPS, dan daya baterai</p>
         </div>
-        <a href="{{ route('transaksi.checkin-gps') }}" class="btn-primary text-xs flex items-center gap-2 active:translate-y-px">
-            <i class="mdi mdi-map-marker-radius text-base"></i> Peta Monitoring GPS Langsung
+        <a href="{{ route('transaksi.checkin-gps') }}" class="btn-primary">
+            <i class="mdi mdi-map-marker-radius text-base"></i>
+            <span>Peta Monitoring GPS Langsung</span>
         </a>
     </div>
 
     <!-- Vehicles Table Container -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
-        <div class="overflow-x-auto">
+    <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
+        <div class="overflow-x-auto rounded-lg border border-slate-200">
             <table class="w-full text-left text-xs text-slate-700">
-                <thead class="bg-slate-50 text-slate-500 uppercase text-[10px] tracking-wider border-b border-slate-200">
+                <thead class="bg-slate-50 text-slate-600 uppercase text-[11px] font-semibold tracking-wider border-b border-slate-200">
                     <tr>
-                        <th class="py-3 px-4">PLAT NOMOR</th>
-                        <th class="py-3 px-4">TIPE KENDARAAN</th>
-                        <th class="py-3 px-4">SALES ASSIGNED</th>
-                        <th class="py-3 px-4">AREA OPERASIONAL</th>
-                        <th class="py-3 px-4">PERANGKAT GPS</th>
-                        <th class="py-3 px-4">KECEPATAN</th>
-                        <th class="py-3 px-4">BATERAI PERANGKAT</th>
-                        <th class="py-3 px-4 text-center">STATUS PING</th>
+                        <th class="py-3 px-3.5">Plat Nomor</th>
+                        <th class="py-3 px-3.5">Tipe Kendaraan</th>
+                        <th class="py-3 px-3.5">Sales Person</th>
+                        <th class="py-3 px-3.5">Area Operasional</th>
+                        <th class="py-3 px-3.5">Perangkat GPS</th>
+                        <th class="py-3 px-3.5">Kecepatan</th>
+                        <th class="py-3 px-3.5">Baterai</th>
+                        <th class="py-3 px-3.5 text-center">Status Ping</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
                     @foreach($vehicles as $v)
-                    <tr class="hover:bg-slate-50 transition-colors">
-                        <td class="py-3 px-4 font-mono tabular-nums font-bold text-slate-900">{{ $v['plate_no'] }}</td>
-                        <td class="py-3 px-4 text-slate-600 font-medium">{{ $v['type'] }}</td>
-                        <td class="py-3 px-4 font-bold text-primary">{{ $v['assigned_sales'] }}</td>
-                        <td class="py-3 px-4 text-slate-600">{{ $v['area'] }}</td>
-                        <td class="py-3 px-4 font-mono tabular-nums text-primary font-semibold">{{ $v['gps_device_id'] }} (Concox GT06N)</td>
-                        <td class="py-3 px-4 font-mono tabular-nums text-slate-800 font-semibold">{{ $v['speed_kmh'] }} km/h</td>
-                        <td class="py-3 px-4 font-mono tabular-nums text-secondary font-bold">{{ $v['battery'] }}%</td>
-                        <td class="py-3 px-4 text-center">
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold border {{ $v['gps_status'] === 'Online' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border-rose-200' }}">
-                                {{ $v['gps_status'] }} ({{ $v['last_ping'] }})
+                    <tr class="hover:bg-slate-50/80 transition-colors">
+                        <td class="py-3 px-3.5 font-mono tabular-nums font-medium text-slate-900">{{ $v['plate_no'] }}</td>
+                        <td class="py-3 px-3.5 text-slate-600">{{ $v['type'] }}</td>
+                        <td class="py-3 px-3.5 font-medium text-primary">{{ $v['assigned_sales'] }}</td>
+                        <td class="py-3 px-3.5 text-slate-600">{{ $v['area'] }}</td>
+                        <td class="py-3 px-3.5 font-mono tabular-nums text-primary font-medium">{{ $v['gps_device_id'] }} (Concox GT06N)</td>
+                        <td class="py-3 px-3.5 font-mono tabular-nums text-slate-800">{{ $v['speed_kmh'] }} km/h</td>
+                        <td class="py-3 px-3.5 font-mono tabular-nums text-secondary font-medium">{{ $v['battery'] }}%</td>
+                        <td class="py-3 px-3.5 text-center">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium border {{ $v['gps_status'] === 'Online' ? 'bg-primary-50 text-primary-700 border-primary-200' : 'bg-rose-50 text-rose-700 border-rose-200' }}">
+                                <i class="mdi {{ $v['gps_status'] === 'Online' ? 'mdi-check-circle-outline' : 'mdi-alert-circle-outline' }} mr-1"></i>
+                                <span>{{ $v['gps_status'] }} ({{ $v['last_ping'] }})</span>
                             </span>
                         </td>
                     </tr>

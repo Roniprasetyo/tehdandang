@@ -6,20 +6,11 @@
 <div class="space-y-6" x-data="drilldownDashboard()">
 
     <!-- Top Headline & Info Header -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <div class="flex items-center gap-2">
-                <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold text-[11px] border border-emerald-200">
-                    Interactive Drill-Down Chart
-                </span>
-                <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-bold text-[11px] border border-primary/20 font-mono tabular-nums" x-text="'Depth: Level ' + currentDepth + ' dari 7'">
-                </span>
-            </div>
-            <h1 class="text-xl font-bold font-display text-slate-900 mt-1 flex items-center gap-2 font-normal">
-                <i class="mdi mdi-chart-box-outline text-primary text-2xl"></i> Grafik Sales Multi-Level Drilldown
-            </h1>
-            <p class="text-xs text-slate-500 mt-0.5">
-                Klik pada batang grafik (bar chart) atau baris tabel untuk masuk ke grafik detail level di bawahnya (Nasional ➔ Region ➔ Area ➔ Kabupaten ➔ Kecamatan ➔ Sales ➔ Outlet ➔ Produk SKU).
+            <h1 class="text-xl font-semibold text-slate-900">Grafik Penjualan Multi-Level Drilldown</h1>
+            <p class="text-xs text-slate-500 mt-1">
+                Navigasi hierarki visual penjualan (Nasional &rarr; Region &rarr; Area &rarr; Kabupaten &rarr; Kecamatan &rarr; Sales &rarr; Outlet &rarr; SKU Produk)
             </p>
         </div>
         
@@ -28,28 +19,28 @@
                 type="button"
                 @click="goBack()" 
                 :disabled="stack.length <= 1" 
-                class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border active:translate-y-px" 
-                :class="stack.length > 1 ? 'bg-primary/10 text-primary border-primary/30 hover:bg-primary/20 shadow-xs' : 'bg-slate-100 text-slate-400 border-slate-200 opacity-50 cursor-not-allowed'"
+                class="btn-secondary-outline" 
+                :class="stack.length <= 1 ? 'opacity-50 cursor-not-allowed' : ''"
             >
                 <i class="mdi mdi-arrow-left text-base"></i>
-                <span>Kembali 1 Level</span>
+                <span>Kembali 1 Tingkat</span>
             </button>
 
             <button 
                 type="button"
                 @click="resetToTop()" 
                 :disabled="stack.length <= 1" 
-                class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border active:translate-y-px" 
-                :class="stack.length > 1 ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200' : 'bg-slate-50 text-slate-400 border-slate-200 opacity-50 cursor-not-allowed'"
+                class="btn-secondary-outline" 
+                :class="stack.length <= 1 ? 'opacity-50 cursor-not-allowed' : ''"
             >
                 <i class="mdi mdi-refresh text-base"></i>
-                <span>Reset Level 1</span>
+                <span>Reset ke Nasional</span>
             </button>
         </div>
     </div>
 
     <!-- Dynamic Breadcrumb Navigation Bar -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex items-center flex-wrap gap-2 text-xs">
+    <div class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs flex items-center flex-wrap gap-2 text-xs">
         <span class="font-bold text-slate-400 uppercase text-[10px] tracking-wider mr-1">Hierarki Wilayah:</span>
         <template x-for="(item, index) in stack" :key="index">
             <div class="flex items-center gap-2">
@@ -73,7 +64,7 @@
     <!-- Active Level KPI Summary Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
             <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">LEVEL SAAT INI</span>
                 <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
@@ -84,7 +75,7 @@
             <div class="text-[11px] text-primary font-semibold mt-1" x-text="currentLevelSubtitle"></div>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
             <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">TOTAL TARGET PENJUALAN</span>
                 <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center">
@@ -95,7 +86,7 @@
             <div class="text-[11px] text-slate-500 mt-1 font-mono tabular-nums" x-text="itemCount + ' item data'"></div>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
             <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">REALISASI PENJUALAN</span>
                 <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
@@ -106,33 +97,33 @@
             <div class="text-[11px] font-bold mt-1 font-mono tabular-nums" :class="avgAchievement >= 100 ? 'text-emerald-700' : 'text-secondary'" x-text="'Capaian: ' + avgAchievement.toFixed(1) + '%'"></div>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
+        <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs">
             <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">STATUS HIERARKI</span>
                 <div class="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
                     <i class="mdi mdi-information-outline text-base"></i>
                 </div>
             </div>
-            <div class="text-lg font-bold mt-2 flex items-center gap-2">
-                <span x-text="isLowestLevel ? '🏆 Level Terbawah' : '📊 Level ' + currentDepth + ' (Bisa Click Bar)'" :class="isLowestLevel ? 'text-secondary' : 'text-primary'"></span>
+            <div class="text-lg font-semibold mt-2 flex items-center gap-2">
+                <span x-text="isLowestLevel ? 'Tingkat Terbawah' : 'Tingkat ' + currentDepth + ' (Interaktif)'" :class="isLowestLevel ? 'text-secondary' : 'text-primary'"></span>
             </div>
-            <div class="text-[11px] text-slate-500 mt-1" x-text="isLowestLevel ? 'Detail SKU Produk Selesai' : 'Klik batang bar untuk drill down'"></div>
+            <div class="text-xs text-slate-500 mt-1" x-text="isLowestLevel ? 'Detail SKU Produk Selesai' : 'Klik batang grafik untuk rincian level'"></div>
         </div>
 
     </div>
 
     <!-- Main Chart Box -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+    <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-4">
         
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
             <div>
                 <div class="flex items-center gap-2">
-                    <h3 class="text-base font-bold text-slate-900 font-normal" x-text="'Grafik Penjualan: ' + currentLevelTitle"></h3>
-                    <span x-show="!isLowestLevel" class="animate-pulse bg-emerald-100 text-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-bold border border-emerald-200">
-                        👉 Clickable Bar Active
+                    <h3 class="text-base font-semibold text-slate-900" x-text="'Grafik Penjualan: ' + currentLevelTitle"></h3>
+                    <span x-show="!isLowestLevel" class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-0.5 rounded-full font-medium border border-emerald-200">
+                        <i class="mdi mdi-cursor-default-click mr-1 text-xs"></i> Interaktif (Bisa Diklik)
                     </span>
-                    <span x-show="isLowestLevel" class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold border border-amber-200">
-                        🔒 Level Terbawah (SKU Breakdown)
+                    <span x-show="isLowestLevel" class="bg-amber-50 text-amber-800 text-xs px-2.5 py-0.5 rounded-full font-medium border border-amber-200">
+                        <i class="mdi mdi-check-circle-outline mr-1 text-xs"></i> Tingkat Terbawah (SKU)
                     </span>
                 </div>
                 <p class="text-xs text-slate-500 mt-0.5" x-text="chartSubtitleInstruction"></p>
@@ -161,15 +152,15 @@
 
         <div class="bg-primary/10 border border-primary/20 rounded-xl p-3 text-xs text-slate-800 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <i class="mdi mdi-cursor-default-click text-primary text-base animate-bounce"></i>
-                <span class="font-medium">Petunjuk: Klik pada salah satu batang grafik (Bar) untuk menggali grafik detail ke tingkat lebih dalam!</span>
+                <i class="mdi mdi-cursor-default-click text-primary text-base"></i>
+                <span class="font-medium">Petunjuk: Klik pada salah satu batang grafik (Bar) untuk menggali grafik detail ke tingkat lebih dalam.</span>
             </div>
             <span class="text-[11px] font-bold bg-white px-2.5 py-1 rounded-lg text-primary border border-primary/20 font-mono tabular-nums" x-text="'Tingkat: ' + stack[stack.length - 1].levelName"></span>
         </div>
     </div>
 
     <!-- Synchronized Detailed Data Table -->
-    <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+    <div class="bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
                 <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2 font-normal">
@@ -218,7 +209,14 @@
                             <td class="py-3 px-4 font-semibold font-mono tabular-nums" :class="row.growth >= 0 ? 'text-emerald-700' : 'text-rose-700'">
                                 <span x-text="(row.growth >= 0 ? '+' : '') + row.growth + '%'"></span>
                             </td>
-                            <td class="py-3 px-4 text-center text-sm" x-text="row.statusEmoji"></td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium"
+                                    :class="row.achievement >= 100 ? 'bg-primary-50 text-primary-700 border border-primary-200' : (row.achievement >= 85 ? 'bg-amber-50 text-amber-700 border border-amber-200' : 'bg-rose-50 text-rose-700 border border-rose-200')">
+                                    <span class="w-1.5 h-1.5 rounded-full mr-1.5"
+                                        :class="row.achievement >= 100 ? 'bg-primary' : (row.achievement >= 85 ? 'bg-amber-500' : 'bg-rose-500')"></span>
+                                    <span x-text="row.achievement >= 100 ? 'Tercapai' : (row.achievement >= 85 ? 'Waspada' : 'Kurang')"></span>
+                                </span>
+                            </td>
                             <td class="py-3 px-4 text-right">
                                 <template x-if="!isLowestLevel">
                                     <button type="button" @click.stop="drillDownTo(row.label)" class="btn-primary text-xs inline-flex items-center gap-1 active:translate-y-px">
@@ -261,11 +259,11 @@
                 levelName: 'Nasional',
                 depth: 1,
                 items: [
-                    { label: 'Jawa Tengah', target: 22500000000, actual: 24200000000, achievement: 107.5, growth: 14.2, statusEmoji: '🟢', color: '#10b981' },
-                    { label: 'Jawa Timur', target: 18000000000, actual: 17100000000, achievement: 95.0, growth: 8.5, statusEmoji: '🟢', color: '#4f46e5' },
-                    { label: 'Jawa Barat', target: 16500000000, actual: 14800000000, achievement: 89.7, growth: 4.1, statusEmoji: '🟡', color: '#f59e0b' },
-                    { label: 'Banten & DKI Jakarta', target: 14000000000, actual: 13500000000, achievement: 96.4, growth: 7.8, statusEmoji: '🟢', color: '#06b6d4' },
-                    { label: 'DIY Yogyakarta', target: 10000000000, actual: 8400000000, achievement: 84.0, growth: -2.3, statusEmoji: '🔴', color: '#ef4444' }
+                    { label: 'Jawa Tengah', target: 22500000000, actual: 24200000000, achievement: 107.5, growth: 14.2, color: '#10b981' },
+                    { label: 'Jawa Timur', target: 18000000000, actual: 17100000000, achievement: 95.0, growth: 8.5, color: '#4f46e5' },
+                    { label: 'Jawa Barat', target: 16500000000, actual: 14800000000, achievement: 89.7, growth: 4.1, color: '#f59e0b' },
+                    { label: 'Banten & DKI Jakarta', target: 14000000000, actual: 13500000000, achievement: 96.4, growth: 7.8, color: '#06b6d4' },
+                    { label: 'DIY Yogyakarta', target: 10000000000, actual: 8400000000, achievement: 84.0, growth: -2.3, color: '#ef4444' }
                 ],
                 children: {
                     'Jawa Tengah': {
@@ -273,11 +271,11 @@
                         levelName: 'Region',
                         depth: 2,
                         items: [
-                            { label: 'Solo Raya', target: 7500000000, actual: 8250000000, achievement: 110.0, growth: 16.5, statusEmoji: '🟢', color: '#10b981' },
-                            { label: 'Semarang Raya', target: 6000000000, actual: 6180000000, achievement: 103.0, growth: 11.2, statusEmoji: '🟢', color: '#6366f1' },
-                            { label: 'Kedu Raya', target: 4500000000, actual: 4590000000, achievement: 102.0, growth: 9.8, statusEmoji: '🟢', color: '#0284c7' },
-                            { label: 'Pati Raya', target: 2500000000, actual: 2900000000, achievement: 116.0, growth: 18.1, statusEmoji: '🟢', color: '#8b5cf6' },
-                            { label: 'Banyumas Raya', target: 2000000000, actual: 2280000000, achievement: 114.0, growth: 15.0, statusEmoji: '🟢', color: '#14b8a6' }
+                            { label: 'Solo Raya', target: 7500000000, actual: 8250000000, achievement: 110.0, growth: 16.5, color: '#10b981' },
+                            { label: 'Semarang Raya', target: 6000000000, actual: 6180000000, achievement: 103.0, growth: 11.2, color: '#6366f1' },
+                            { label: 'Kedu Raya', target: 4500000000, actual: 4590000000, achievement: 102.0, growth: 9.8, color: '#0284c7' },
+                            { label: 'Pati Raya', target: 2500000000, actual: 2900000000, achievement: 116.0, growth: 18.1, color: '#8b5cf6' },
+                            { label: 'Banyumas Raya', target: 2000000000, actual: 2280000000, achievement: 114.0, growth: 15.0, color: '#14b8a6' }
                         ],
                         children: {
                             'Solo Raya': {
@@ -285,13 +283,13 @@
                                 levelName: 'Area',
                                 depth: 3,
                                 items: [
-                                    { label: 'Kab. Boyolali', target: 2200000000, actual: 2530000000, achievement: 115.0, growth: 18.5, statusEmoji: '🟢', color: '#10b981' },
-                                    { label: 'Kota Surakarta (Solo)', target: 1800000000, actual: 1944000000, achievement: 108.0, growth: 12.0, statusEmoji: '🟢', color: '#4f46e5' },
-                                    { label: 'Kab. Karanganyar', target: 1100000000, actual: 1177000000, achievement: 107.0, growth: 10.5, statusEmoji: '🟢', color: '#06b6d4' },
-                                    { label: 'Kab. Sragen', target: 900000000, actual: 918000000, achievement: 102.0, growth: 8.2, statusEmoji: '🟢', color: '#8b5cf6' },
-                                    { label: 'Kab. Sukoharjo', target: 800000000, actual: 848000000, achievement: 106.0, growth: 9.5, statusEmoji: '🟢', color: '#f59e0b' },
-                                    { label: 'Kab. Klaten', target: 500000000, actual: 530000000, achievement: 106.0, growth: 7.0, statusEmoji: '🟢', color: '#ec4899' },
-                                    { label: 'Kab. Wonogiri', target: 200000000, actual: 300000000, achievement: 150.0, growth: 35.0, statusEmoji: '🟢', color: '#84cc16' }
+                                    { label: 'Kab. Boyolali', target: 2200000000, actual: 2530000000, achievement: 115.0, growth: 18.5, color: '#10b981' },
+                                    { label: 'Kota Surakarta (Solo)', target: 1800000000, actual: 1944000000, achievement: 108.0, growth: 12.0, color: '#4f46e5' },
+                                    { label: 'Kab. Karanganyar', target: 1100000000, actual: 1177000000, achievement: 107.0, growth: 10.5, color: '#06b6d4' },
+                                    { label: 'Kab. Sragen', target: 900000000, actual: 918000000, achievement: 102.0, growth: 8.2, color: '#8b5cf6' },
+                                    { label: 'Kab. Sukoharjo', target: 800000000, actual: 848000000, achievement: 106.0, growth: 9.5, color: '#f59e0b' },
+                                    { label: 'Kab. Klaten', target: 500000000, actual: 530000000, achievement: 106.0, growth: 7.0, color: '#ec4899' },
+                                    { label: 'Kab. Wonogiri', target: 200000000, actual: 300000000, achievement: 150.0, growth: 35.0, color: '#84cc16' }
                                 ],
                                 children: {
                                     'Kab. Boyolali': {
@@ -299,12 +297,12 @@
                                         levelName: 'Kabupaten',
                                         depth: 4,
                                         items: [
-                                            { label: 'Kec. Cepogo', target: 650000000, actual: 780000000, achievement: 120.0, growth: 22.0, statusEmoji: '🟢', color: '#10b981' },
-                                            { label: 'Kec. Selo', target: 450000000, actual: 495000000, achievement: 110.0, growth: 14.5, statusEmoji: '🟢', color: '#3b82f6' },
-                                            { label: 'Kec. Ampel', target: 400000000, actual: 440000000, achievement: 110.0, growth: 13.0, statusEmoji: '🟢', color: '#8b5cf6' },
-                                            { label: 'Kec. Boyolali Kota', target: 350000000, actual: 385000000, achievement: 110.0, growth: 11.2, statusEmoji: '🟢', color: '#06b6d4' },
-                                            { label: 'Kec. Musuk', target: 200000000, actual: 240000000, achievement: 120.0, growth: 19.0, statusEmoji: '🟢', color: '#f59e0b' },
-                                            { label: 'Kec. Mojosongo', target: 150000000, actual: 190000000, achievement: 126.7, growth: 25.0, statusEmoji: '🟢', color: '#ec4899' }
+                                            { label: 'Kec. Cepogo', target: 650000000, actual: 780000000, achievement: 120.0, growth: 22.0, color: '#10b981' },
+                                            { label: 'Kec. Selo', target: 450000000, actual: 495000000, achievement: 110.0, growth: 14.5, color: '#3b82f6' },
+                                            { label: 'Kec. Ampel', target: 400000000, actual: 440000000, achievement: 110.0, growth: 13.0, color: '#8b5cf6' },
+                                            { label: 'Kec. Boyolali Kota', target: 350000000, actual: 385000000, achievement: 110.0, growth: 11.2, color: '#06b6d4' },
+                                            { label: 'Kec. Musuk', target: 200000000, actual: 240000000, achievement: 120.0, growth: 19.0, color: '#f59e0b' },
+                                            { label: 'Kec. Mojosongo', target: 150000000, actual: 190000000, achievement: 126.7, growth: 25.0, color: '#ec4899' }
                                         ],
                                         children: {
                                             'Kec. Cepogo': {
@@ -312,9 +310,9 @@
                                                 levelName: 'Kecamatan',
                                                 depth: 5,
                                                 items: [
-                                                    { label: 'Sales: Eko Prasetyo (Top)', target: 350000000, actual: 420000000, achievement: 120.0, growth: 24.0, statusEmoji: '🟢', color: '#10b981' },
-                                                    { label: 'Sales: Agus Setiawan', target: 180000000, actual: 216000000, achievement: 120.0, growth: 18.0, statusEmoji: '🟢', color: '#6366f1' },
-                                                    { label: 'Sales: Tri Widodo', target: 120000000, actual: 144000000, achievement: 120.0, growth: 15.0, statusEmoji: '🟢', color: '#f59e0b' }
+                                                    { label: 'Sales: Eko Prasetyo (Top)', target: 350000000, actual: 420000000, achievement: 120.0, growth: 24.0, color: '#10b981' },
+                                                    { label: 'Sales: Agus Setiawan', target: 180000000, actual: 216000000, achievement: 120.0, growth: 18.0, color: '#6366f1' },
+                                                    { label: 'Sales: Tri Widodo', target: 120000000, actual: 144000000, achievement: 120.0, growth: 15.0, color: '#f59e0b' }
                                                 ],
                                                 children: {
                                                     'Sales: Eko Prasetyo (Top)': {
@@ -322,10 +320,10 @@
                                                         levelName: 'Salesperson',
                                                         depth: 6,
                                                         items: [
-                                                            { label: 'Toko Berkah Cepogo', target: 120000000, actual: 150000000, achievement: 125.0, growth: 28.0, statusEmoji: '🟢', color: '#10b981' },
-                                                            { label: 'UD Rezeki Subur', target: 90000000, actual: 105000000, achievement: 116.7, growth: 20.0, statusEmoji: '🟢', color: '#06b6d4' },
-                                                            { label: 'Warung Makan Resto Bundo', target: 80000000, actual: 92000000, achievement: 115.0, growth: 16.0, statusEmoji: '🟢', color: '#8b5cf6' },
-                                                            { label: 'Toko Sembako Barokah', target: 60000000, actual: 73000000, achievement: 121.7, growth: 22.0, statusEmoji: '🟢', color: '#f59e0b' }
+                                                            { label: 'Toko Berkah Cepogo', target: 120000000, actual: 150000000, achievement: 125.0, growth: 28.0, color: '#10b981' },
+                                                            { label: 'UD Rezeki Subur', target: 90000000, actual: 105000000, achievement: 116.7, growth: 20.0, color: '#06b6d4' },
+                                                            { label: 'Warung Makan Resto Bundo', target: 80000000, actual: 92000000, achievement: 115.0, growth: 16.0, color: '#8b5cf6' },
+                                                            { label: 'Toko Sembako Barokah', target: 60000000, actual: 73000000, achievement: 121.7, growth: 22.0, color: '#f59e0b' }
                                                         ],
                                                         children: {
                                                             'Toko Berkah Cepogo': {
@@ -334,11 +332,11 @@
                                                                 depth: 7,
                                                                 isLowest: true,
                                                                 items: [
-                                                                    { label: 'Teh Dandang 2in1 25g', target: 45000000, actual: 55000000, achievement: 122.2, growth: 30.0, statusEmoji: '🟢', color: '#10b981' },
-                                                                    { label: 'Teh Dandang Celup Black Tea', target: 35000000, actual: 40000000, achievement: 114.3, growth: 20.0, statusEmoji: '🟢', color: '#6366f1' },
-                                                                    { label: 'Teh Dandang Hijau Jasmine', target: 25000000, actual: 30000000, achievement: 120.0, growth: 25.0, statusEmoji: '🟢', color: '#06b6d4' },
-                                                                    { label: 'Teh Dandang Loose Leaf 500g', target: 10000000, actual: 15000000, achievement: 150.0, growth: 40.0, statusEmoji: '🟢', color: '#f59e0b' },
-                                                                    { label: 'Teh Dandang Botol RTD 350ml', target: 5000000, actual: 10000000, achievement: 200.0, growth: 50.0, statusEmoji: '🟢', color: '#ec4899' }
+                                                                    { label: 'Teh Dandang 2in1 25g', target: 45000000, actual: 55000000, achievement: 122.2, growth: 30.0, color: '#10b981' },
+                                                                    { label: 'Teh Dandang Celup Black Tea', target: 35000000, actual: 40000000, achievement: 114.3, growth: 20.0, color: '#6366f1' },
+                                                                    { label: 'Teh Dandang Hijau Jasmine', target: 25000000, actual: 30000000, achievement: 120.0, growth: 25.0, color: '#06b6d4' },
+                                                                    { label: 'Teh Dandang Loose Leaf 500g', target: 10000000, actual: 15000000, achievement: 150.0, growth: 40.0, color: '#f59e0b' },
+                                                                    { label: 'Teh Dandang Botol RTD 350ml', target: 5000000, actual: 10000000, achievement: 200.0, growth: 50.0, color: '#ec4899' }
                                                                 ]
                                                             }
                                                         }
@@ -441,19 +439,19 @@
             generateSubItems(parentLabel, nextLevelName, isLowest) {
                 if (isLowest) {
                     return [
-                        { label: 'Teh Dandang 2in1 25g', target: 45000000, actual: 55000000, achievement: 122.2, growth: 30.0, statusEmoji: '🟢', color: '#10b981' },
-                        { label: 'Teh Dandang Celup Black Tea', target: 35000000, actual: 40000000, achievement: 114.3, growth: 20.0, statusEmoji: '🟢', color: '#6366f1' },
-                        { label: 'Teh Dandang Hijau Jasmine', target: 25000000, actual: 30000000, achievement: 120.0, growth: 25.0, statusEmoji: '🟢', color: '#06b6d4' },
-                        { label: 'Teh Dandang Loose Leaf 500g', target: 10000000, actual: 15000000, achievement: 150.0, growth: 40.0, statusEmoji: '🟢', color: '#f59e0b' },
-                        { label: 'Teh Dandang Botol RTD 350ml', target: 5000000, actual: 10000000, achievement: 200.0, growth: 50.0, statusEmoji: '🟢', color: '#ec4899' }
+                        { label: 'Teh Dandang 2in1 25g', target: 45000000, actual: 55000000, achievement: 122.2, growth: 30.0, color: '#10b981' },
+                        { label: 'Teh Dandang Celup Black Tea', target: 35000000, actual: 40000000, achievement: 114.3, growth: 20.0, color: '#6366f1' },
+                        { label: 'Teh Dandang Hijau Jasmine', target: 25000000, actual: 30000000, achievement: 120.0, growth: 25.0, color: '#06b6d4' },
+                        { label: 'Teh Dandang Loose Leaf 500g', target: 10000000, actual: 15000000, achievement: 150.0, growth: 40.0, color: '#f59e0b' },
+                        { label: 'Teh Dandang Botol RTD 350ml', target: 5000000, actual: 10000000, achievement: 200.0, growth: 50.0, color: '#ec4899' }
                     ];
                 }
 
                 return [
-                    { label: parentLabel + ' - Sektor Utara', target: 1200000000, actual: 1380000000, achievement: 115.0, growth: 14.0, statusEmoji: '🟢', color: '#10b981' },
-                    { label: parentLabel + ' - Sektor Selatan', target: 950000000, actual: 1045000000, achievement: 110.0, growth: 12.0, statusEmoji: '🟢', color: '#6366f1' },
-                    { label: parentLabel + ' - Sektor Timur', target: 800000000, actual: 840000000, achievement: 105.0, growth: 8.0, statusEmoji: '🟢', color: '#06b6d4' },
-                    { label: parentLabel + ' - Sektor Barat', target: 600000000, actual: 630000000, achievement: 105.0, growth: 7.0, statusEmoji: '🟢', color: '#f59e0b' }
+                    { label: parentLabel + ' - Sektor Utara', target: 1200000000, actual: 1380000000, achievement: 115.0, growth: 14.0, color: '#10b981' },
+                    { label: parentLabel + ' - Sektor Selatan', target: 950000000, actual: 1045000000, achievement: 110.0, growth: 12.0, color: '#6366f1' },
+                    { label: parentLabel + ' - Sektor Timur', target: 800000000, actual: 840000000, achievement: 105.0, growth: 8.0, color: '#06b6d4' },
+                    { label: parentLabel + ' - Sektor Barat', target: 600000000, actual: 630000000, achievement: 105.0, growth: 7.0, color: '#f59e0b' }
                 ];
             },
 
