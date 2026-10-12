@@ -8,10 +8,8 @@
     <!-- Top Headline & Info Header -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <h1 class="text-xl font-semibold text-slate-900">Grafik Penjualan Multi-Level Drilldown</h1>
-            <p class="text-xs text-slate-500 mt-1">
-                Navigasi hierarki visual penjualan (Nasional &rarr; Region &rarr; Area &rarr; Kabupaten &rarr; Kecamatan &rarr; Sales &rarr; Outlet &rarr; SKU Produk)
-            </p>
+            <h1 class="text-xl font-semibold text-slate-900">Drilldown Penjualan</h1>
+            <p class="text-xs text-slate-500 mt-1">Analisis hierarki penjualan berjenjang dari tingkat nasional hingga produk</p>
         </div>
         
         <div class="flex items-center gap-2">
@@ -23,7 +21,7 @@
                 :class="stack.length <= 1 ? 'opacity-50 cursor-not-allowed' : ''"
             >
                 <i class="mdi mdi-arrow-left text-base"></i>
-                <span>Kembali 1 Tingkat</span>
+                <span>Kembali</span>
             </button>
 
             <button 
@@ -34,32 +32,38 @@
                 :class="stack.length <= 1 ? 'opacity-50 cursor-not-allowed' : ''"
             >
                 <i class="mdi mdi-refresh text-base"></i>
-                <span>Reset ke Nasional</span>
+                <span>Reset</span>
             </button>
         </div>
     </div>
 
-    <!-- Dynamic Breadcrumb Navigation Bar -->
-    <div class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-xs flex items-center flex-wrap gap-2 text-xs">
-        <span class="font-bold text-slate-400 uppercase text-[10px] tracking-wider mr-1">Hierarki Wilayah:</span>
+    <!-- Breadcrumb Navigation Bar -->
+    <nav aria-label="Breadcrumb" class="bg-white border border-slate-200/90 rounded-xl px-4 py-3 shadow-xs flex items-center flex-wrap gap-1.5 text-xs">
+        <span class="text-slate-400 font-medium text-xs mr-1 flex items-center gap-1.5">
+            <i class="mdi mdi-map-marker-path text-slate-400 text-sm"></i>
+            <span>Hierarki:</span>
+        </span>
         <template x-for="(item, index) in stack" :key="index">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1.5">
                 <template x-if="index > 0">
-                    <i class="mdi mdi-chevron-right text-slate-400 text-sm"></i>
+                    <i class="mdi mdi-chevron-right text-slate-300 text-sm"></i>
                 </template>
                 <button 
                     type="button"
                     @click="jumpToStack(index)" 
-                    class="px-3 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1.5 border text-xs active:translate-y-px"
-                    :class="index === stack.length - 1 ? 'bg-primary text-white border-primary shadow-xs ring-2 ring-primary/20' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-slate-300'"
+                    class="px-2.5 py-1 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5 active:translate-y-px"
+                    :class="index === stack.length - 1 
+                        ? 'bg-slate-100 text-slate-900 font-semibold border border-slate-200' 
+                        : 'text-slate-600 hover:text-primary hover:bg-slate-50'"
                 >
-                    <i class="mdi mdi-map-marker text-sm" :class="index === stack.length - 1 ? 'text-white' : 'text-slate-400'"></i>
                     <span x-text="item.title"></span>
-                    <span class="text-[10px] px-1.5 py-0.5 rounded-full font-mono tabular-nums" :class="index === stack.length - 1 ? 'bg-emerald-800 text-white' : 'bg-slate-200 text-slate-600'" x-text="item.levelName"></span>
+                    <span class="text-[10px] px-1.5 py-0.5 rounded font-mono tabular-nums"
+                        :class="index === stack.length - 1 ? 'bg-slate-200 text-slate-700 font-semibold' : 'bg-slate-100 text-slate-500'" 
+                        x-text="item.levelName"></span>
                 </button>
             </div>
         </template>
-    </div>
+    </nav>
 
     <!-- Active Level KPI Summary Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -101,13 +105,13 @@
             <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">STATUS HIERARKI</span>
                 <div class="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
-                    <i class="mdi mdi-information-outline text-base"></i>
+                    <i class="mdi mdi-layers-outline text-base"></i>
                 </div>
             </div>
-            <div class="text-lg font-semibold mt-2 flex items-center gap-2">
-                <span x-text="isLowestLevel ? 'Tingkat Terbawah' : 'Tingkat ' + currentDepth + ' (Interaktif)'" :class="isLowestLevel ? 'text-secondary' : 'text-primary'"></span>
+            <div class="text-xl font-bold font-mono tabular-nums text-slate-900 mt-2 flex items-center gap-2">
+                <span x-text="'Tingkat ' + currentDepth + ' dari 7'"></span>
             </div>
-            <div class="text-xs text-slate-500 mt-1" x-text="isLowestLevel ? 'Detail SKU Produk Selesai' : 'Klik batang grafik untuk rincian level'"></div>
+            <div class="text-[11px] text-slate-500 mt-1 font-medium" x-text="isLowestLevel ? 'Level SKU Produk (Final)' : 'Level ' + stack[stack.length - 1].levelName"></div>
         </div>
 
     </div>
@@ -117,16 +121,8 @@
         
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
             <div>
-                <div class="flex items-center gap-2">
-                    <h3 class="text-base font-semibold text-slate-900" x-text="'Grafik Penjualan: ' + currentLevelTitle"></h3>
-                    <span x-show="!isLowestLevel" class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-0.5 rounded-full font-medium border border-emerald-200">
-                        <i class="mdi mdi-cursor-default-click mr-1 text-xs"></i> Interaktif (Bisa Diklik)
-                    </span>
-                    <span x-show="isLowestLevel" class="bg-amber-50 text-amber-800 text-xs px-2.5 py-0.5 rounded-full font-medium border border-amber-200">
-                        <i class="mdi mdi-check-circle-outline mr-1 text-xs"></i> Tingkat Terbawah (SKU)
-                    </span>
-                </div>
-                <p class="text-xs text-slate-500 mt-0.5" x-text="chartSubtitleInstruction"></p>
+                <h3 class="text-base font-semibold text-slate-900" x-text="'Grafik Penjualan: ' + currentLevelTitle"></h3>
+                <p class="text-xs text-slate-500 mt-0.5" x-text="'Distribusi target dan realisasi penjualan tingkat ' + stack[stack.length - 1].levelName.toLowerCase()"></p>
             </div>
 
             <!-- Controls: Chart Switcher & Search -->
@@ -148,14 +144,6 @@
         <!-- Interactive Canvas Area -->
         <div class="relative h-96 w-full">
             <canvas id="multiLevelDrilldownChart"></canvas>
-        </div>
-
-        <div class="bg-primary/10 border border-primary/20 rounded-xl p-3 text-xs text-slate-800 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <i class="mdi mdi-cursor-default-click text-primary text-base"></i>
-                <span class="font-medium">Petunjuk: Klik pada salah satu batang grafik (Bar) untuk menggali grafik detail ke tingkat lebih dalam.</span>
-            </div>
-            <span class="text-[11px] font-bold bg-white px-2.5 py-1 rounded-lg text-primary border border-primary/20 font-mono tabular-nums" x-text="'Tingkat: ' + stack[stack.length - 1].levelName"></span>
         </div>
     </div>
 

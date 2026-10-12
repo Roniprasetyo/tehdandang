@@ -13,7 +13,7 @@
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
             <h1 class="text-xl font-semibold text-slate-900">Pusat Laporan & Analitika</h1>
-            <p class="text-xs text-slate-500 mt-1">Audit dan telemetri laporan penjualan, pelanggan SAP B1, pergerakan armada, dan kepatuhan Repeat Order</p>
+            <p class="text-xs text-slate-500 mt-1">Laporan komprehensif performa penjualan, pergerakan armada, dan kepatuhan transaksi</p>
         </div>
 
         <div class="flex items-center gap-2">
@@ -42,9 +42,9 @@
         <div class="flex items-center justify-between border-b border-slate-100 pb-3">
             <div class="flex items-center gap-2">
                 <i class="mdi mdi-filter-variant text-base text-slate-400"></i>
-                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-600">Universal Filter Matrix</h3>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-600">Filter Laporan</h3>
             </div>
-            <span class="text-[11px] text-slate-400 font-mono">13 Jenis Laporan Siap Pakai</span>
+            <span class="text-[11px] text-slate-400 font-mono">13 Jenis Laporan</span>
         </div>
 
         <form action="{{ route('report.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 text-xs">

@@ -14,14 +14,14 @@
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
             <h1 class="text-xl font-semibold text-slate-900 flex items-center gap-2">
-                <i class="mdi mdi-layers-outline text-primary text-2xl"></i> Performa Area & Hierarki Multi-Tingkat
+                <i class="mdi mdi-layers-outline text-primary text-2xl"></i> Performa Wilayah
             </h1>
-            <p class="text-xs text-slate-500 mt-1">Hierarki Wilayah: Region &rarr; Area &rarr; Kabupaten &rarr; Kecamatan &rarr; Sales &rarr; Outlet</p>
+            <p class="text-xs text-slate-500 mt-1">Rincian performa penjualan dan distribusi per wilayah kerja</p>
         </div>
         <div class="flex items-center gap-2 text-xs">
             <a href="{{ route('dashboard.drilldown') }}" class="btn-primary">
                 <i class="mdi mdi-chart-box-outline text-base"></i>
-                <span>Grafik Drilldown Interaktif</span>
+                <span>Grafik Drilldown</span>
             </a>
         </div>
     </div>
@@ -31,7 +31,7 @@
         
         <!-- Level 1: Region Selection Tabs -->
         <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">1. PILIH REGION (PROVINSI):</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">REGION</span>
             <div class="flex flex-wrap gap-2">
                 @foreach($areas as $r)
                 <button 
@@ -51,7 +51,7 @@
         <!-- Level 2: Area Selection Cards under Active Region -->
         @foreach($areas as $r)
         <div x-show="activeRegion === '{{ $r['region'] }}'" class="space-y-2 pt-2 border-t border-slate-100">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">2. PILIH AREA DI {{ strtoupper($r['region']) }}:</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">AREA ({{ strtoupper($r['region']) }})</span>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
                 @foreach($r['areas'] as $a)
                 <button 
@@ -81,9 +81,9 @@
                 <div class="flex flex-wrap items-center gap-3">
                     <!-- Kabupaten Dropdown -->
                     <div class="flex items-center gap-2">
-                        <label class="text-slate-500 font-bold">3. Kabupaten:</label>
+                        <label class="text-slate-500 font-bold">Kabupaten:</label>
                         <select x-model="activeKab" @change="activeKec = 'All'" class="bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-3 py-1.5 focus:outline-none focus:border-primary font-semibold">
-                            <option value="All">Semua Kabupaten di {{ $a['name'] }}</option>
+                            <option value="All">Semua Kabupaten</option>
                             @foreach($a['kabupaten'] as $kab)
                             <option value="{{ $kab['name'] }}">{{ $kab['name'] }} ({{ count($kab['kecamatan']) }} Kec)</option>
                             @endforeach
@@ -92,7 +92,7 @@
 
                     <!-- Kecamatan Dropdown -->
                     <div class="flex items-center gap-2">
-                        <label class="text-slate-500 font-bold">4. Kecamatan:</label>
+                        <label class="text-slate-500 font-bold">Kecamatan:</label>
                         <select x-model="activeKec" class="bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-3 py-1.5 focus:outline-none focus:border-primary font-semibold">
                             <option value="All">Semua Kecamatan</option>
                             @foreach($a['kabupaten'] as $kab)

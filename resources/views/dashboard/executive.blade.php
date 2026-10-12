@@ -8,8 +8,8 @@
     <!-- Header Section -->
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <h1 class="text-xl font-semibold text-slate-900">Dashboard Eksekutif & Pemilik Bisnis</h1>
-            <p class="text-xs text-slate-500 mt-1">Ringkasan performa penjualan nasional, kepatuhan armada, dan penetrasi outlet</p>
+            <h1 class="text-xl font-semibold text-slate-900">Dashboard Eksekutif</h1>
+            <p class="text-xs text-slate-500 mt-1">Ringkasan performa penjualan nasional dan operasional armada</p>
         </div>
         
         <div class="flex items-center flex-wrap gap-2.5">
@@ -32,16 +32,10 @@
                 </select>
             </div>
 
-            <!-- Owner Badge -->
-            <div class="flex items-center gap-1.5 bg-slate-100 border border-slate-200 rounded-lg px-2.5 h-9 text-xs text-slate-700 font-medium">
-                <i class="mdi mdi-shield-account text-primary text-base"></i>
-                <span>Owner</span>
-            </div>
-
             <!-- Drilldown Quick Link -->
             <a href="{{ route('dashboard.drilldown') }}" class="btn-primary">
                 <i class="mdi mdi-chart-box-outline text-base"></i>
-                <span>Grafik Drilldown 7 Level</span>
+                <span>Grafik Drilldown</span>
             </a>
         </div>
     </div>
@@ -150,7 +144,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <div>
                         <h3 class="text-sm font-bold text-slate-900">Tren Penjualan</h3>
-                        <p class="text-xs text-slate-500">Perbandingan Realisasi vs Target (dalam Miliar Rupiah)</p>
+                        <p class="text-xs text-slate-500">Perbandingan Realisasi vs Target</p>
                     </div>
                     
                     <!-- Chart Legend matching mockup -->
@@ -264,7 +258,6 @@
         <div @click="openModal('sqi')" class="lg:col-span-3 bg-white border border-slate-200/90 rounded-xl p-5 shadow-xs flex flex-col justify-between cursor-pointer hover:shadow-md transition-all">
             <div>
                 <h3 class="text-sm font-bold text-slate-900">Sales Quality Index</h3>
-                <p class="text-xs text-slate-500 mt-0.5">Indeks Kualitas Penjualan</p>
             </div>
 
             <div class="flex items-center justify-center my-3">
@@ -725,17 +718,14 @@
             </div>
 
             <!-- Modal Footer Actions -->
-            <div class="p-4 border-t border-slate-100 bg-slate-50 flex items-center justify-between">
-                <span class="text-[11px] text-slate-500 font-medium">Klik Grafik Drilldown 7 Level untuk visualisasi mendalam.</span>
-                <div class="flex items-center gap-2">
-                    <a href="{{ route('dashboard.drilldown') }}" class="px-4 py-2 bg-emerald-600 text-white rounded-xl font-bold text-xs hover:bg-emerald-700 transition-all flex items-center gap-1.5">
-                        <i class="mdi mdi-chart-box-outline w-4 h-4"></i>
-                        <span>Buka Grafik Drilldown</span>
-                    </a>
-                    <button @click="closeModal()" class="px-4 py-2 bg-slate-200 text-slate-700 rounded-xl font-bold text-xs hover:bg-slate-300 transition-all">
-                        Tutup
-                    </button>
-                </div>
+            <div class="p-4 border-t border-slate-100 bg-slate-50 flex items-center justify-end gap-2">
+                <a href="{{ route('dashboard.drilldown') }}" class="btn-primary text-xs flex items-center gap-1.5 active:translate-y-px">
+                    <i class="mdi mdi-chart-box-outline text-base"></i>
+                    <span>Grafik Drilldown</span>
+                </a>
+                <button @click="closeModal()" class="btn-secondary-outline text-xs active:translate-y-px">
+                    Tutup
+                </button>
             </div>
         </div>
     </div>
