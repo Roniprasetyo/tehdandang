@@ -62,11 +62,11 @@
                 >
                     <div class="flex items-start justify-between gap-2">
                         <span class="text-xs font-semibold text-slate-900 leading-snug">{{ $a['name'] }}</span>
-                        <span class="w-2 h-2 rounded-full mt-1" :class="'{{ $a['achievement'] }}' >= 100 ? 'bg-primary' : 'bg-amber-500'"></span>
+                        <span class="w-2 h-2 rounded-full mt-1 {{ ($a['achievement'] ?? 0) >= 100 ? 'bg-primary' : 'bg-amber-500' }}"></span>
                     </div>
                     <div class="mt-2 flex items-center justify-between text-[11px] font-mono tabular-nums">
                         <span class="text-slate-500 font-sans">Achievement:</span>
-                        <span class="font-bold" :class="'{{ $a['achievement'] }}' >= 100 ? 'text-emerald-700' : 'text-primary'">{{ $a['achievement'] }}%</span>
+                        <span class="font-bold {{ ($a['achievement'] ?? 0) >= 100 ? 'text-emerald-700' : 'text-primary' }}">{{ $a['achievement'] }}%</span>
                     </div>
                 </button>
                 @endforeach
@@ -242,7 +242,7 @@
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             @foreach($salesList as $s)
-            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80 flex items-center justify-between hover:bg-slate-100/80 transition-all">
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/90 flex items-center justify-between hover:bg-slate-100/80 transition-all">
                 <div>
                     <span class="text-xs font-bold text-slate-900 block">{{ $s['name'] }} ({{ $s['npk'] }})</span>
                     <span class="text-[10px] text-slate-500 block mt-0.5 font-mono tabular-nums">Area: {{ $s['area'] }} | SlpCode: {{ $s['slp_code'] }}</span>
