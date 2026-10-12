@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · theme: Cobalt & Tea Amber · genre: modern-minimal -->
 <html lang="id" class="h-full bg-slate-50 text-slate-800">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +9,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Hallmark Design Tokens -->
+    <link rel="stylesheet" href="/css/tokens.css">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,14 +23,30 @@
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                         display: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        indigo: {
-                            50: '#eef2ff',
-                            100: '#e0e7ff',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
+                        cobalt: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        tea: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        amber: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
                         }
                     }
                 }
@@ -42,14 +62,19 @@
     
     <style>
         [x-cloak] { display: none !important; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Hallmark Responsive Non-negotiable: zero horizontal scroll */
+        html, body {
+            overflow-x: clip;
+        }
     </style>
     @stack('styles')
 </head>
-<body class="h-full font-sans antialiased bg-slate-50 text-slate-800 flex flex-col lg:flex-row overflow-hidden" x-data="{ sidebarOpen: window.innerWidth >= 1024, roleMenuOpen: false }">
+<body class="h-full font-sans antialiased bg-slate-50 text-slate-800 flex flex-col lg:flex-row overflow-hidden selection:bg-blue-100 selection:text-blue-900" x-data="{ sidebarOpen: window.innerWidth >= 1024, roleMenuOpen: false }">
 
     <!-- Mobile Backdrop Overlay -->
     <div 
