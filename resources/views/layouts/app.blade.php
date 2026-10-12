@@ -74,8 +74,6 @@
     <!-- Alpine.js & Chart.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Lucide Icons (Fallback compatibility for subviews) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
         [x-cloak] { display: none !important; }
@@ -433,10 +431,6 @@
             };
         }
 
-        // Initialize fallback lucide icons if any subviews still use them
-        if (window.lucide && typeof lucide.createIcons === 'function') {
-            lucide.createIcons();
-        }
     </script>
     @stack('scripts')
 </body>

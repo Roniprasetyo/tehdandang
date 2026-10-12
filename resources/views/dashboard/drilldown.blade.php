@@ -12,11 +12,11 @@
                 <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold text-[11px] border border-emerald-200">
                     Interactive Drill-Down Chart
                 </span>
-                <span class="px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-bold text-[11px] border border-indigo-200" x-text="'Depth: Level ' + currentDepth + ' dari 7'">
+                <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-bold text-[11px] border border-primary/20 font-mono tabular-nums" x-text="'Depth: Level ' + currentDepth + ' dari 7'">
                 </span>
             </div>
-            <h1 class="text-xl font-bold font-display text-slate-900 mt-1 flex items-center gap-2">
-                <i data-lucide="bar-chart-2" class="w-6 h-6 text-emerald-600"></i> Grafik Sales Multi-Level Drilldown
+            <h1 class="text-xl font-bold font-display text-slate-900 mt-1 flex items-center gap-2 font-normal">
+                <i class="mdi mdi-chart-box-outline text-primary text-2xl"></i> Grafik Sales Multi-Level Drilldown
             </h1>
             <p class="text-xs text-slate-500 mt-0.5">
                 Klik pada batang grafik (bar chart) atau baris tabel untuk masuk ke grafik detail level di bawahnya (Nasional ➔ Region ➔ Area ➔ Kabupaten ➔ Kecamatan ➔ Sales ➔ Outlet ➔ Produk SKU).
@@ -24,13 +24,25 @@
         </div>
         
         <div class="flex items-center gap-2">
-            <button @click="goBack()" :disabled="stack.length <= 1" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border" :class="stack.length > 1 ? 'bg-indigo-50 text-indigo-700 border-indigo-200 hover:bg-indigo-100 shadow-xs' : 'bg-slate-100 text-slate-400 border-slate-200 opacity-50 cursor-not-allowed'">
-                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <button 
+                type="button"
+                @click="goBack()" 
+                :disabled="stack.length <= 1" 
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border active:translate-y-px" 
+                :class="stack.length > 1 ? 'bg-primary/10 text-primary border-primary/30 hover:bg-primary/20 shadow-xs' : 'bg-slate-100 text-slate-400 border-slate-200 opacity-50 cursor-not-allowed'"
+            >
+                <i class="mdi mdi-arrow-left text-base"></i>
                 <span>Kembali 1 Level</span>
             </button>
 
-            <button @click="resetToTop()" :disabled="stack.length <= 1" class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border" :class="stack.length > 1 ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200' : 'bg-slate-50 text-slate-400 border-slate-200 opacity-50 cursor-not-allowed'">
-                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            <button 
+                type="button"
+                @click="resetToTop()" 
+                :disabled="stack.length <= 1" 
+                class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border active:translate-y-px" 
+                :class="stack.length > 1 ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200' : 'bg-slate-50 text-slate-400 border-slate-200 opacity-50 cursor-not-allowed'"
+            >
+                <i class="mdi mdi-refresh text-base"></i>
                 <span>Reset Level 1</span>
             </button>
         </div>
@@ -42,16 +54,17 @@
         <template x-for="(item, index) in stack" :key="index">
             <div class="flex items-center gap-2">
                 <template x-if="index > 0">
-                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+                    <i class="mdi mdi-chevron-right text-slate-400 text-sm"></i>
                 </template>
                 <button 
+                    type="button"
                     @click="jumpToStack(index)" 
-                    class="px-3 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1.5 border text-xs"
-                    :class="index === stack.length - 1 ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs ring-2 ring-emerald-600/20' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-slate-300'"
+                    class="px-3 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1.5 border text-xs active:translate-y-px"
+                    :class="index === stack.length - 1 ? 'bg-primary text-white border-primary shadow-xs ring-2 ring-primary/20' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-slate-300'"
                 >
-                    <i data-lucide="map-pin" class="w-3 h-3" :class="index === stack.length - 1 ? 'text-white' : 'text-slate-400'"></i>
+                    <i class="mdi mdi-map-marker text-sm" :class="index === stack.length - 1 ? 'text-white' : 'text-slate-400'"></i>
                     <span x-text="item.title"></span>
-                    <span class="text-[10px] px-1.5 py-0.5 rounded-full" :class="index === stack.length - 1 ? 'bg-emerald-700 text-white' : 'bg-slate-200 text-slate-600'" x-text="item.levelName"></span>
+                    <span class="text-[10px] px-1.5 py-0.5 rounded-full font-mono tabular-nums" :class="index === stack.length - 1 ? 'bg-emerald-800 text-white' : 'bg-slate-200 text-slate-600'" x-text="item.levelName"></span>
                 </button>
             </div>
         </template>
@@ -63,45 +76,45 @@
         <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
             <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">LEVEL SAAT INI</span>
-                <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
-                    <i data-lucide="layers" class="w-4 h-4"></i>
+                <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                    <i class="mdi mdi-layers-outline text-base"></i>
                 </div>
             </div>
-            <div class="text-xl font-bold text-slate-900 mt-2 truncate" x-text="currentLevelTitle"></div>
-            <div class="text-[11px] text-indigo-600 font-semibold mt-1" x-text="currentLevelSubtitle"></div>
+            <div class="text-xl font-bold text-slate-900 mt-2 truncate font-normal" x-text="currentLevelTitle"></div>
+            <div class="text-[11px] text-primary font-semibold mt-1" x-text="currentLevelSubtitle"></div>
         </div>
 
         <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
             <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">TOTAL TARGET PENJUALAN</span>
                 <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center">
-                    <i data-lucide="target" class="w-4 h-4"></i>
+                    <i class="mdi mdi-target text-base"></i>
                 </div>
             </div>
-            <div class="text-xl font-bold text-slate-900 mt-2" x-text="formatCurrency(totalTarget)"></div>
-            <div class="text-[11px] text-slate-500 mt-1" x-text="itemCount + ' item data'"></div>
+            <div class="text-xl font-bold font-mono tabular-nums text-slate-900 mt-2" x-text="formatCurrency(totalTarget)"></div>
+            <div class="text-[11px] text-slate-500 mt-1 font-mono tabular-nums" x-text="itemCount + ' item data'"></div>
         </div>
 
         <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
             <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">REALISASI PENJUALAN</span>
-                <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                    <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+                <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                    <i class="mdi mdi-cash text-base"></i>
                 </div>
             </div>
-            <div class="text-xl font-bold text-emerald-700 mt-2" x-text="formatCurrency(totalActual)"></div>
-            <div class="text-[11px] font-bold mt-1" :class="avgAchievement >= 100 ? 'text-emerald-600' : 'text-amber-600'" x-text="'Capaian: ' + avgAchievement.toFixed(1) + '%'"></div>
+            <div class="text-xl font-bold font-mono tabular-nums text-emerald-700 mt-2" x-text="formatCurrency(totalActual)"></div>
+            <div class="text-[11px] font-bold mt-1 font-mono tabular-nums" :class="avgAchievement >= 100 ? 'text-emerald-700' : 'text-secondary'" x-text="'Capaian: ' + avgAchievement.toFixed(1) + '%'"></div>
         </div>
 
         <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
             <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">STATUS HIERARKI</span>
-                <div class="w-8 h-8 rounded-lg bg-cyan-50 text-cyan-600 flex items-center justify-center">
-                    <i data-lucide="info" class="w-4 h-4"></i>
+                <div class="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
+                    <i class="mdi mdi-information-outline text-base"></i>
                 </div>
             </div>
             <div class="text-lg font-bold mt-2 flex items-center gap-2">
-                <span x-text="isLowestLevel ? '🏆 Level Terbawah' : '📊 Level ' + currentDepth + ' (Bisa Click Bar)'" :class="isLowestLevel ? 'text-amber-600' : 'text-indigo-600'"></span>
+                <span x-text="isLowestLevel ? '🏆 Level Terbawah' : '📊 Level ' + currentDepth + ' (Bisa Click Bar)'" :class="isLowestLevel ? 'text-secondary' : 'text-primary'"></span>
             </div>
             <div class="text-[11px] text-slate-500 mt-1" x-text="isLowestLevel ? 'Detail SKU Produk Selesai' : 'Klik batang bar untuk drill down'"></div>
         </div>
@@ -114,7 +127,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
             <div>
                 <div class="flex items-center gap-2">
-                    <h3 class="text-base font-bold text-slate-900" x-text="'Grafik Penjualan: ' + currentLevelTitle"></h3>
+                    <h3 class="text-base font-bold text-slate-900 font-normal" x-text="'Grafik Penjualan: ' + currentLevelTitle"></h3>
                     <span x-show="!isLowestLevel" class="animate-pulse bg-emerald-100 text-emerald-700 text-[10px] px-2 py-0.5 rounded-full font-bold border border-emerald-200">
                         👉 Clickable Bar Active
                     </span>
@@ -128,13 +141,13 @@
             <!-- Controls: Chart Switcher & Search -->
             <div class="flex items-center gap-2">
                 <div class="bg-slate-100 p-1 rounded-xl flex items-center gap-1 text-xs">
-                    <button @click="setChartType('bar')" class="px-2.5 py-1 rounded-lg font-bold transition-all" :class="chartType === 'bar' ? 'bg-white text-indigo-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'">
+                    <button type="button" @click="setChartType('bar')" class="px-2.5 py-1 rounded-lg font-bold transition-all active:translate-y-px" :class="chartType === 'bar' ? 'bg-white text-primary shadow-xs' : 'text-slate-600 hover:text-slate-900'">
                         Bar Vertikal
                     </button>
-                    <button @click="setChartType('horizontalBar')" class="px-2.5 py-1 rounded-lg font-bold transition-all" :class="chartType === 'horizontalBar' ? 'bg-white text-indigo-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'">
+                    <button type="button" @click="setChartType('horizontalBar')" class="px-2.5 py-1 rounded-lg font-bold transition-all active:translate-y-px" :class="chartType === 'horizontalBar' ? 'bg-white text-primary shadow-xs' : 'text-slate-600 hover:text-slate-900'">
                         Bar Horizontal
                     </button>
-                    <button @click="setChartType('doughnut')" class="px-2.5 py-1 rounded-lg font-bold transition-all" :class="chartType === 'doughnut' ? 'bg-white text-indigo-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'">
+                    <button type="button" @click="setChartType('doughnut')" class="px-2.5 py-1 rounded-lg font-bold transition-all active:translate-y-px" :class="chartType === 'doughnut' ? 'bg-white text-primary shadow-xs' : 'text-slate-600 hover:text-slate-900'">
                         Donut
                     </button>
                 </div>
@@ -146,12 +159,12 @@
             <canvas id="multiLevelDrilldownChart"></canvas>
         </div>
 
-        <div class="bg-indigo-50/70 border border-indigo-100 rounded-xl p-3 text-xs text-indigo-800 flex items-center justify-between">
+        <div class="bg-primary/10 border border-primary/20 rounded-xl p-3 text-xs text-slate-800 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <i data-lucide="pointer" class="w-4 h-4 text-indigo-600 animate-bounce"></i>
-                <span class="font-medium">Petunjuk: Klik pada salah satu **batang grafik (Bar)** untuk menggali grafik detail ke tingkat lebih dalam!</span>
+                <i class="mdi mdi-cursor-default-click text-primary text-base animate-bounce"></i>
+                <span class="font-medium">Petunjuk: Klik pada salah satu batang grafik (Bar) untuk menggali grafik detail ke tingkat lebih dalam!</span>
             </div>
-            <span class="text-[11px] font-bold bg-white px-2.5 py-1 rounded-lg text-indigo-600 border border-indigo-200" x-text="'Tingkat: ' + stack[stack.length - 1].levelName"></span>
+            <span class="text-[11px] font-bold bg-white px-2.5 py-1 rounded-lg text-primary border border-primary/20 font-mono tabular-nums" x-text="'Tingkat: ' + stack[stack.length - 1].levelName"></span>
         </div>
     </div>
 
@@ -159,14 +172,14 @@
     <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-                <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-                    <i data-lucide="table" class="w-4 h-4 text-indigo-600"></i> Data Sinkronisasi Tabel Level: <span class="text-indigo-600" x-text="currentLevelTitle"></span>
+                <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2 font-normal">
+                    <i class="mdi mdi-table text-primary text-base"></i> Data Sinkronisasi Tabel Level: <span class="text-primary font-bold" x-text="currentLevelTitle"></span>
                 </h3>
                 <p class="text-xs text-slate-500">Anda juga dapat mengklik tombol "Drill Down" atau baris tabel untuk menelusuri data.</p>
             </div>
             
             <div class="w-full sm:w-64">
-                <input type="text" x-model="searchQuery" placeholder="Cari nama area/sales/outlet..." class="w-full bg-slate-50 border border-slate-200 text-xs text-slate-800 rounded-xl px-3 py-2 focus:outline-none focus:border-indigo-500 font-medium">
+                <input type="text" x-model="searchQuery" placeholder="Cari nama area/sales/outlet..." class="w-full bg-slate-50 border border-slate-200 text-xs text-slate-800 rounded-xl px-3 py-2 focus:outline-none focus:border-primary font-medium">
             </div>
         </div>
 
@@ -197,20 +210,20 @@
                                     <span class="px-1.5 py-0.5 rounded text-[9px] bg-emerald-600 text-white font-bold">Top</span>
                                 </template>
                             </td>
-                            <td class="py-3 px-4 text-slate-600" x-text="formatCurrency(row.target)"></td>
-                            <td class="py-3 px-4 font-bold text-slate-900" x-text="formatCurrency(row.actual)"></td>
-                            <td class="py-3 px-4 font-bold" :class="row.achievement >= 100 ? 'text-emerald-600' : (row.achievement >= 85 ? 'text-indigo-600' : 'text-rose-600')">
+                            <td class="py-3 px-4 text-slate-600 font-mono tabular-nums" x-text="formatCurrency(row.target)"></td>
+                            <td class="py-3 px-4 font-bold text-slate-900 font-mono tabular-nums" x-text="formatCurrency(row.actual)"></td>
+                            <td class="py-3 px-4 font-bold font-mono tabular-nums" :class="row.achievement >= 100 ? 'text-emerald-700' : (row.achievement >= 85 ? 'text-primary' : 'text-rose-700')">
                                 <span x-text="row.achievement.toFixed(1) + '%'"></span>
                             </td>
-                            <td class="py-3 px-4 font-semibold" :class="row.growth >= 0 ? 'text-emerald-600' : 'text-rose-600'">
+                            <td class="py-3 px-4 font-semibold font-mono tabular-nums" :class="row.growth >= 0 ? 'text-emerald-700' : 'text-rose-700'">
                                 <span x-text="(row.growth >= 0 ? '+' : '') + row.growth + '%'"></span>
                             </td>
                             <td class="py-3 px-4 text-center text-sm" x-text="row.statusEmoji"></td>
                             <td class="py-3 px-4 text-right">
                                 <template x-if="!isLowestLevel">
-                                    <button @click.stop="drillDownTo(row.label)" class="inline-flex items-center gap-1 text-xs px-3 py-1 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 font-bold shadow-xs transition-all group-hover:scale-105">
+                                    <button type="button" @click.stop="drillDownTo(row.label)" class="btn-primary text-xs inline-flex items-center gap-1 active:translate-y-px">
                                         <span>Drill Down</span>
-                                        <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                                        <i class="mdi mdi-chevron-right text-sm"></i>
                                     </button>
                                 </template>
                                 <template x-if="isLowestLevel">

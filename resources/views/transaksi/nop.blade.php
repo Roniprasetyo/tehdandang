@@ -9,22 +9,23 @@
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
         <div>
             <div class="flex items-center space-x-2 text-xs text-slate-400 mb-1 font-medium">
-                <a href="{{ route('dashboard') }}" class="hover:text-indigo-600 transition-colors">Beranda</a>
+                <a href="{{ route('dashboard') }}" class="hover:text-primary transition-colors">Beranda</a>
                 <span>/</span>
                 <span>Transaksi</span>
                 <span>/</span>
-                <span class="text-indigo-600 font-semibold">NOP Tracking</span>
+                <span class="text-primary font-semibold">NOP Tracking</span>
             </div>
-            <h1 class="text-xl font-bold font-display text-slate-900 flex items-center gap-2">
-                <i data-lucide="box" class="w-5 h-5 text-indigo-600"></i> NOP (New Open Product) Expansion Tracking
+            <h1 class="text-xl font-bold font-display text-slate-900 flex items-center gap-2 font-normal">
+                <i class="mdi mdi-package-variant-closed text-primary text-2xl"></i> NOP (New Open Product) Expansion Tracking
             </h1>
             <p class="text-xs text-slate-500 mt-0.5">Penambahan varian SKU Teh Dandang baru yang berhasil masuk ke outlet existing (Before vs After Expansion)</p>
         </div>
         <div class="flex items-center gap-2">
             <button 
+                type="button"
                 @click="openAddModal = true"
-                class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md shadow-indigo-200 flex items-center gap-2 transition-all">
-                <i data-lucide="plus-circle" class="w-4 h-4"></i> Tambah NOP SKU Baru
+                class="btn-primary text-xs flex items-center gap-2 active:translate-y-px">
+                <i class="mdi mdi-plus-circle-outline text-base"></i> Tambah NOP SKU Baru
             </button>
         </div>
     </div>
@@ -34,33 +35,33 @@
         <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex items-center justify-between">
             <div>
                 <span class="text-[10px] font-bold uppercase text-slate-400 block">TOTAL NOP EXPANSIONS</span>
-                <span class="text-2xl font-bold text-slate-900 mt-1 block">{{ count($nop) }} Outlet SKU</span>
+                <span class="text-2xl font-bold font-mono tabular-nums text-slate-900 mt-1 block">{{ count($nop) }} Outlet SKU</span>
                 <span class="text-[10px] text-emerald-600 font-semibold">+18% MTD SKU Penetration</span>
             </div>
             <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
-                <i data-lucide="trending-up" class="w-5 h-5"></i>
+                <i class="mdi mdi-trending-up text-2xl"></i>
             </div>
         </div>
 
         <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex items-center justify-between">
             <div>
                 <span class="text-[10px] font-bold uppercase text-slate-400 block">TOP NEW SKU ITEM</span>
-                <span class="text-xl font-bold text-indigo-600 mt-1 block">Teh Dandang Merah</span>
+                <span class="text-xl font-bold text-primary mt-1 block">Teh Dandang Merah</span>
                 <span class="text-[10px] text-slate-500 font-semibold">Code: DM001 (18 Outlets)</span>
             </div>
-            <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
-                <i data-lucide="package-check" class="w-5 h-5"></i>
+            <div class="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold">
+                <i class="mdi mdi-check-decagram text-2xl"></i>
             </div>
         </div>
 
         <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex items-center justify-between">
             <div>
                 <span class="text-[10px] font-bold uppercase text-slate-400 block">AVG SKU PER OUTLET</span>
-                <span class="text-2xl font-bold text-purple-600 mt-1 block">2.8 Varian SKU</span>
-                <span class="text-[10px] text-purple-600 font-semibold">Naik dari 1.6 SKU/Outlet</span>
+                <span class="text-2xl font-bold font-mono tabular-nums text-secondary mt-1 block">2.8 Varian SKU</span>
+                <span class="text-[10px] text-secondary font-semibold">Naik dari 1.6 SKU/Outlet</span>
             </div>
-            <div class="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
-                <i data-lucide="layers" class="w-5 h-5"></i>
+            <div class="w-11 h-11 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center font-bold">
+                <i class="mdi mdi-layers-outline text-2xl"></i>
             </div>
         </div>
     </div>
@@ -68,16 +69,16 @@
     <!-- NOP Comparison Table Container -->
     <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
-            <h3 class="text-sm font-bold text-slate-900">Tracking Penambahan SKU Baru per Outlet (Before vs After Expansion)</h3>
+            <h3 class="text-sm font-bold text-slate-900 font-normal">Tracking Penambahan SKU Baru per Outlet (Before vs After Expansion)</h3>
             
             <!-- Search & Filter Input -->
             <div class="relative w-full sm:w-72">
-                <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                <i class="mdi mdi-magnify text-slate-400 text-base absolute left-3 top-1/2 -translate-y-1/2"></i>
                 <input 
                     type="text" 
                     x-model="searchQuery" 
                     placeholder="Cari outlet, sales, atau SKU..." 
-                    class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all">
+                    class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
             </div>
         </div>
 
@@ -85,19 +86,19 @@
             <table class="w-full text-left text-xs text-slate-700">
                 <thead class="bg-slate-50 text-slate-500 uppercase text-[10px] tracking-wider border-b border-slate-200">
                     <tr>
-                        <th class="py-3.5 px-4">CARD CODE</th>
-                        <th class="py-3.5 px-4">OUTLET NAME</th>
+                        <th class="py-3.5 px-4">KODE SAP</th>
+                        <th class="py-3.5 px-4">NAMA OUTLET</th>
                         <th class="py-3.5 px-4">SALES ASSIGNED</th>
-                        <th class="py-3.5 px-4">BEFORE PRODUCTS</th>
-                        <th class="py-3.5 px-4">AFTER PRODUCTS</th>
-                        <th class="py-3.5 px-4">NEW NOP ITEM</th>
-                        <th class="py-3.5 px-4">DATE ADDED</th>
+                        <th class="py-3.5 px-4">PRODUK SEBELUMNYA</th>
+                        <th class="py-3.5 px-4">PRODUK SETELAHNYA</th>
+                        <th class="py-3.5 px-4">ITEM NOP BARU</th>
+                        <th class="py-3.5 px-4">TANGGAL DITAMBAHKAN</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
                     <template x-for="np in filteredNop" :key="np.card_code + np.item_code">
                         <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="py-3.5 px-4 font-mono font-bold text-indigo-600" x-text="np.card_code"></td>
+                            <td class="py-3.5 px-4 font-mono tabular-nums font-bold text-primary" x-text="np.card_code"></td>
                             <td class="py-3.5 px-4 font-bold text-slate-900" x-text="np.outlet_name"></td>
                             <td class="py-3.5 px-4 text-slate-700 font-medium" x-text="np.sales_name"></td>
                             <td class="py-3.5 px-4 text-slate-500">
@@ -108,11 +109,11 @@
                             </td>
                             <td class="py-3.5 px-4">
                                 <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 font-bold border border-emerald-200 shadow-2xs">
-                                    <span>✨</span>
+                                    <i class="mdi mdi-sparkles text-emerald-600 text-xs"></i>
                                     <span x-text="np.nop_item + ' (' + np.item_code + ')'"></span>
                                 </span>
                             </td>
-                            <td class="py-3.5 px-4 font-mono text-slate-500" x-text="np.date_added"></td>
+                            <td class="py-3.5 px-4 font-mono tabular-nums text-slate-500" x-text="np.date_added"></td>
                         </tr>
                     </template>
                 </tbody>
@@ -125,18 +126,18 @@
         <div @click.outside="openAddModal = false" class="bg-white rounded-2xl border border-slate-200 shadow-2xl max-w-lg w-full p-6 space-y-4">
             <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                 <div class="flex items-center gap-2">
-                    <i data-lucide="box" class="w-5 h-5 text-indigo-600"></i>
-                    <h3 class="text-base font-bold text-slate-900">Form Penambahan NOP SKU Baru</h3>
+                    <i class="mdi mdi-package-variant-closed text-primary text-xl"></i>
+                    <h3 class="text-base font-bold text-slate-900 font-normal">Form Penambahan NOP SKU Baru</h3>
                 </div>
-                <button @click="openAddModal = false" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
-                    <i data-lucide="x" class="w-5 h-5"></i>
+                <button type="button" @click="openAddModal = false" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+                    <i class="mdi mdi-close text-lg"></i>
                 </button>
             </div>
 
             <form @submit.prevent="submitNop()" class="space-y-3 text-xs">
                 <div>
                     <label class="block font-bold text-slate-700 mb-1">Pilih Outlet (SAP OCRD):</label>
-                    <select x-model="form.card_code" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-800 focus:outline-none focus:border-indigo-500">
+                    <select x-model="form.card_code" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-800 focus:outline-none focus:border-primary">
                         <option value="C10001">C10001 - Toko Berkah Utama (Bandung)</option>
                         <option value="C10002">C10002 - Warung Makan Resto Bundo (Cirebon)</option>
                         <option value="C10005">C10005 - Supermarket Grand City (Jakarta)</option>
@@ -145,7 +146,7 @@
 
                 <div>
                     <label class="block font-bold text-slate-700 mb-1">Pilih Varian SKU Baru (SAP OITM):</label>
-                    <select x-model="form.item_code" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-indigo-600 focus:outline-none focus:border-indigo-500">
+                    <select x-model="form.item_code" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-primary focus:outline-none focus:border-primary">
                         <option value="DM001">DM001 - Teh Dandang Merah</option>
                         <option value="DJ001">DJ001 - Teh Dandang Jasmine Box</option>
                         <option value="DH002">DH002 - Teh Dandang Hijau Celup</option>
@@ -156,20 +157,20 @@
 
                 <div>
                     <label class="block font-bold text-slate-700 mb-1">Target Order Awal (Dus / Karton):</label>
-                    <input type="number" value="5" min="1" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-mono text-slate-800">
+                    <input type="number" value="5" min="1" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-mono tabular-nums text-slate-800 focus:outline-none focus:border-primary">
                 </div>
 
                 <div class="p-3 bg-emerald-50 border border-emerald-100 rounded-xl text-emerald-900 space-y-1">
                     <div class="font-bold flex items-center gap-1.5">
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Penetrasi Outlet Existing
+                        <i class="mdi mdi-check-circle-outline text-emerald-600 text-base"></i> Penetrasi Outlet Existing
                     </div>
                     <p class="text-[11px] text-emerald-700">Penambahan SKU ini akan secara otomatis memperbarui katalog produk di outlet terkait pada SAP Business One.</p>
                 </div>
 
                 <div class="flex justify-end gap-2 pt-2 border-t border-slate-100">
-                    <button type="button" @click="openAddModal = false" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold">Batal</button>
-                    <button type="submit" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-md shadow-indigo-200 flex items-center gap-1.5">
-                        <i data-lucide="check" class="w-4 h-4"></i> Simpan NOP SKU
+                    <button type="button" @click="openAddModal = false" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold active:translate-y-px">Batal</button>
+                    <button type="submit" class="btn-primary text-xs flex items-center gap-1.5 active:translate-y-px">
+                        <i class="mdi mdi-check text-base"></i> Simpan NOP SKU
                     </button>
                 </div>
             </form>
@@ -203,7 +204,9 @@
             },
 
             submitNop() {
-                alert('Penambahan NOP SKU berhasil disimpan!');
+                if (typeof window.notify === 'function') {
+                    window.notify('Penambahan NOP SKU berhasil disimpan dan terintegrasi SAP!', 'success');
+                }
                 this.openAddModal = false;
             }
         }

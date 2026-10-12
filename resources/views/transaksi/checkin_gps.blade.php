@@ -12,7 +12,7 @@
         box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     }
     .leaflet-container {
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
     .gps-marker-container {
         display: flex;
@@ -47,34 +47,36 @@
         <div>
             <!-- Breadcrumbs -->
             <div class="flex items-center space-x-2 text-xs text-slate-400 mb-1 font-medium">
-                <a href="{{ route('dashboard') }}" class="hover:text-indigo-600 transition-colors">Beranda</a>
+                <a href="{{ route('dashboard') }}" class="hover:text-primary transition-colors">Beranda</a>
                 <span>/</span>
                 <span>Tracking</span>
                 <span>/</span>
-                <span class="text-indigo-600 font-semibold">Live Tracking</span>
+                <span class="text-primary font-semibold">Live Tracking</span>
             </div>
-            <h1 class="text-xl font-bold font-display text-slate-900 flex items-center gap-2">
-                <i data-lucide="radio" class="w-5 h-5 text-indigo-600"></i> Live Map Concox GT06N & Tracksolid Dashboard
+            <h1 class="text-xl font-bold font-display text-slate-900 flex items-center gap-2 font-normal">
+                <i class="mdi mdi-access-point text-primary text-2xl"></i> Live Map Concox GT06N & Tracksolid Dashboard
             </h1>
             <p class="text-xs text-slate-500 mt-0.5">Monitoring posisi armada salesman, rute compliance, & alarm deviasi real-time</p>
         </div>
 
         <div class="flex flex-wrap items-center gap-2.5">
-            <span class="px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-mono font-bold flex items-center gap-1.5 shadow-xs">
-                <span class="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-ping"></span>
+            <span class="px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono tabular-nums font-bold flex items-center gap-1.5 shadow-xs">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
                 <span>Concox GT06N Webhook: Active</span>
             </span>
             <button 
+                type="button"
                 @click="openHistoryModal = true"
-                class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all hover:border-indigo-300">
-                <i data-lucide="history" class="w-3.5 h-3.5 text-indigo-600"></i>
+                class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all hover:border-primary/40 active:translate-y-px">
+                <i class="mdi mdi-history text-primary text-base"></i>
                 <span>Riwayat Rute</span>
             </button>
             @if(in_array($authUser['role'] ?? $user['role'] ?? '', ['IT', 'Admin Pusat', 'Fleet Admin']))
                 <button 
+                    type="button"
                     @click="openDeviceModal = true"
-                    class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md shadow-indigo-200 flex items-center gap-1.5 transition-all">
-                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                    class="btn-primary text-xs flex items-center gap-1.5 active:translate-y-px">
+                    <i class="mdi mdi-chip text-base"></i>
                     <span>Manajemen Device (IT)</span>
                 </button>
             @endif
@@ -124,14 +126,14 @@
             <div class="absolute top-3 left-3 right-3 z-[400] flex items-center justify-between pointer-events-none">
                 <div class="bg-white/95 backdrop-blur border border-slate-200/80 shadow-md rounded-xl px-3 py-1.5 flex items-center space-x-3 text-xs pointer-events-auto">
                     <span class="font-bold text-slate-800 flex items-center gap-1.5">
-                        <i data-lucide="layers" class="w-3.5 h-3.5 text-indigo-600"></i> Tracksolid Live Radar
+                        <i class="mdi mdi-layers-outline text-primary text-base"></i> Tracksolid Live Radar
                     </span>
                     <span class="text-slate-300">|</span>
-                    <button @click="fitAllMarkers()" class="text-indigo-600 hover:underline font-semibold flex items-center gap-1">
-                        <i data-lucide="maximize-2" class="w-3 h-3"></i> Zoom Semua
+                    <button type="button" @click="fitAllMarkers()" class="text-primary hover:underline font-semibold flex items-center gap-1">
+                        <i class="mdi mdi-fullscreen text-sm"></i> Zoom Semua
                     </button>
-                    <button @click="togglePolylines()" class="text-slate-600 hover:text-indigo-600 font-semibold flex items-center gap-1">
-                        <i data-lucide="route" class="w-3 h-3"></i> <span x-text="showRoutes ? 'Sembunyikan Rute' : 'Tampilkan Rute'"></span>
+                    <button type="button" @click="togglePolylines()" class="text-slate-600 hover:text-primary font-semibold flex items-center gap-1">
+                        <i class="mdi mdi-routes text-sm"></i> <span x-text="showRoutes ? 'Sembunyikan Rute' : 'Tampilkan Rute'"></span>
                     </button>
                 </div>
 
@@ -184,10 +186,11 @@
                         </p>
                     </div>
                     <button 
+                        type="button"
                         @click="refreshData()"
-                        class="p-2 rounded-xl text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all border border-slate-200"
+                        class="p-2 rounded-xl text-slate-400 hover:text-primary hover:bg-primary/10 transition-all border border-slate-200 active:translate-y-px"
                         title="Refresh Data">
-                        <i data-lucide="refresh-cw" class="w-4 h-4" :class="isRefreshing ? 'animate-spin text-indigo-600' : ''"></i>
+                        <i class="mdi mdi-refresh text-base" :class="isRefreshing ? 'animate-spin text-primary' : ''"></i>
                     </button>
                 </div>
 
@@ -227,12 +230,12 @@
 
                 <!-- Search Input -->
                 <div class="relative">
-                    <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                    <i class="mdi mdi-magnify text-slate-400 text-base absolute left-3 top-1/2 -translate-y-1/2"></i>
                     <input 
                         type="text" 
                         x-model="searchQuery"
                         placeholder="Cari plat, merek, peminjam..." 
-                        class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all">
+                        class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
                 </div>
             </div>
 
@@ -260,18 +263,18 @@
 
                         <!-- Telemetry Stats Row -->
                         <div class="flex items-center justify-between mt-3 pt-2 border-t border-slate-100 text-[11px]">
-                            <div class="flex items-center space-x-3 text-slate-500 font-mono">
-                                <span class="flex items-center gap-1 font-semibold text-amber-600">
-                                    <i data-lucide="zap" class="w-3 h-3 text-amber-500"></i>
+                            <div class="flex items-center space-x-3 text-slate-500 font-mono tabular-nums">
+                                <span class="flex items-center gap-1 font-semibold text-secondary">
+                                    <i class="mdi mdi-flash text-secondary text-sm"></i>
                                     <span x-text="v.battery_v"></span>
                                 </span>
                                 <span class="flex items-center gap-1 font-semibold text-emerald-600">
-                                    <i data-lucide="radio" class="w-3 h-3 text-emerald-500"></i>
+                                    <i class="mdi mdi-access-point text-emerald-500 text-sm"></i>
                                     <span x-text="v.satellites + ' Sats'"></span>
                                 </span>
                                 <template x-if="v.speed !== '0 km/h'">
-                                    <span class="flex items-center gap-1 font-semibold text-indigo-600">
-                                        <i data-lucide="gauge" class="w-3 h-3 text-indigo-500"></i>
+                                    <span class="flex items-center gap-1 font-semibold text-accent">
+                                        <i class="mdi mdi-speedometer text-accent text-sm"></i>
                                         <span x-text="v.speed"></span>
                                     </span>
                                 </template>
@@ -285,7 +288,7 @@
 
                 <!-- Empty Search State -->
                 <div x-show="filteredVehicles.length === 0" class="py-12 text-center text-slate-400 text-xs">
-                    <i data-lucide="search-x" class="w-8 h-8 mx-auto mb-2 text-slate-300"></i>
+                    <i class="mdi mdi-magnify-close text-4xl mx-auto mb-2 text-slate-300 block"></i>
                     <p class="font-semibold">Armada tidak ditemukan</p>
                     <p class="text-[11px]">Coba ubah filter atau kata kunci pencarian</p>
                 </div>
@@ -305,8 +308,8 @@
 
     <!-- Vehicles Live Status Table -->
     <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs">
-        <h3 class="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-            <i data-lucide="list" class="w-4 h-4 text-indigo-600"></i> Detail Status Fleet & Concox GT06N Tracksolid
+        <h3 class="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2 font-normal">
+            <i class="mdi mdi-format-list-bulleted text-primary text-base"></i> Detail Status Fleet & Concox GT06N Tracksolid
         </h3>
         <div class="overflow-x-auto">
             <table class="w-full text-left text-xs text-slate-700">
@@ -349,11 +352,11 @@
         <div @click.outside="openHistoryModal = false" class="bg-white rounded-2xl border border-slate-200 shadow-2xl max-w-xl w-full p-6 space-y-4">
             <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                 <div class="flex items-center gap-2">
-                    <i data-lucide="history" class="w-5 h-5 text-indigo-600"></i>
-                    <h3 class="text-base font-bold text-slate-900">Riwayat Rute Perjalanan (Route Playback)</h3>
+                    <i class="mdi mdi-history text-primary text-xl"></i>
+                    <h3 class="text-base font-bold text-slate-900 font-normal">Riwayat Rute Perjalanan (Route Playback)</h3>
                 </div>
-                <button @click="openHistoryModal = false" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
-                    <i data-lucide="x" class="w-5 h-5"></i>
+                <button type="button" @click="openHistoryModal = false" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+                    <i class="mdi mdi-close text-lg"></i>
                 </button>
             </div>
 
@@ -378,18 +381,18 @@
                     </div>
                 </div>
 
-                <div class="p-3 bg-indigo-50 border border-indigo-100 rounded-xl text-indigo-900 space-y-1">
+                <div class="p-3 bg-primary/10 border border-primary/20 rounded-xl text-primary space-y-1">
                     <div class="font-bold flex items-center gap-1.5">
-                        <i data-lucide="info" class="w-4 h-4 text-indigo-600"></i> Fitur Playback Tracksolid
+                        <i class="mdi mdi-information-outline text-primary text-base"></i> Fitur Playback Tracksolid
                     </div>
-                    <p class="text-[11px] text-indigo-700">Menampilkan rekam jejak koordinat GPS 24 jam terakhir beserta alarm overspeed dan titik pemberhentian (parkir).</p>
+                    <p class="text-[11px] text-slate-600">Menampilkan rekam jejak koordinat GPS 24 jam terakhir beserta alarm overspeed dan titik pemberhentian (parkir).</p>
                 </div>
             </div>
 
             <div class="flex justify-end gap-2 pt-2 border-t border-slate-100">
-                <button @click="openHistoryModal = false" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs">Tutup</button>
-                <button @click="openHistoryModal = false; alert('Memuat riwayat rute kendaraan...')" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md shadow-indigo-200 flex items-center gap-1.5">
-                    <i data-lucide="play" class="w-4 h-4"></i> Putar Simulasi Rute
+                <button type="button" @click="openHistoryModal = false" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs active:translate-y-px">Tutup</button>
+                <button type="button" @click="openHistoryModal = false; notify('Memuat riwayat rute kendaraan 24 jam...', 'info')" class="btn-primary text-xs flex items-center gap-1.5 active:translate-y-px">
+                    <i class="mdi mdi-play text-base"></i> Putar Simulasi Rute
                 </button>
             </div>
         </div>
@@ -400,11 +403,11 @@
         <div @click.outside="openDeviceModal = false" class="bg-white rounded-2xl border border-slate-200 shadow-2xl max-w-3xl w-full p-6 space-y-4">
             <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                 <div class="flex items-center gap-2">
-                    <i data-lucide="cpu" class="w-5 h-5 text-indigo-600"></i>
-                    <h3 class="text-base font-bold text-slate-900">Manajemen Perangkat GPS Concox GT06N</h3>
+                    <i class="mdi mdi-chip text-primary text-xl"></i>
+                    <h3 class="text-base font-bold text-slate-900 font-normal">Manajemen Perangkat GPS Concox GT06N</h3>
                 </div>
-                <button @click="openDeviceModal = false" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
-                    <i data-lucide="x" class="w-5 h-5"></i>
+                <button type="button" @click="openDeviceModal = false" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+                    <i class="mdi mdi-close text-lg"></i>
                 </button>
             </div>
 
@@ -431,8 +434,8 @@
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold" :class="v.acc_status === 'ON' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-600'" x-text="'ACC ' + v.acc_status"></span>
                                 </td>
                                 <td class="py-2.5 px-3 text-center">
-                                    <button @click="alert('Mengirim sinyal Remote Engine Cut-off ke ' + v.plate_no)" class="px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold text-[10px] flex items-center gap-1 mx-auto">
-                                        <i data-lucide="power" class="w-3 h-3"></i> Cut Engine
+                                    <button type="button" @click="notify('Mengirim sinyal Remote Engine Cut-off ke ' + v.plate_no, 'warning')" class="px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold text-[10px] flex items-center gap-1 mx-auto active:translate-y-px">
+                                        <i class="mdi mdi-power text-xs"></i> Cut Engine
                                     </button>
                                 </td>
                             </tr>
