@@ -1,9 +1,10 @@
 # AGENTS.md — Teh Dandang Development Guidelines
 
-## Design Discipline: Hallmark Active & Anti-Vibe-Coding Rules
+## Design Discipline: Hallmark & Anti-Slop Filter Active
 This project follows strict production standards located in:
 - Skill instructions: `.agents/skills/hallmark/SKILL.md` and `references/`
-- Cursor rules: `.cursor/rules/hallmark.mdc`
+- Anti-slop filters: `.agents/skills/antislop/SKILL.md` and companion skills
+- Cursor rules: `.cursor/rules/hallmark.mdc` and `.cursor/rules/antislop.mdc`
 - Locked system: `design.md`
 - Token source: `public/css/tokens.css`
 
@@ -20,3 +21,14 @@ This project follows strict production standards located in:
    - Headings are upright roman (`font-style: normal`), never italicized headings.
    - All interactive controls must support tactile press feedback (`active:translate-y-px`).
    - Zero horizontal overflow down to 320px mobile viewport (`overflow-x: clip`).
+
+<!-- antislop:start -->
+## antislop
+For UI, copy, people, mobile layout, or code comments work, read `antislop.md` (core) and then the skill for the task:
+- UI / visual: `.agents/skills/antislop-ui/SKILL.md`
+- Copy & text: `.agents/skills/antislop-copywriting/SKILL.md`
+- People: `.agents/skills/antislop-human/SKILL.md`
+- Mobile / responsive: `.agents/skills/antislop-layoutmobile/SKILL.md`
+- Code comments: `.agents/skills/antislop-code/SKILL.md`
+Before starting, follow the core's "Two Usage Modes" section in strict order: explicit session instruction first, then global preference, then ask. A session instruction always wins. For a resolved mode, say `antislop active: <mode> (session override).` or `antislop active: <mode> (global preference).` once before presenting findings or making edits, using the actual mode and source.
+<!-- antislop:end -->
