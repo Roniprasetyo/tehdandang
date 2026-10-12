@@ -8,6 +8,7 @@
     <!-- Header Banner -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
+            @include('partials.breadcrumb')
             <h1 class="text-xl font-bold text-slate-900">Manajemen Pengguna (User Management)</h1>
             <p class="text-xs text-slate-500 mt-0.5">Kelola pengguna sistem, NPK, role hak akses, dan scope wilayah</p>
         </div>

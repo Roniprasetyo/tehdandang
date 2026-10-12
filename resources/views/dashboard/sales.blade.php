@@ -8,6 +8,7 @@
     <!-- Header & Info Utama -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
+            @include('partials.breadcrumb')
             <h1 class="text-xl font-semibold text-slate-900">Dashboard Tenaga Penjual &bull; {{ $salesData['name'] ?? $user['name'] }}</h1>
             <p class="text-xs text-slate-500 mt-1 font-mono tabular-nums">NPK: {{ $salesData['npk'] ?? 'S006' }} &bull; Area: {{ $salesData['area'] ?? $user['area'] }} &bull; Plat: {{ $salesData['vehicle_plate'] ?? 'AD 8899 TD' }}</p>
         </div>

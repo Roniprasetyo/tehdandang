@@ -8,6 +8,7 @@
     <!-- Header & Aksi Utama -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
+            @include('partials.breadcrumb')
             <h1 class="text-xl font-semibold text-slate-900">Katalog Produk & SAP OITM</h1>
             <p class="text-xs text-slate-500 mt-1">Master data produk Teh Dandang, penetapan harga SAP Business One, dan status ketersediaan stok</p>
         </div>

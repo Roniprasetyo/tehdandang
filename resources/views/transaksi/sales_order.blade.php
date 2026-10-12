@@ -23,6 +23,7 @@
     <!-- Header & Aksi Utama -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
+            @include('partials.breadcrumb')
             <h1 class="text-xl font-semibold text-slate-900">Manajemen Pesanan Penjualan (SAP B1)</h1>
             <p class="text-xs text-slate-500 mt-1">Pencatatan order penjualan dengan struktur data dokumen ORDR / RDR1 SAP Business One</p>
         </div>

@@ -8,6 +8,7 @@
     <!-- Header & Info Utama -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
+            @include('partials.breadcrumb')
             <h1 class="text-xl font-semibold text-slate-900 flex items-center gap-2">
                 <i class="mdi mdi-alert-outline text-secondary text-2xl"></i> Sistem Peringatan Dini
             </h1>

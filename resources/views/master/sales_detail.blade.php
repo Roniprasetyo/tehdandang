@@ -8,11 +8,7 @@
     <!-- Header & Aksi Utama -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
-            <div class="flex items-center gap-2 text-xs text-slate-400 mb-1">
-                <a href="{{ route('master.sales') }}" class="hover:underline hover:text-primary transition-colors">Direktori Sales</a>
-                <i class="mdi mdi-chevron-right text-xs"></i>
-                <span class="text-slate-700 font-medium">Detail Tenaga Penjual</span>
-            </div>
+            @include('partials.breadcrumb')
             <h1 class="text-xl font-semibold text-slate-900">{{ $sales['name'] }}</h1>
             <p class="text-xs text-slate-500 mt-1 font-mono tabular-nums">NPK: {{ $sales['npk'] }} &bull; SAP SlpCode: {{ $sales['slp_code'] }} &bull; Area: {{ $sales['area'] }} ({{ $sales['region'] }})</p>
         </div>

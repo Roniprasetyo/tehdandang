@@ -8,6 +8,7 @@
     <!-- Header Section -->
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
+            @include('partials.breadcrumb')
             <h1 class="text-xl font-semibold text-slate-900">Dashboard Eksekutif</h1>
             <p class="text-xs text-slate-500 mt-1">Ringkasan performa penjualan nasional dan operasional armada</p>
         </div>
