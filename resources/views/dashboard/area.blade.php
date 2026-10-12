@@ -58,7 +58,7 @@
                     type="button"
                     @click="activeArea = '{{ $a['name'] }}'; activeKab = 'All'; activeKec = 'All'"
                     class="p-3 rounded-xl border text-left transition-all flex flex-col justify-between active:translate-y-px"
-                    :class="activeArea === '{{ $a['name'] }}' ? 'bg-primary/10 border-primary ring-2 ring-primary/20 shadow-xs' : 'bg-slate-50 border-slate-200/80 hover:bg-slate-100/80'"
+                    :class="activeArea === '{{ $a['name'] }}' ? 'bg-primary/10 border-primary ring-2 ring-primary/20 shadow-xs' : 'bg-slate-50 border-slate-200/90 hover:bg-slate-100/80'"
                 >
                     <div class="flex items-start justify-between gap-2">
                         <span class="text-xs font-semibold text-slate-900 leading-snug">{{ $a['name'] }}</span>
@@ -126,8 +126,8 @@
                         <h2 class="text-lg font-semibold text-slate-900">{{ $a['name'] }}</h2>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium border" :class="'{{ $a['status'] }}'.includes('Good') ? 'bg-primary-50 text-primary-700 border-primary-200' : ('{{ $a['status'] }}'.includes('Warning') ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-rose-50 text-rose-700 border-rose-200')">
-                            <i class="mdi {{ '{{ $a['status'] }}'.includes('Good') ? 'mdi-check-circle-outline' : 'mdi-alert-circle-outline' }} mr-1"></i>
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium border {{ str_contains($a['status'] ?? '', 'Good') ? 'bg-primary-50 text-primary-700 border-primary-200' : (str_contains($a['status'] ?? '', 'Warning') ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-rose-50 text-rose-700 border-rose-200') }}">
+                            <i class="mdi {{ str_contains($a['status'] ?? '', 'Good') ? 'mdi-check-circle-outline' : 'mdi-alert-circle-outline' }} mr-1"></i>
                             <span>Status: {{ $a['status'] }}</span>
                         </span>
                     </div>
