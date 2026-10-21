@@ -212,4 +212,10 @@ class MockDataService
     {
         return $this->getJsonData('dashboard');
     }
+
+    public function getTasks()
+    {
+        return $this->getJsonData('tasks');
+    }
 }
+

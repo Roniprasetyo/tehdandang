@@ -166,7 +166,7 @@
 
             <a href="{{ route('dashboard.drilldown') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.drilldown') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                 <i class="mdi mdi-chart-timeline-variant text-lg mr-2.5 flex-shrink-0"></i>
-                <span x-show="sidebarOpen">Grafik Drilldown 7 Tingkat</span>
+                <span x-show="sidebarOpen">Tren Penjualan</span>
             </a>
 
             @if(in_array($role, ['Owner', 'GM', 'Manager', 'ASM', 'Admin Area', 'Admin Pusat', 'IT', 'Fleet Admin']))

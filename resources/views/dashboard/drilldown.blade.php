@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Grafik Drilldown Bertingkat (Multi-Level Hierarchy)')
+@section('title', 'Tren Penjualan Bertingkat (Multi-Level Hierarchy)')
 
 @section('content')
 <div class="space-y-6" x-data="drilldownDashboard()">
@@ -9,8 +9,8 @@
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-xl border border-slate-200/90 shadow-xs">
         <div>
             @include('partials.breadcrumb')
-            <h1 class="text-xl font-semibold text-slate-900">Drilldown Penjualan</h1>
-            <p class="text-xs text-slate-500 mt-1">Analisis hierarki penjualan berjenjang dari tingkat nasional hingga produk</p>
+            <h1 class="text-xl font-semibold text-slate-900">Tren Penjualan</h1>
+            <p class="text-xs text-slate-500 mt-1">Analisis tren dan hierarki penjualan berjenjang dari tingkat nasional hingga produk</p>
         </div>
         
         <div class="flex items-center gap-2">
@@ -373,7 +373,7 @@
                 if (this.isLowestLevel) {
                     return 'Ini adalah level terbawah (Rincian Produk SKU). Anda sudah melihat detail paling spesifik.';
                 }
-                return 'Klik pada batang grafik (bar) untuk drilldown masuk ke level ' + (this.currentDepth + 1) + '.';
+                return 'Klik pada batang grafik (bar) untuk melihat rincian tren penjualan level ' + (this.currentDepth + 1) + '.';
             },
 
             get isLowestLevel() {

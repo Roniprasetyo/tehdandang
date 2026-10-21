@@ -25,7 +25,11 @@
             ],
             'dashboard.drilldown' => [
                 ['label' => 'Dashboard', 'url' => route('dashboard.executive')],
-                ['label' => 'Drilldown Penjualan']
+                ['label' => 'Tren Penjualan']
+            ],
+            'dashboard.tren-penjualan' => [
+                ['label' => 'Dashboard', 'url' => route('dashboard.executive')],
+                ['label' => 'Tren Penjualan']
             ],
             'dashboard.early-warning' => [
                 ['label' => 'Dashboard', 'url' => route('dashboard.executive')],

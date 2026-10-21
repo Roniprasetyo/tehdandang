@@ -22,7 +22,7 @@
         <div class="flex items-center gap-2 text-xs">
             <a href="{{ route('dashboard.drilldown') }}" class="btn-primary">
                 <i class="mdi mdi-chart-box-outline text-base"></i>
-                <span>Grafik Drilldown</span>
+                <span>Tren Penjualan</span>
             </a>
         </div>
     </div>

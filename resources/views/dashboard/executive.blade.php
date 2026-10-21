@@ -33,10 +33,10 @@
                 </select>
             </div>
 
-            <!-- Drilldown Quick Link -->
+            <!-- Tren Penjualan Quick Link -->
             <a href="{{ route('dashboard.drilldown') }}" class="btn-primary">
                 <i class="mdi mdi-chart-box-outline text-base"></i>
-                <span>Grafik Drilldown</span>
+                <span>Tren Penjualan</span>
             </a>
         </div>
     </div>
@@ -722,7 +722,7 @@
             <div class="p-4 border-t border-slate-100 bg-slate-50 flex items-center justify-end gap-2">
                 <a href="{{ route('dashboard.drilldown') }}" class="btn-primary text-xs flex items-center gap-1.5 active:translate-y-px">
                     <i class="mdi mdi-chart-box-outline text-base"></i>
-                    <span>Grafik Drilldown</span>
+                    <span>Tren Penjualan</span>
                 </a>
                 <button @click="closeModal()" class="btn-secondary-outline text-xs active:translate-y-px">
                     Tutup
