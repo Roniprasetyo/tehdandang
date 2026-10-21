@@ -34,73 +34,38 @@ class AdministrationController extends Controller
         $matrix = [
             'Owner' => [
                 'area_scope' => 'Nasional (Seluruh Indonesia)',
-                'dashboard' => ['Dashboard Owner', 'Dashboard GM', 'Dashboard RSM', 'Dashboard ASM', 'Dashboard Admin Area', 'Dashboard Sales'],
-                'master' => ['Master Wilayah', 'Master Area', 'Master Outlet / Mitra', 'Master Produk'],
-                'transaksi' => ['Transaksi Penjualan', 'Transaksi Registered Outlet Active (ROA)', 'Transaksi Riwayat Warning'],
-                'keterangan' => 'Penyajian ringkasan performa bisnis secara keseluruhan, tren penjualan, pencapaian target, dan evaluasi RO/ROA.'
+                'dashboard' => ['Dashboard Owner', 'Dashboard General Manager', 'Dashboard Regional Sales Manager', 'Dashboard Area Sales Manager', 'Dashboard Sales'],
+                'master' => ['Master Wilayah', 'Master Area', 'Master Outlet / Mitra', 'Master Produk', 'Master Menu', 'Master Role', 'Master Setting'],
+                'transaksi' => ['Transaksi Penjualan', 'Transaksi Registered Outlet Active (ROA)', 'Transaksi Riwayat Warning', 'Transaksi Integrasi SAP Business One'],
+                'keterangan' => 'Penyajian ringkasan performa bisnis secara keseluruhan, meliputi tren penjualan, pencapaian target, perkembangan RO dan ROA, performa wilayah, serta masalah utama yang memerlukan perhatian manajemen.'
             ],
-            'GM' => [
-                'area_scope' => 'Nasional (Seluruh Indonesia)',
+            'General Manager' => [
+                'area_scope' => 'Nasional (Seluruh Wilayah & Area)',
                 'dashboard' => ['Dashboard General Manager', 'Dashboard Regional Sales Manager', 'Dashboard Area Sales Manager', 'Dashboard Admin Area', 'Dashboard Sales'],
-                'master' => ['Master Karyawan', 'Master Struktur', 'Master Wilayah', 'Master Area', 'Master Jabatan', 'Master Outlet / Mitra', 'Master Produk', 'Master Jenis Program Promosi', 'Master Parameter Early Warning'],
-                'transaksi' => ['Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi AP', 'Transaksi Lacak Kendaraan', 'Transaksi Setting Target', 'Transaksi Arahan Warning'],
+                'master' => ['Master Karyawan', 'Master Struktur', 'Master Wilayah', 'Master Area', 'Master Jabatan', 'Master Outlet / Mitra', 'Master Produk', 'Master Kendaraan', 'Master Jenis Program Promosi', 'Master Parameter Early Warning', 'Master Setting'],
+                'transaksi' => ['Transaksi Manajemen Outlet', 'Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi AP', 'Transaksi Lacak Kendaraan', 'Transaksi Setting Target', 'Transaksi Arahan Notifikasi', 'Transaksi Riwayat Warning', 'Transaksi Integrasi SAP Business One'],
                 'keterangan' => 'Pemantauan performa penjualan lintas wilayah, pencapaian target bisnis, tren penjualan, status outlet aktif, serta rangkuman warning prioritas.'
             ],
-            'Manager' => [
-                'area_scope' => 'Regional (Provinsi / Wilayah)',
+            'Regional Sales Manager' => [
+                'area_scope' => 'Regional (Provinsi / Multi-Area)',
                 'dashboard' => ['Dashboard Regional Sales Manager', 'Dashboard Area Sales Manager', 'Dashboard Admin Area', 'Dashboard Sales'],
-                'master' => ['Master Karyawan', 'Master Wilayah', 'Master Area', 'Master Outlet / Mitra', 'Master Produk', 'Master Produk per Sales', 'Master Jenis Program Promosi'],
-                'transaksi' => ['Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi Hasil Kunjungan', 'Transaksi AP', 'Transaksi Lacak Kendaraan', 'Transaksi Setting Target'],
-                'keterangan' => 'Pemantauan dan perbandingan performa penjualan antararea dalam wilayah regional, target bisnis, dan penanganan warning.'
+                'master' => ['Master Karyawan', 'Master Wilayah', 'Master Area', 'Master Outlet / Mitra', 'Master Produk', 'Master Produk per Sales', 'Master Kendaraan', 'Master Jenis Program Promosi'],
+                'transaksi' => ['Transaksi Registrasi Outlet', 'Transaksi Manajemen Outlet', 'Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi Check-in Outlet', 'Transaksi Hasil Kunjungan', 'Transaksi AP', 'Transaksi Lacak Kendaraan', 'Transaksi Riwayat Rute', 'Transaksi Setting Target'],
+                'keterangan' => 'Pemantauan dan perbandingan performa penjualan antararea dalam wilayah regional, pencapaian target, serta warning yang memerlukan tindak lanjut.'
             ],
-            'ASM' => [
-                'area_scope' => 'Area / Tim Sales Binaan',
+            'Area Sales Manager' => [
+                'area_scope' => 'Area Tertentu (Kota/Depo & Tim Sales Binaan)',
                 'dashboard' => ['Dashboard Area Sales Manager', 'Dashboard Admin Area', 'Dashboard Sales'],
-                'master' => ['Master Karyawan', 'Master Area', 'Master Outlet / Mitra', 'Master Produk', 'Master Produk per Sales', 'Master Jenis Program Promosi'],
+                'master' => ['Master Karyawan', 'Master Area', 'Master Outlet / Mitra', 'Master Produk', 'Master Produk per Sales', 'Master Kendaraan', 'Master Tipe Pasar'],
                 'transaksi' => ['Transaksi Registrasi Outlet', 'Transaksi Manajemen Outlet', 'Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi Jadwal Kunjungan', 'Transaksi Check-in Outlet', 'Transaksi Hasil Kunjungan', 'Transaksi AP', 'Transaksi Pemasangan MMT Geber', 'Transaksi Riwayat Warning'],
-                'keterangan' => 'Pemantauan performa penjualan, produktivitas Sales, status RO/ROA, realisasi kunjungan, serta warning outlet area ASM.'
-            ],
-            'Admin Area' => [
-                'area_scope' => '1 Area / Kota / Depo Terdaftar',
-                'dashboard' => ['Dashboard Admin Area', 'Dashboard Sales'],
-                'master' => ['Master Area', 'Master Outlet / Mitra', 'Master Produk', 'Master Produk per Sales', 'Master Kendaraan', 'Master Tipe Pasar'],
-                'transaksi' => ['Transaksi Registrasi Outlet', 'Transaksi Manajemen Outlet', 'Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi Jadwal Kunjungan', 'Transaksi Check-in Outlet', 'Transaksi Hasil Kunjungan', 'Transaksi AP', 'Transaksi Riwayat Rute'],
-                'keterangan' => 'Pemantauan aktivitas Sales harian, persetujuan outlet, pencapaian target, dan administrasi operasional area.'
+                'keterangan' => 'Pemantauan performa penjualan, produktivitas Sales, status RO dan ROA, realisasi kunjungan, serta warning outlet pada area yang dikelola ASM.'
             ],
             'Sales' => [
-                'area_scope' => 'Rute & Outlet Sendiri (Data Pribadi)',
+                'area_scope' => 'Rute Kunjungan & Outlet Sendiri',
                 'dashboard' => ['Dashboard Sales'],
                 'master' => ['Master Outlet / Mitra', 'Master Produk'],
                 'transaksi' => ['Transaksi Registrasi Outlet', 'Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi Jadwal Kunjungan', 'Transaksi Check-in Outlet', 'Transaksi Hasil Kunjungan', 'Transaksi AP', 'Transaksi Pemasangan MMT Geber', 'Transaksi Konsumsi Bahan Bakar', 'Transaksi Tindak Lanjut Outlet Tidak Aktif'],
-                'keterangan' => 'Pencatatan kunjungan fisik, pesanan penjualan (SO), pembukaan outlet baru (NOO), NOP, dan aktivasi ROA.'
-            ],
-            'Admin Pusat' => [
-                'area_scope' => 'Seluruh Sistem & Regional',
-                'dashboard' => ['Dashboard Owner', 'Dashboard GM', 'Dashboard RSM', 'Dashboard ASM', 'Dashboard Admin Area', 'Dashboard Sales'],
-                'master' => ['Semua 18 Master Data'],
-                'transaksi' => ['Semua 22 Transaksi Data'],
-                'keterangan' => 'Pengelolaan master data terpusat, otorisasi peran, pemantauan sistem, dan integrasi lintas departemen.'
-            ],
-            'Finance' => [
-                'area_scope' => 'Finansial & SAP B1 Nasional',
-                'dashboard' => ['Dashboard General Manager', 'Dashboard Regional Sales Manager'],
-                'master' => ['Master Outlet / Mitra', 'Master Produk', 'Master Harga Produk SAP'],
-                'transaksi' => ['Transaksi Penjualan', 'Transaksi AP', 'Transaksi Konsumsi Bahan Bakar', 'Transaksi Log Perpanjangan Kendaraan', 'Transaksi Log Sewa Kendaraan', 'Transaksi Integrasi SAP Business One'],
-                'keterangan' => 'Verifikasi pesanan penjualan, sinkronisasi SAP Business One, klaim promosi AP, dan biaya operasional armada.'
-            ],
-            'Fleet Admin' => [
-                'area_scope' => 'Armada Kendaraan Operasional',
-                'dashboard' => ['Dashboard Admin Area'],
-                'master' => ['Master Kendaraan', 'Master Area'],
-                'transaksi' => ['Transaksi Check-in Outlet', 'Transaksi Lacak Kendaraan', 'Transaksi Riwayat Rute', 'Transaksi Log Perpanjangan Kendaraan', 'Transaksi Log Sewa Kendaraan', 'Transaksi Konsumsi Bahan Bakar', 'Transaksi Sinkronisasi GPS'],
-                'keterangan' => 'Pemantauan GPS armada real-time, kesesuaian rute salesman, perawatan kendaraan, pajak STNK, dan BBM.'
-            ],
-            'IT' => [
-                'area_scope' => 'Seluruh Infrastruktur & Aplikasi',
-                'dashboard' => ['Seluruh 6 Dashboard Data'],
-                'master' => ['Seluruh 18 Master Data'],
-                'transaksi' => ['Seluruh 22 Transaksi Data'],
-                'keterangan' => 'Pengelolaan Master Menu, Role, Role Access, User, Aplikasi, Sinkronisasi GPS Concox, dan Integrasi SAP Business One.'
+                'keterangan' => 'Pemantauan target penjualan, realisasi penjualan, status RO dan ROA, penambahan NOP, serta realisasi kunjungan outlet oleh Sales.'
             ]
         ];
 

@@ -51,7 +51,7 @@
         >
             <i class="mdi mdi-shield-account-outline text-base"></i>
             <span>Matriks Peran Pengguna (Role Scope)</span>
-            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold" :class="activeTab === 'roles' ? 'bg-white/25 text-white' : 'bg-slate-200 text-slate-700'">10 Role</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold" :class="activeTab === 'roles' ? 'bg-white/25 text-white' : 'bg-slate-200 text-slate-700'">5 Role</span>
         </button>
     </div>
 

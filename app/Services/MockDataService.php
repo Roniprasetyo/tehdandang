@@ -38,10 +38,10 @@ class MockDataService
         if ($user['role'] === 'Sales') {
             return array_values(array_filter($sales, fn($s) => $s['npk'] === $user['npk']));
         }
-        if ($user['role'] === 'Admin Area') {
+        if (in_array($user['role'], ['Area Sales Manager', 'ASM', 'Admin Area'])) {
             return array_values(array_filter($sales, fn($s) => strtolower($s['area']) === strtolower($user['area'])));
         }
-        if ($user['role'] === 'ASM' || $user['role'] === 'Manager') {
+        if (in_array($user['role'], ['Regional Sales Manager', 'Manager'])) {
             return array_values(array_filter($sales, fn($s) => strtolower($s['region']) === strtolower($user['region'])));
         }
         return $sales;
@@ -55,10 +55,10 @@ class MockDataService
         if ($user['role'] === 'Sales') {
             return array_values(array_filter($outlets, fn($o) => strtolower($o['sales_name']) === strtolower($user['name'])));
         }
-        if ($user['role'] === 'Admin Area') {
+        if (in_array($user['role'], ['Area Sales Manager', 'ASM', 'Admin Area'])) {
             return array_values(array_filter($outlets, fn($o) => strtolower($o['city']) === strtolower($user['area']) || strtolower($o['kabupaten']) === strtolower($user['area'])));
         }
-        if ($user['role'] === 'ASM' || $user['role'] === 'Manager') {
+        if (in_array($user['role'], ['Regional Sales Manager', 'Manager'])) {
             return array_values(array_filter($outlets, fn($o) => strtolower($o['province']) === strtolower($user['region'])));
         }
         return $outlets;
@@ -96,10 +96,10 @@ class MockDataService
         if ($user['role'] === 'Sales') {
             return array_values(array_filter($vehicles, fn($v) => ($v['sales_npk'] ?? '') === $user['npk'] || stripos($v['assigned_sales'] ?? '', $user['name']) !== false));
         }
-        if ($user['role'] === 'Admin Area') {
+        if (in_array($user['role'], ['Area Sales Manager', 'ASM', 'Admin Area'])) {
             return array_values(array_filter($vehicles, fn($v) => stripos($v['area'] ?? '', $user['area']) !== false));
         }
-        if ($user['role'] === 'ASM' || $user['role'] === 'Manager') {
+        if (in_array($user['role'], ['Regional Sales Manager', 'Manager'])) {
             return array_values(array_filter($vehicles, fn($v) => stripos($v['area'] ?? '', $user['region']) !== false || stripos($v['area'] ?? '', $user['area']) !== false));
         }
         return $vehicles;
@@ -113,7 +113,7 @@ class MockDataService
         if ($user['role'] === 'Sales') {
             return array_values(array_filter($orders, fn($o) => $o['slp_name'] === $user['name']));
         }
-        if ($user['role'] === 'Admin Area') {
+        if (in_array($user['role'], ['Area Sales Manager', 'ASM', 'Admin Area'])) {
             return array_values(array_filter($orders, fn($o) => strtolower($o['area']) === strtolower($user['area'])));
         }
         return $orders;
@@ -127,7 +127,7 @@ class MockDataService
         if ($user['role'] === 'Sales') {
             return array_values(array_filter($visits, fn($v) => $v['sales_npk'] === $user['npk']));
         }
-        if ($user['role'] === 'Admin Area') {
+        if (in_array($user['role'], ['Area Sales Manager', 'ASM', 'Admin Area'])) {
             return array_values(array_filter($visits, fn($v) => strtolower($v['area']) === strtolower($user['area'])));
         }
         return $visits;
@@ -178,11 +178,11 @@ class MockDataService
                 return (isset($v['sales_npk']) && $v['sales_npk'] === $user['npk']) || 
                        (isset($v['driver_sales']) && stripos($v['driver_sales'], $user['name']) !== false);
             }));
-        } elseif ($user['role'] === 'Admin Area') {
+        } elseif (in_array($user['role'], ['Area Sales Manager', 'ASM', 'Admin Area'])) {
             $filteredVehicles = array_values(array_filter($allVehicles, function ($v) use ($user) {
                 return isset($v['area']) && stripos($v['area'], $user['area']) !== false;
             }));
-        } elseif ($user['role'] === 'ASM' || $user['role'] === 'Manager') {
+        } elseif (in_array($user['role'], ['Regional Sales Manager', 'Manager'])) {
             $filteredVehicles = array_values(array_filter($allVehicles, function ($v) use ($user) {
                 return isset($v['area']) && (
                     stripos($v['area'], $user['region']) !== false ||

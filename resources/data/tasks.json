@@ -5,7 +5,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan data karyawan",
         "icon": "mdi-account-tie",
-        "roles": ["Admin Pusat", "IT", "GM", "Manager", "ASM"]
+        "roles": ["General Manager", "Regional Sales Manager", "Area Sales Manager"]
     },
     {
         "kategori": "Master Data",
@@ -13,7 +13,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan menu aplikasi",
         "icon": "mdi-menu",
-        "roles": ["Admin Pusat", "IT"]
+        "roles": ["Owner", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -21,7 +21,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan peran pengguna",
         "icon": "mdi-shield-account",
-        "roles": ["Admin Pusat", "IT"]
+        "roles": ["Owner", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -29,7 +29,7 @@
         "jenis": "Web",
         "keterangan": "Pengaturan hak akses berdasarkan role",
         "icon": "mdi-key-variant",
-        "roles": ["Admin Pusat", "IT"]
+        "roles": ["Owner", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -37,7 +37,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan struktur organisasi",
         "icon": "mdi-sitemap",
-        "roles": ["Admin Pusat", "IT", "GM"]
+        "roles": ["Owner", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -45,7 +45,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan akun pengguna",
         "icon": "mdi-account-cog",
-        "roles": ["Admin Pusat", "IT"]
+        "roles": ["Owner", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -53,7 +53,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan data aplikasi",
         "icon": "mdi-application-cog",
-        "roles": ["Admin Pusat", "IT"]
+        "roles": ["Owner", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -61,7 +61,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan wilayah Jawa dan Luar Jawa",
         "icon": "mdi-map-marker-radius",
-        "roles": ["Admin Pusat", "IT", "GM", "Manager", "ASM", "Owner"]
+        "roles": ["Owner", "General Manager", "Regional Sales Manager", "Area Sales Manager"]
     },
     {
         "kategori": "Master Data",
@@ -69,7 +69,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan 90 area",
         "icon": "mdi-layers-triple",
-        "roles": ["Admin Pusat", "IT", "GM", "Manager", "ASM", "Admin Area"]
+        "roles": ["Owner", "General Manager", "Regional Sales Manager", "Area Sales Manager"]
     },
     {
         "kategori": "Master Data",
@@ -77,7 +77,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan jabatan karyawan",
         "icon": "mdi-badge-account-horizontal",
-        "roles": ["Admin Pusat", "IT", "GM"]
+        "roles": ["Owner", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -85,7 +85,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan data Registered Outlet",
         "icon": "mdi-storefront",
-        "roles": ["Sales", "Admin Area", "ASM", "Manager", "GM", "Admin Pusat", "IT", "Finance"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
     },
     {
         "kategori": "Master Data",
@@ -93,7 +93,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan produk dan klasifikasi Fast Moving / Slow Moving",
         "icon": "mdi-package-variant-closed",
-        "roles": ["Sales", "Admin Area", "ASM", "Manager", "GM", "Admin Pusat", "IT", "Finance"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
     },
     {
         "kategori": "Master Data",
@@ -101,7 +101,7 @@
         "jenis": "Web",
         "keterangan": "Pengaturan produk berdasarkan Sales",
         "icon": "mdi-tag-multiple",
-        "roles": ["Admin Area", "ASM", "Manager", "Admin Pusat", "IT"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -109,7 +109,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan data kendaraan operasional",
         "icon": "mdi-truck-delivery",
-        "roles": ["Fleet Admin", "Admin Pusat", "IT", "Admin Area"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -117,7 +117,7 @@
         "jenis": "Web",
         "keterangan": "Pengelolaan jenis program promosi",
         "icon": "mdi-bullhorn",
-        "roles": ["Admin Pusat", "GM", "Manager", "ASM", "IT"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -125,7 +125,7 @@
         "jenis": "Web",
         "keterangan": "Pengaturan parameter dan aturan sistem",
         "icon": "mdi-cog",
-        "roles": ["Admin Pusat", "IT"]
+        "roles": ["Owner", "General Manager"]
     },
     {
         "kategori": "Master Data",
@@ -133,7 +133,7 @@
         "jenis": "Web",
         "keterangan": "Kategori GT, MT, dan HOREKA",
         "icon": "mdi-shape-plus",
-        "roles": ["Admin Pusat", "IT", "GM", "Manager", "Admin Area"]
+        "roles": ["Owner", "General Manager", "Regional Sales Manager", "Area Sales Manager"]
     },
     {
         "kategori": "Master Data",
@@ -141,7 +141,7 @@
         "jenis": "Web",
         "keterangan": "Pengaturan periode ROA, batas kunjungan, dan aturan notifikasi",
         "icon": "mdi-alert-decagram",
-        "roles": ["Admin Pusat", "IT", "GM", "Manager"]
+        "roles": ["Owner", "General Manager", "Regional Sales Manager", "Area Sales Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -149,7 +149,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pendaftaran outlet baru",
         "icon": "mdi-account-plus",
-        "roles": ["Sales", "Admin Area", "ASM", "Admin Pusat"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -157,7 +157,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pengelolaan dan persetujuan data outlet",
         "icon": "mdi-store-edit",
-        "roles": ["Admin Area", "ASM", "Manager", "Admin Pusat"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -165,7 +165,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan dan pemantauan transaksi penjualan",
         "icon": "mdi-cart",
-        "roles": ["Sales", "Admin Area", "ASM", "Manager", "GM", "Admin Pusat", "Finance"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
     },
     {
         "kategori": "Transaksi Data",
@@ -173,7 +173,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pemantauan status aktivitas pembelian outlet",
         "icon": "mdi-store-check",
-        "roles": ["Sales", "Admin Area", "ASM", "Manager", "GM", "Owner"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
     },
     {
         "kategori": "Transaksi Data",
@@ -181,7 +181,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan penambahan variasi produk pada outlet",
         "icon": "mdi-archive-plus",
-        "roles": ["Sales", "Admin Area", "ASM", "Manager", "GM"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -189,7 +189,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pengaturan jadwal kunjungan outlet",
         "icon": "mdi-calendar-clock",
-        "roles": ["Sales", "Admin Area", "ASM"]
+        "roles": ["Sales", "Area Sales Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -197,7 +197,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan check-in saat kunjungan outlet",
         "icon": "mdi-map-marker-check",
-        "roles": ["Sales", "Admin Area", "ASM", "Fleet Admin"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -205,7 +205,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan hasil kunjungan Sales",
         "icon": "mdi-clipboard-text",
-        "roles": ["Sales", "Admin Area", "ASM", "Manager"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -213,7 +213,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pengajuan dan pemantauan program promosi",
         "icon": "mdi-file-document-edit",
-        "roles": ["Sales", "Admin Area", "ASM", "Manager", "GM", "Finance"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -221,7 +221,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan pemasangan MMT Geber",
         "icon": "mdi-billboard",
-        "roles": ["Sales", "Admin Area", "ASM"]
+        "roles": ["Sales", "Area Sales Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -229,7 +229,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pemantauan posisi kendaraan melalui GPS",
         "icon": "mdi-crosshairs-gps",
-        "roles": ["Fleet Admin", "Admin Area", "ASM", "Manager", "GM", "IT"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -237,7 +237,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pemantauan riwayat dan kesesuaian rute kendaraan",
         "icon": "mdi-routes",
-        "roles": ["Fleet Admin", "Admin Area", "ASM", "Manager"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -245,7 +245,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan perpanjangan STNK dan pajak kendaraan",
         "icon": "mdi-car-clock",
-        "roles": ["Fleet Admin", "Admin Pusat", "Finance"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -253,7 +253,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan data dan riwayat sewa kendaraan",
         "icon": "mdi-car-key",
-        "roles": ["Fleet Admin", "Admin Pusat", "Finance"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -261,7 +261,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan data pengajuan reimbursment bahan bakar",
         "icon": "mdi-gas-station",
-        "roles": ["Sales", "Fleet Admin", "Finance", "Admin Area"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -269,7 +269,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pengaturan target penjualan dan aktivitas Sales",
         "icon": "mdi-target",
-        "roles": ["ASM", "Manager", "GM", "Admin Pusat"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -277,7 +277,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan arahan dan tindak lanjut warning",
         "icon": "mdi-comment-alert",
-        "roles": ["ASM", "Manager", "GM", "Admin Area"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -285,7 +285,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan data dan aktivitas MMT",
         "icon": "mdi-sign-real-estate",
-        "roles": ["Sales", "Admin Area", "ASM"]
+        "roles": ["Sales", "Area Sales Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -293,7 +293,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Pengambilan data posisi dan riwayat kendaraan",
         "icon": "mdi-cloud-sync",
-        "roles": ["Fleet Admin", "IT", "Admin Pusat"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -301,7 +301,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Mencatat tindakan atas RO yang tidak memenuhi kriteria ROA",
         "icon": "mdi-account-alert",
-        "roles": ["Sales", "Admin Area", "ASM", "Manager"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager"]
     },
     {
         "kategori": "Transaksi Data",
@@ -309,7 +309,7 @@
         "jenis": "Web & Mobile",
         "keterangan": "Menyimpan histori warning, PIC, status, dan penyelesaiannya",
         "icon": "mdi-history",
-        "roles": ["Admin Area", "ASM", "Manager", "GM", "Owner", "IT"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
     },
     {
         "kategori": "Transaksi Data",
@@ -317,7 +317,7 @@
         "jenis": "Lainnya",
         "keterangan": "Sinkronisasi data penjualan dan data pendukung dari SAP",
         "icon": "mdi-api",
-        "roles": ["IT", "Finance", "Admin Pusat"]
+        "roles": ["General Manager", "Owner"]
     },
     {
         "kategori": "Dashboard Data",
@@ -325,7 +325,7 @@
         "jenis": "Web",
         "keterangan": "Pemantauan target penjualan, realisasi penjualan, status RO dan ROA, penambahan NOP, serta realisasi kunjungan outlet oleh Sales.",
         "icon": "mdi-account-tie",
-        "roles": ["Sales", "Admin Area", "ASM", "Manager", "GM", "Owner"]
+        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
     },
     {
         "kategori": "Dashboard Data",
@@ -333,7 +333,7 @@
         "jenis": "Web",
         "keterangan": "Pemantauan data dan aktivitas Sales, status outlet, pencapaian target, serta warning pada area yang menjadi tanggung jawab Admin Area.",
         "icon": "mdi-map-marker-radius",
-        "roles": ["Admin Area", "ASM", "Manager", "GM", "Owner"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
     },
     {
         "kategori": "Dashboard Data",
@@ -341,7 +341,7 @@
         "jenis": "Web",
         "keterangan": "Pemantauan performa penjualan, produktivitas Sales, status RO dan ROA, realisasi kunjungan, serta warning outlet pada area yang dikelola ASM.",
         "icon": "mdi-account-supervisor",
-        "roles": ["ASM", "Manager", "GM", "Owner"]
+        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
     },
     {
         "kategori": "Dashboard Data",
@@ -349,7 +349,7 @@
         "jenis": "Web",
         "keterangan": "Pemantauan dan perbandingan performa penjualan antararea dalam wilayah regional, pencapaian target, serta warning yang memerlukan tindak lanjut.",
         "icon": "mdi-chart-areaspline",
-        "roles": ["Manager", "GM", "Owner"]
+        "roles": ["Regional Sales Manager", "General Manager", "Owner"]
     },
     {
         "kategori": "Dashboard Data",
@@ -357,7 +357,7 @@
         "jenis": "Web",
         "keterangan": "Pemantauan performa penjualan lintas wilayah, pencapaian target bisnis, tren penjualan, status outlet aktif, serta rangkuman warning prioritas.",
         "icon": "mdi-finance",
-        "roles": ["GM", "Owner"]
+        "roles": ["General Manager", "Owner"]
     },
     {
         "kategori": "Dashboard Data",
