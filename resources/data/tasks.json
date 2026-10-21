@@ -1,370 +1,416 @@
 [
     {
+        "no": 1,
         "kategori": "Master Data",
         "task": "Master Karyawan",
         "jenis": "Web",
         "keterangan": "Pengelolaan data karyawan",
         "icon": "mdi-account-tie",
-        "roles": ["General Manager", "Regional Sales Manager", "Area Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 2,
         "kategori": "Master Data",
         "task": "Master Menu",
         "jenis": "Web",
         "keterangan": "Pengelolaan menu aplikasi",
         "icon": "mdi-menu",
-        "roles": ["Owner", "General Manager"]
+        "access": {"Owner": "—", "GM": "—", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 3,
         "kategori": "Master Data",
         "task": "Master Role",
         "jenis": "Web",
         "keterangan": "Pengelolaan peran pengguna",
         "icon": "mdi-shield-account",
-        "roles": ["Owner", "General Manager"]
+        "access": {"Owner": "—", "GM": "—", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 4,
         "kategori": "Master Data",
         "task": "Master Role Access",
         "jenis": "Web",
         "keterangan": "Pengaturan hak akses berdasarkan role",
         "icon": "mdi-key-variant",
-        "roles": ["Owner", "General Manager"]
+        "access": {"Owner": "—", "GM": "—", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 5,
         "kategori": "Master Data",
         "task": "Master Struktur",
         "jenis": "Web",
         "keterangan": "Pengelolaan struktur organisasi",
         "icon": "mdi-sitemap",
-        "roles": ["Owner", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 6,
         "kategori": "Master Data",
         "task": "Master User",
         "jenis": "Web",
         "keterangan": "Pengelolaan akun pengguna",
         "icon": "mdi-account-cog",
-        "roles": ["Owner", "General Manager"]
+        "access": {"Owner": "—", "GM": "—", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 7,
         "kategori": "Master Data",
         "task": "Master Aplikasi",
         "jenis": "Web",
         "keterangan": "Pengelolaan data aplikasi",
         "icon": "mdi-application-cog",
-        "roles": ["Owner", "General Manager"]
+        "access": {"Owner": "—", "GM": "—", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 8,
         "kategori": "Master Data",
         "task": "Master Wilayah",
         "jenis": "Web",
         "keterangan": "Pengelolaan wilayah Jawa dan Luar Jawa",
         "icon": "mdi-map-marker-radius",
-        "roles": ["Owner", "General Manager", "Regional Sales Manager", "Area Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 9,
         "kategori": "Master Data",
         "task": "Master Area",
         "jenis": "Web",
         "keterangan": "Pengelolaan 90 area",
         "icon": "mdi-layers-triple",
-        "roles": ["Owner", "General Manager", "Regional Sales Manager", "Area Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 10,
         "kategori": "Master Data",
         "task": "Master Jabatan",
         "jenis": "Web",
         "keterangan": "Pengelolaan jabatan karyawan",
         "icon": "mdi-badge-account-horizontal",
-        "roles": ["Owner", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 11,
         "kategori": "Master Data",
         "task": "Master Outlet / Mitra",
         "jenis": "Web",
         "keterangan": "Pengelolaan data Registered Outlet",
         "icon": "mdi-storefront",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "V", "Admin": "CRUD"}
     },
     {
+        "no": 12,
         "kategori": "Master Data",
         "task": "Master Produk",
         "jenis": "Web",
         "keterangan": "Pengelolaan produk dan klasifikasi Fast Moving / Slow Moving",
         "icon": "mdi-package-variant-closed",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "V", "Admin": "CRUD"}
     },
     {
+        "no": 13,
         "kategori": "Master Data",
         "task": "Master Produk per Sales",
         "jenis": "Web",
         "keterangan": "Pengaturan produk berdasarkan Sales",
         "icon": "mdi-tag-multiple",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "V", "Admin": "CRUD"}
     },
     {
+        "no": 14,
         "kategori": "Master Data",
         "task": "Master Kendaraan",
         "jenis": "Web",
         "keterangan": "Pengelolaan data kendaraan operasional",
         "icon": "mdi-truck-delivery",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 15,
         "kategori": "Master Data",
         "task": "Master Jenis Program Promosi",
         "jenis": "Web",
         "keterangan": "Pengelolaan jenis program promosi",
         "icon": "mdi-bullhorn",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "V", "Admin": "CRUD"}
     },
     {
+        "no": 16,
         "kategori": "Master Data",
         "task": "Master Setting",
         "jenis": "Web",
         "keterangan": "Pengaturan parameter dan aturan sistem",
         "icon": "mdi-cog",
-        "roles": ["Owner", "General Manager"]
+        "access": {"Owner": "—", "GM": "—", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 17,
         "kategori": "Master Data",
         "task": "Master Tipe Pasar",
         "jenis": "Web",
         "keterangan": "Kategori GT, MT, dan HOREKA",
         "icon": "mdi-shape-plus",
-        "roles": ["Owner", "General Manager", "Regional Sales Manager", "Area Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "V", "Admin": "CRUD"}
     },
     {
+        "no": 18,
         "kategori": "Master Data",
         "task": "Master Parameter Early Warning",
         "jenis": "Web",
         "keterangan": "Pengaturan periode ROA, batas kunjungan, dan aturan notifikasi",
         "icon": "mdi-alert-decagram",
-        "roles": ["Owner", "General Manager", "Regional Sales Manager", "Area Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 19,
         "kategori": "Transaksi Data",
         "task": "Transaksi Registrasi Outlet",
         "jenis": "Web & Mobile",
         "keterangan": "Pendaftaran outlet baru",
         "icon": "mdi-account-plus",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "VA", "Sales": "CE", "Admin": "CRUD"}
     },
     {
+        "no": 20,
         "kategori": "Transaksi Data",
         "task": "Transaksi Manajemen Outlet",
         "jenis": "Web & Mobile",
         "keterangan": "Pengelolaan dan persetujuan data outlet",
         "icon": "mdi-store-edit",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "VA", "Sales": "CE", "Admin": "CRUD"}
     },
     {
+        "no": 21,
         "kategori": "Transaksi Data",
         "task": "Transaksi Penjualan",
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan dan pemantauan transaksi penjualan",
         "icon": "mdi-cart",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "CE", "Admin": "CRUD"}
     },
     {
+        "no": 22,
         "kategori": "Transaksi Data",
         "task": "Transaksi Registered Outlet Active (ROA)",
         "jenis": "Web & Mobile",
-        "keterangan": "Pemantauan status aktivitas pembelian outlet",
+        "keterangan": "Pemantauan status aktivitas pembelian outlet (otomatis dari data pembelian)",
         "icon": "mdi-store-check",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "V", "Admin": "V"}
     },
     {
+        "no": 23,
         "kategori": "Transaksi Data",
         "task": "Transaksi New Open Product (NOP)",
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan penambahan variasi produk pada outlet",
         "icon": "mdi-archive-plus",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "VA", "Sales": "CE", "Admin": "CRUD"}
     },
     {
+        "no": 24,
         "kategori": "Transaksi Data",
         "task": "Transaksi Jadwal Kunjungan",
         "jenis": "Web & Mobile",
         "keterangan": "Pengaturan jadwal kunjungan outlet",
         "icon": "mdi-calendar-clock",
-        "roles": ["Sales", "Area Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "CE", "Sales": "CE", "Admin": "CRUD"}
     },
     {
+        "no": 25,
         "kategori": "Transaksi Data",
         "task": "Transaksi Check-in Outlet",
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan check-in saat kunjungan outlet",
         "icon": "mdi-map-marker-check",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "CE", "Admin": "V"}
     },
     {
+        "no": 26,
         "kategori": "Transaksi Data",
         "task": "Transaksi Hasil Kunjungan",
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan hasil kunjungan Sales",
         "icon": "mdi-clipboard-text",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "CE", "Admin": "CRUD"}
     },
     {
+        "no": 27,
         "kategori": "Transaksi Data",
         "task": "Transaksi Account Proposal (AP)",
         "jenis": "Web & Mobile",
         "keterangan": "Pengajuan dan pemantauan program promosi",
         "icon": "mdi-file-document-edit",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "VA", "RSM": "VA", "ASM": "VA", "Sales": "CE", "Admin": "CRUD"}
     },
     {
+        "no": 28,
         "kategori": "Transaksi Data",
         "task": "Transaksi Pemasangan MMT Geber",
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan pemasangan MMT Geber",
         "icon": "mdi-billboard",
-        "roles": ["Sales", "Area Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "VA", "Sales": "CE", "Admin": "CRUD"}
     },
     {
+        "no": 29,
         "kategori": "Transaksi Data",
         "task": "Transaksi Lacak Kendaraan",
         "jenis": "Web & Mobile",
         "keterangan": "Pemantauan posisi kendaraan melalui GPS",
         "icon": "mdi-crosshairs-gps",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "V", "Admin": "V"}
     },
     {
+        "no": 30,
         "kategori": "Transaksi Data",
         "task": "Transaksi Riwayat Rute",
         "jenis": "Web & Mobile",
         "keterangan": "Pemantauan riwayat dan kesesuaian rute kendaraan",
         "icon": "mdi-routes",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "V", "Admin": "V"}
     },
     {
+        "no": 31,
         "kategori": "Transaksi Data",
         "task": "Transaksi Log Perpanjangan Kendaraan",
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan perpanjangan STNK dan pajak kendaraan",
         "icon": "mdi-car-clock",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "CE", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 32,
         "kategori": "Transaksi Data",
         "task": "Transaksi Log Sewa Kendaraan",
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan data dan riwayat sewa kendaraan",
         "icon": "mdi-car-key",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "CE", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 33,
         "kategori": "Transaksi Data",
         "task": "Transaksi Konsumsi Bahan Bakar",
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan data pengajuan reimbursment bahan bakar",
         "icon": "mdi-gas-station",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "VA", "Sales": "CE", "Admin": "CRUD"}
     },
     {
+        "no": 34,
         "kategori": "Transaksi Data",
         "task": "Transaksi Setting Target",
         "jenis": "Web & Mobile",
         "keterangan": "Pengaturan target penjualan dan aktivitas Sales",
         "icon": "mdi-target",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "VA", "RSM": "VA", "ASM": "VA", "Sales": "V", "Admin": "CRUD"}
     },
     {
+        "no": 35,
         "kategori": "Transaksi Data",
         "task": "Transaksi Arahan Tindak Lanjut Notifikasi",
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan arahan dan tindak lanjut warning",
         "icon": "mdi-comment-alert",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "CE", "RSM": "CE", "ASM": "CE", "Sales": "CE", "Admin": "V"}
     },
     {
+        "no": 36,
         "kategori": "Transaksi Data",
         "task": "Transaksi Pencatatan MMT",
         "jenis": "Web & Mobile",
         "keterangan": "Pencatatan data dan aktivitas MMT",
         "icon": "mdi-sign-real-estate",
-        "roles": ["Sales", "Area Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "VA", "Sales": "CE", "Admin": "CRUD"}
     },
     {
+        "no": 37,
         "kategori": "Transaksi Data",
         "task": "Transaksi Sinkronisasi GPS",
         "jenis": "Web & Mobile",
-        "keterangan": "Pengambilan data posisi dan riwayat kendaraan",
+        "keterangan": "Pengambilan data posisi dan riwayat kendaraan (otomatis & monitoring konfigurasi)",
         "icon": "mdi-cloud-sync",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager"]
+        "access": {"Owner": "V", "GM": "—", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 38,
         "kategori": "Transaksi Data",
         "task": "Transaksi Tindak Lanjut Outlet Tidak Aktif",
         "jenis": "Web & Mobile",
         "keterangan": "Mencatat tindakan atas RO yang tidak memenuhi kriteria ROA",
         "icon": "mdi-account-alert",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "CE", "ASM": "CE", "Sales": "CE", "Admin": "V"}
     },
     {
+        "no": 39,
         "kategori": "Transaksi Data",
         "task": "Transaksi Riwayat Warning",
         "jenis": "Web & Mobile",
         "keterangan": "Menyimpan histori warning, PIC, status, dan penyelesaiannya",
         "icon": "mdi-history",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "V", "Admin": "V"}
     },
     {
+        "no": 40,
         "kategori": "Transaksi Data",
         "task": "Transaksi Integrasi SAP Business One",
         "jenis": "Lainnya",
-        "keterangan": "Sinkronisasi data penjualan dan data pendukung dari SAP",
+        "keterangan": "Sinkronisasi data penjualan dan data pendukung dari SAP (otomatis & monitoring)",
         "icon": "mdi-api",
-        "roles": ["General Manager", "Owner"]
+        "access": {"Owner": "V", "GM": "—", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "CRUD"}
     },
     {
+        "no": 41,
         "kategori": "Dashboard Data",
         "task": "Dashboard Sales",
         "jenis": "Web",
         "keterangan": "Pemantauan target penjualan, realisasi penjualan, status RO dan ROA, penambahan NOP, serta realisasi kunjungan outlet oleh Sales.",
         "icon": "mdi-account-tie",
-        "roles": ["Sales", "Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "V", "Admin": "V"}
     },
     {
+        "no": 42,
         "kategori": "Dashboard Data",
         "task": "Dashboard Admin Area",
         "jenis": "Web",
-        "keterangan": "Pemantauan data dan aktivitas Sales, status outlet, pencapaian target, serta warning pada area yang menjadi tanggung jawab Admin Area.",
+        "keterangan": "Pemantauan data dan aktivitas Sales, status outlet, pencapaian target, serta warning pada area yang menjadi tanggung jawab operasional.",
         "icon": "mdi-map-marker-radius",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
+        "access": {"Owner": "—", "GM": "—", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "V"}
     },
     {
+        "no": 43,
         "kategori": "Dashboard Data",
         "task": "Dashboard Area Sales Manager",
         "jenis": "Web",
         "keterangan": "Pemantauan performa penjualan, produktivitas Sales, status RO dan ROA, realisasi kunjungan, serta warning outlet pada area yang dikelola ASM.",
         "icon": "mdi-account-supervisor",
-        "roles": ["Area Sales Manager", "Regional Sales Manager", "General Manager", "Owner"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "V", "Sales": "—", "Admin": "V"}
     },
     {
+        "no": 44,
         "kategori": "Dashboard Data",
         "task": "Dashboard Regional Sales Manager",
         "jenis": "Web",
         "keterangan": "Pemantauan dan perbandingan performa penjualan antararea dalam wilayah regional, pencapaian target, serta warning yang memerlukan tindak lanjut.",
         "icon": "mdi-chart-areaspline",
-        "roles": ["Regional Sales Manager", "General Manager", "Owner"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "V", "ASM": "—", "Sales": "—", "Admin": "V"}
     },
     {
+        "no": 45,
         "kategori": "Dashboard Data",
         "task": "Dashboard General Manager",
         "jenis": "Web",
         "keterangan": "Pemantauan performa penjualan lintas wilayah, pencapaian target bisnis, tren penjualan, status outlet aktif, serta rangkuman warning prioritas.",
         "icon": "mdi-finance",
-        "roles": ["General Manager", "Owner"]
+        "access": {"Owner": "V", "GM": "V", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "V"}
     },
     {
+        "no": 46,
         "kategori": "Dashboard Data",
         "task": "Dashboard Owner",
         "jenis": "Web",
         "keterangan": "Penyajian ringkasan performa bisnis secara keseluruhan, meliputi tren penjualan, pencapaian target, perkembangan RO dan ROA, performa wilayah, serta masalah utama yang memerlukan perhatian manajemen.",
         "icon": "mdi-crown",
-        "roles": ["Owner"]
+        "access": {"Owner": "V", "GM": "—", "RSM": "—", "ASM": "—", "Sales": "—", "Admin": "V"}
     }
 ]

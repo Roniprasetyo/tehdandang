@@ -33,39 +33,52 @@ class AdministrationController extends Controller
 
         $matrix = [
             'Owner' => [
+                'code' => 'Owner',
+                'title' => 'Owner',
+                'responsibility' => 'Pemilik PT, melihat performa bisnis secara keseluruhan dan dashboard eksekutif',
                 'area_scope' => 'Nasional (Seluruh Indonesia)',
-                'dashboard' => ['Dashboard Owner', 'Dashboard General Manager', 'Dashboard Regional Sales Manager', 'Dashboard Area Sales Manager', 'Dashboard Sales'],
-                'master' => ['Master Wilayah', 'Master Area', 'Master Outlet / Mitra', 'Master Produk', 'Master Menu', 'Master Role', 'Master Setting'],
-                'transaksi' => ['Transaksi Penjualan', 'Transaksi Registered Outlet Active (ROA)', 'Transaksi Riwayat Warning', 'Transaksi Integrasi SAP Business One'],
-                'keterangan' => 'Penyajian ringkasan performa bisnis secara keseluruhan, meliputi tren penjualan, pencapaian target, perkembangan RO dan ROA, performa wilayah, serta masalah utama yang memerlukan perhatian manajemen.'
+                'action_rights' => 'View (V) pada seluruh dashboard eksekutif, master wilayah/produk/outlet, serta pemantauan penjualan & ROA nasional.',
+                'keterangan' => 'Pemilik PT, melihat performa bisnis secara keseluruhan dan dashboard eksekutif'
             ],
-            'General Manager' => [
-                'area_scope' => 'Nasional (Seluruh Wilayah & Area)',
-                'dashboard' => ['Dashboard General Manager', 'Dashboard Regional Sales Manager', 'Dashboard Area Sales Manager', 'Dashboard Admin Area', 'Dashboard Sales'],
-                'master' => ['Master Karyawan', 'Master Struktur', 'Master Wilayah', 'Master Area', 'Master Jabatan', 'Master Outlet / Mitra', 'Master Produk', 'Master Kendaraan', 'Master Jenis Program Promosi', 'Master Parameter Early Warning', 'Master Setting'],
-                'transaksi' => ['Transaksi Manajemen Outlet', 'Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi AP', 'Transaksi Lacak Kendaraan', 'Transaksi Setting Target', 'Transaksi Arahan Notifikasi', 'Transaksi Riwayat Warning', 'Transaksi Integrasi SAP Business One'],
-                'keterangan' => 'Pemantauan performa penjualan lintas wilayah, pencapaian target bisnis, tren penjualan, status outlet aktif, serta rangkuman warning prioritas.'
+            'General Manager (GM)' => [
+                'code' => 'GM',
+                'title' => 'General Manager (GM)',
+                'responsibility' => 'Memantau performa bisnis lintas regional dan menangani masalah prioritas',
+                'area_scope' => 'Nasional (Seluruh Wilayah & Regional)',
+                'action_rights' => 'View (V) seluruh data bisnis, View & Approve (VA) untuk Proposal Akun (AP) & Setting Target, serta Create/Edit (CE) arahan notifikasi.',
+                'keterangan' => 'Memantau performa bisnis lintas regional dan menangani masalah prioritas'
             ],
-            'Regional Sales Manager' => [
-                'area_scope' => 'Regional (Provinsi / Multi-Area)',
-                'dashboard' => ['Dashboard Regional Sales Manager', 'Dashboard Area Sales Manager', 'Dashboard Admin Area', 'Dashboard Sales'],
-                'master' => ['Master Karyawan', 'Master Wilayah', 'Master Area', 'Master Outlet / Mitra', 'Master Produk', 'Master Produk per Sales', 'Master Kendaraan', 'Master Jenis Program Promosi'],
-                'transaksi' => ['Transaksi Registrasi Outlet', 'Transaksi Manajemen Outlet', 'Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi Check-in Outlet', 'Transaksi Hasil Kunjungan', 'Transaksi AP', 'Transaksi Lacak Kendaraan', 'Transaksi Riwayat Rute', 'Transaksi Setting Target'],
-                'keterangan' => 'Pemantauan dan perbandingan performa penjualan antararea dalam wilayah regional, pencapaian target, serta warning yang memerlukan tindak lanjut.'
+            'Regional Sales Manager (RSM)' => [
+                'code' => 'RSM',
+                'title' => 'Regional Sales Manager (RSM)',
+                'responsibility' => 'Memantau performa penjualan pada wilayah regional',
+                'area_scope' => 'Regional (Provinsi / Seluruh Area dalam Region)',
+                'action_rights' => 'View (V) performa regional, View & Approve (VA) untuk Proposal Akun (AP) & Setting Target, Create/Edit (CE) arahan warning & outlet non-aktif.',
+                'keterangan' => 'Memantau performa penjualan pada wilayah regional'
             ],
-            'Area Sales Manager' => [
+            'Area Sales Manager (ASM)' => [
+                'code' => 'ASM',
+                'title' => 'Area Sales Manager (ASM)',
+                'responsibility' => 'Memantau dan mengelola aktivitas Sales pada area tanggung jawabnya',
                 'area_scope' => 'Area Tertentu (Kota/Depo & Tim Sales Binaan)',
-                'dashboard' => ['Dashboard Area Sales Manager', 'Dashboard Admin Area', 'Dashboard Sales'],
-                'master' => ['Master Karyawan', 'Master Area', 'Master Outlet / Mitra', 'Master Produk', 'Master Produk per Sales', 'Master Kendaraan', 'Master Tipe Pasar'],
-                'transaksi' => ['Transaksi Registrasi Outlet', 'Transaksi Manajemen Outlet', 'Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi Jadwal Kunjungan', 'Transaksi Check-in Outlet', 'Transaksi Hasil Kunjungan', 'Transaksi AP', 'Transaksi Pemasangan MMT Geber', 'Transaksi Riwayat Warning'],
-                'keterangan' => 'Pemantauan performa penjualan, produktivitas Sales, status RO dan ROA, realisasi kunjungan, serta warning outlet pada area yang dikelola ASM.'
+                'action_rights' => 'View & Approve (VA) Registrasi/Manajemen Outlet, NOP, AP, MMT, BBM, Target; Create/Edit (CE) Jadwal Kunjungan, Log Kendaraan, Arahan Warning.',
+                'keterangan' => 'Memantau dan mengelola aktivitas Sales pada area tanggung jawabnya'
             ],
             'Sales' => [
-                'area_scope' => 'Rute Kunjungan & Outlet Sendiri',
-                'dashboard' => ['Dashboard Sales'],
-                'master' => ['Master Outlet / Mitra', 'Master Produk'],
-                'transaksi' => ['Transaksi Registrasi Outlet', 'Transaksi Penjualan', 'Transaksi ROA', 'Transaksi NOP', 'Transaksi Jadwal Kunjungan', 'Transaksi Check-in Outlet', 'Transaksi Hasil Kunjungan', 'Transaksi AP', 'Transaksi Pemasangan MMT Geber', 'Transaksi Konsumsi Bahan Bakar', 'Transaksi Tindak Lanjut Outlet Tidak Aktif'],
-                'keterangan' => 'Pemantauan target penjualan, realisasi penjualan, status RO dan ROA, penambahan NOP, serta realisasi kunjungan outlet oleh Sales.'
+                'code' => 'Sales',
+                'title' => 'Sales',
+                'responsibility' => 'Menjalankan aktivitas penjualan, kunjungan outlet, check-in, dan pencatatan hasil kunjungan',
+                'area_scope' => 'Rute Kunjungan & Outlet Sendiri (Data Pribadi)',
+                'action_rights' => 'Create & Edit (CE) untuk Registrasi Outlet, Pesanan Penjualan (SO), NOP, Jadwal, Check-in, Hasil Kunjungan, AP, MMT, dan Reimburse BBM.',
+                'keterangan' => 'Menjalankan aktivitas penjualan, kunjungan outlet, check-in, dan pencatatan hasil kunjungan'
+            ],
+            'Admin' => [
+                'code' => 'Admin',
+                'title' => 'Admin',
+                'responsibility' => 'Mengelola master data, akun pengguna, konfigurasi sistem, dan operasional administrasi',
+                'area_scope' => 'Sistem Nasional (Master Data, User, Integrasi, & Operasional)',
+                'action_rights' => 'Full CRUD untuk 18 Master Data (Karyawan, User, Menu, Role, Setting, Aplikasi, Produk, Wilayah, dll) serta transaksi operasional administrasi.',
+                'keterangan' => 'Mengelola master data, akun pengguna, konfigurasi sistem, dan operasional administrasi'
             ]
         ];
 
@@ -115,9 +128,9 @@ class AdministrationController extends Controller
         $user = session('user');
         $logs = [
             ['timestamp' => '2026-10-01 10:02:15', 'username' => 'sales01', 'role' => 'Sales', 'action' => 'Create Sales Order', 'details' => 'DocNum #202609001 - Toko Berkah Utama', 'ip' => '180.252.12.44'],
-            ['timestamp' => '2026-10-01 09:45:00', 'username' => 'admin-cirebon', 'role' => 'Admin Area', 'action' => 'Update Route Plan', 'details' => 'RT002 - Budi Raharjo', 'ip' => '114.124.21.10'],
-            ['timestamp' => '2026-10-01 09:12:30', 'username' => 'gm', 'role' => 'GM', 'action' => 'Export Executive Report', 'details' => 'Export PDF Regional Jabar', 'ip' => '103.10.22.1'],
-            ['timestamp' => '2026-10-01 08:30:11', 'username' => 'it-admin', 'role' => 'IT', 'action' => 'Trigger SAP B1 Sync Test', 'details' => 'Sync 5 Master Items', 'ip' => '127.0.0.1']
+            ['timestamp' => '2026-10-01 09:45:00', 'username' => 'asm-bandung', 'role' => 'Area Sales Manager', 'action' => 'Approve Account Proposal', 'details' => 'AP-2026-004 - Program Display Lebaran', 'ip' => '114.124.21.10'],
+            ['timestamp' => '2026-10-01 09:12:30', 'username' => 'gm', 'role' => 'General Manager', 'action' => 'Export Executive Report', 'details' => 'Export PDF Regional Jabar & Jateng', 'ip' => '103.10.22.1'],
+            ['timestamp' => '2026-10-01 08:30:11', 'username' => 'admin', 'role' => 'Admin', 'action' => 'Trigger SAP B1 Sync Test', 'details' => 'Sync 5 Master Items', 'ip' => '127.0.0.1']
         ];
 
         return view('administration.audit_log', compact('logs', 'user'));

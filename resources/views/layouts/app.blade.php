@@ -135,7 +135,7 @@
             @php
                 $role = $authUser['role'] ?? 'Owner';
                 $currentRoute = Route::currentRouteName();
-                $isOwner = in_array($role, ['Owner', 'General Manager', 'GM']);
+                $isOwner = in_array($role, ['Owner']);
             @endphp
 
             <!-- DASHBOARD & MONITORING SECTION -->
@@ -143,24 +143,24 @@
                 {{ $isOwner ? 'Pemantauan Eksekutif' : 'Dashboard' }}
             </div>
             
-            @if(in_array($role, ['Owner', 'General Manager', 'GM', 'Regional Sales Manager', 'Manager', 'Area Sales Manager', 'ASM']))
+            @if(in_array($role, ['Owner', 'General Manager', 'GM', 'Regional Sales Manager', 'Manager', 'Area Sales Manager', 'ASM', 'Admin']))
                 <a href="{{ route('dashboard.executive') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.executive') || $currentRoute === 'dashboard' ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-view-dashboard-outline text-lg mr-2.5 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">Dashboard Eksekutif</span>
                 </a>
             @endif
 
-            @if(in_array($role, ['Sales', 'Area Sales Manager', 'ASM', 'Regional Sales Manager', 'Manager', 'General Manager', 'GM', 'Owner']))
+            @if(in_array($role, ['Sales', 'Area Sales Manager', 'ASM', 'Regional Sales Manager', 'Manager', 'General Manager', 'GM', 'Owner', 'Admin']))
                 <a href="{{ route('dashboard.sales') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.sales') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-account-tie-outline text-lg mr-2.5 flex-shrink-0"></i>
                     <span x-show="sidebarOpen">Dashboard Sales</span>
                 </a>
             @endif
 
-            @if(in_array($role, ['Area Sales Manager', 'ASM', 'Regional Sales Manager', 'Manager', 'General Manager', 'GM', 'Owner']))
+            @if(in_array($role, ['Area Sales Manager', 'ASM', 'Regional Sales Manager', 'Manager', 'General Manager', 'GM', 'Owner', 'Admin']))
                 <a href="{{ route('dashboard.area') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.area') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-map-marker-radius-outline text-lg mr-2.5 flex-shrink-0"></i>
-                    <span x-show="sidebarOpen">Dashboard Wilayah</span>
+                    <span x-show="sidebarOpen">Dashboard Wilayah & Area</span>
                 </a>
             @endif
 
@@ -169,7 +169,7 @@
                 <span x-show="sidebarOpen">Tren Penjualan</span>
             </a>
 
-            @if(in_array($role, ['Owner', 'General Manager', 'GM', 'Regional Sales Manager', 'Manager', 'Area Sales Manager', 'ASM']))
+            @if(in_array($role, ['Owner', 'General Manager', 'GM', 'Regional Sales Manager', 'Manager', 'Area Sales Manager', 'ASM', 'Admin']))
                 <a href="{{ route('dashboard.early-warning') }}" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'dashboard.early-warning') ? 'bg-rose-50 text-rose-700 border border-rose-200 font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <div class="flex items-center">
                         <i class="mdi mdi-shield-alert-outline text-lg mr-2.5 flex-shrink-0 text-rose-600"></i>
@@ -195,10 +195,10 @@
             </a>
 
             <!-- OPERATIONAL MASTER DATA -->
-            @if(!$isOwner)
+            @if(!$isOwner || in_array($role, ['Admin', 'General Manager', 'GM']))
                 <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Data Master</div>
 
-                @if(in_array($role, ['General Manager', 'GM', 'Regional Sales Manager', 'Manager', 'Area Sales Manager', 'ASM']))
+                @if(in_array($role, ['General Manager', 'GM', 'Regional Sales Manager', 'Manager', 'Area Sales Manager', 'ASM', 'Admin']))
                     <a href="{{ route('master.sales') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.sales') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                         <i class="mdi mdi-account-group-outline text-lg mr-2.5 flex-shrink-0"></i>
                         <span x-show="sidebarOpen">Direktori Sales</span>
@@ -210,7 +210,7 @@
                     <span x-show="sidebarOpen">Outlet Pelanggan (OCRD)</span>
                 </a>
 
-                @if(in_array($role, ['General Manager', 'GM', 'Regional Sales Manager', 'Manager', 'Area Sales Manager', 'ASM']))
+                @if(in_array($role, ['General Manager', 'GM', 'Regional Sales Manager', 'Manager', 'Area Sales Manager', 'ASM', 'Admin']))
                     <a href="{{ route('master.product') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.product') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                         <i class="mdi mdi-package-variant-closed text-lg mr-2.5 flex-shrink-0"></i>
                         <span x-show="sidebarOpen">Katalog Produk (OITM)</span>
@@ -226,16 +226,16 @@
                     <span x-show="sidebarOpen">Rute Sales</span>
                 </a>
 
-                @if(in_array($role, ['General Manager', 'GM', 'Regional Sales Manager', 'Manager', 'Area Sales Manager', 'ASM']))
+                @if(in_array($role, ['General Manager', 'GM', 'Regional Sales Manager', 'Manager', 'Area Sales Manager', 'ASM', 'Admin']))
                     <a href="{{ route('master.vehicle') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'master.vehicle') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                         <i class="mdi mdi-truck-delivery-outline text-lg mr-2.5 flex-shrink-0"></i>
-                        <span x-show="sidebarOpen">Armada GPS (Concox)</span>
+                        <span x-show="sidebarOpen">Armada Kendaraan</span>
                     </a>
                 @endif
             @endif
 
             <!-- OPERATIONAL TRANSACTIONS -->
-            @if(!$isOwner)
+            @if(!$isOwner || in_array($role, ['Admin', 'General Manager', 'GM']))
                 <div class="pt-3 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Transaksi</div>
 
                 <a href="{{ route('transaksi.sales-visit') }}" class="flex items-center px-3 py-2 rounded-lg text-xs font-medium transition-all {{ str_contains($currentRoute, 'transaksi.sales-visit') ? 'bg-primary text-white shadow-xs font-semibold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
@@ -265,7 +265,7 @@
             @endif
 
             <!-- ADMINISTRATION SECTION -->
-            @if(in_array($role, ['Owner', 'General Manager', 'GM']))
+            @if(in_array($role, ['Owner', 'General Manager', 'GM', 'Admin']))
                 <div class="pt-3 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider" x-show="sidebarOpen">Administration</div>
                 <a href="{{ route('administration.user') }}" class="flex items-center px-3 py-2 rounded-xl text-xs font-semibold transition-all {{ str_contains($currentRoute, 'administration.user') ? 'bg-primary text-white shadow-xs font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="mdi mdi-shield-account-outline text-lg mr-2.5 flex-shrink-0"></i>

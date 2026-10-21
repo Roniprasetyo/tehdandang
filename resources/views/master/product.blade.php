@@ -29,7 +29,7 @@
                 <i class="mdi mdi-upload text-base"></i>
                 <span>Impor</span>
             </button>
-            @if(in_array($authUser['role'], ['Admin Pusat', 'IT', 'Admin Area', 'Manager']))
+            @if(in_array($authUser['role'] ?? '', ['Admin', 'Admin Pusat', 'IT', 'General Manager', 'GM']))
             <button 
                 type="button" 
                 @click="notify('Formulir entri produk baru (SAP OITM) siap diisi.', 'info')" 

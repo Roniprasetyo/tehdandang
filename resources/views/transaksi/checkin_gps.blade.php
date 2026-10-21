@@ -64,7 +64,7 @@
                 <i class="mdi mdi-history text-base"></i>
                 <span>Riwayat Rute</span>
             </button>
-            @if(in_array($authUser['role'] ?? $user['role'] ?? '', ['IT', 'Admin Pusat', 'Fleet Admin']))
+            @if(in_array($authUser['role'] ?? $user['role'] ?? '', ['Admin', 'Admin Pusat', 'IT', 'Fleet Admin']))
                 <button 
                     type="button"
                     @click="openDeviceModal = true"

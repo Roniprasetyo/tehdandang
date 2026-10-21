@@ -21,8 +21,8 @@ class DashboardController extends Controller
         // Auto adapt primary view per role
         if ($user['role'] === 'Sales') {
             return redirect()->route('dashboard.sales');
-        } elseif ($user['role'] === 'Fleet Admin') {
-            return redirect()->route('transaksi.checkin-gps');
+        } elseif (in_array($user['role'], ['Area Sales Manager', 'ASM'])) {
+            return redirect()->route('dashboard.area');
         }
         
         return $this->executive();
